@@ -17,20 +17,45 @@ factor_pipeline/
 
 旧工作流和 EvoAlpha 工作流拥有独立入口、状态和测试。共享层只提供确定性基础能力，不包含研究路线决策。
 
-## 计划模块
+## 当前模块
 
 ```text
 evoalpha_workflow/
 ├── config.py
 ├── state.py
-├── seed_evaluation.py
-├── parent_selection.py
-├── refinement.py
-├── crossover.py
-├── mutation.py
-├── population.py
-├── record.py
-└── workflow.py
+├── tools.py
+├── workflow.py
+│
+│   已实现确定性外层循环、三代协议、验证和最终测试阶段
+│
+└── 后续模块
+    ├── seed_evaluation.py
+    ├── parent_selection.py
+    ├── refinement.py
+    ├── crossover.py
+    ├── mutation.py
+    ├── population.py
+    └── record.py
 ```
 
-当前已建立独立包和固定实验配置。后续模块逐步实现，并为每一步增加独立测试。
+## 固定主循环
+
+```text
+Seed Evaluation
+→ Select Top 30
+→ [Proposal → Evaluation → Population Update] × 3 generations
+→ Validation of final Top 30
+→ Select validation Top 10
+→ Final Test once
+```
+
+每代协议固定为：
+
+```text
+12 Refinement
++ 8 Crossover intermediates
++ 8 Mutations
+= 28 evaluated offspring
+```
+
+`workflow.py` 只负责编排、验证数量与谱系、更新种群和记录事件。具体实现通过 `tools.py` 的接口注入，后续可将 Refinement、Crossover 和 Mutation 替换为 Agent，而不改变外层循环。

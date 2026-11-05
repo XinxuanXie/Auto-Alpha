@@ -39,6 +39,15 @@ feature/evoalpha-workflow
 
 ## 修改记录
 
+### 2026-11-05：完成 EvoAlpha 确定性主循环骨架
+
+- 使用纯 Python 建立独立外层循环，不引入新的 LangGraph 状态机；
+- 新增可序列化状态、阶段、候选、谱系、种群快照和事件模型；
+- 固定执行 Seed Evaluation、Top 30、三代进化、验证 Top 10 和最终测试一次；
+- 每代强制执行 12 个 Refinement、8 个 Crossover 中间因子和 8 个 Mutation；
+- 通过 Tool Protocol 保留后续接入 Agent 和真实评价器的替换接口；
+- 当前使用 Fake Tools 验证完整流程，真实 Alpha158 Seed Evaluator 尚待接入。
+
 ### 2026-11-05：建立 EvoAlpha 双重分支隔离
 
 - 创建 Git 分支 `feature/evoalpha-workflow`；
@@ -113,6 +122,9 @@ feature/evoalpha-workflow
 
 ## 待完善：进化流程
 
+- [x] 建立独立纯 Python EvoAlpha 外层主循环和状态模型；
+- [x] 固定三代候选数量、种群规模、验证 Top 10 和测试一次协议；
+- [x] 为各阶段定义可替换 Tool Protocol；
 - [ ] 将 Research Agent 改为父代诊断与 Refinement Agent；
 - [ ] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
 - [ ] 保存交叉中间因子并分别回测；
