@@ -29,6 +29,8 @@ evoalpha_workflow/
 ├── run_seed_evaluation.py
 ├── similarity.py
 ├── run_similarity.py
+├── parent_selection.py
+├── run_parent_selection.py
 │
 │   已实现确定性外层循环、三代协议、真实 Alpha158 Seed Evaluation
 │
@@ -87,3 +89,19 @@ PYTHONPATH=factor-agent python -m evoalpha_workflow.run_similarity
 ```
 
 相关性定义为每日横截面 Spearman 绝对值的训练期中位数。默认将相似度高于 `0.80` 的组合排除出双父代候选池，同时保留有符号相关性用于解释。
+
+## 生成父代计划
+
+```bash
+PYTHONPATH=factor-agent python -m evoalpha_workflow.run_parent_selection
+```
+
+Refinement 使用综合分数加权且不放回抽样，每代选择 12 个不同父代。Crossover 只使用相似度不高于 `0.80` 的组合，并按以下固定优先分数排序：
+
+```text
+Priority
+= 70% × mean(parent composite scores)
++ 30% × (1 - pair similarity)
+```
+
+每个父代每代最多参与两次 Crossover，固定随机种子为 `random_seed + generation`。

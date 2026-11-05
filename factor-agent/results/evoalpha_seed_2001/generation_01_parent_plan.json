@@ -1,0 +1,192 @@
+{
+  "generation": 1,
+  "random_seed": 43,
+  "refinement_tasks": [
+    {
+      "task_id": "G01-REF-001",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-CNTP30",
+      "parent_composite_score": 0.9543269230769231
+    },
+    {
+      "task_id": "G01-REF-002",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-CNTP5",
+      "parent_composite_score": 0.8145833333333334
+    },
+    {
+      "task_id": "G01-REF-003",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-BETA60",
+      "parent_composite_score": 0.9118589743589743
+    },
+    {
+      "task_id": "G01-REF-004",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-MIN30",
+      "parent_composite_score": 0.8516025641025642
+    },
+    {
+      "task_id": "G01-REF-005",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-QTLU60",
+      "parent_composite_score": 0.8259615384615385
+    },
+    {
+      "task_id": "G01-REF-006",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-IMIN30",
+      "parent_composite_score": 0.7903846153846155
+    },
+    {
+      "task_id": "G01-REF-007",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-SUMP30",
+      "parent_composite_score": 0.8548076923076924
+    },
+    {
+      "task_id": "G01-REF-008",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-KSFT2",
+      "parent_composite_score": 0.8466346153846154
+    },
+    {
+      "task_id": "G01-REF-009",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-MIN60",
+      "parent_composite_score": 0.9796474358974359
+    },
+    {
+      "task_id": "G01-REF-010",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-SUMN30",
+      "parent_composite_score": 0.8548076923076924
+    },
+    {
+      "task_id": "G01-REF-011",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-RANK60",
+      "parent_composite_score": 0.8576923076923076
+    },
+    {
+      "task_id": "G01-REF-012",
+      "generation": 1,
+      "parent_factor_id": "ALPHA158-ROC60",
+      "parent_composite_score": 0.7775641025641026
+    }
+  ],
+  "crossover_tasks": [
+    {
+      "task_id": "G01-CROSS-001",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-CNTP30",
+        "ALPHA158-CORR60"
+      ],
+      "parent_composite_scores": [
+        0.9543269230769231,
+        0.9530448717948719
+      ],
+      "median_absolute_spearman": 0.07463224652658561,
+      "selection_priority": 0.9451904542471525
+    },
+    {
+      "task_id": "G01-CROSS-002",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-MIN60",
+        "ALPHA158-CORR60"
+      ],
+      "parent_composite_scores": [
+        0.9796474358974359,
+        0.9530448717948719
+      ],
+      "median_absolute_spearman": 0.12059153692143482,
+      "selection_priority": 0.9402648466158772
+    },
+    {
+      "task_id": "G01-CROSS-003",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-CNTP30",
+        "ALPHA158-CORR30"
+      ],
+      "parent_composite_scores": [
+        0.9543269230769231,
+        0.935096153846154
+      ],
+      "median_absolute_spearman": 0.1242797315623762,
+      "selection_priority": 0.9240141574543641
+    },
+    {
+      "task_id": "G01-CROSS-004",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-CORR30",
+        "ALPHA158-KSFT2"
+      ],
+      "parent_composite_scores": [
+        0.935096153846154,
+        0.8466346153846154
+      ],
+      "median_absolute_spearman": 0.057076709368729744,
+      "selection_priority": 0.9064827564201503
+    },
+    {
+      "task_id": "G01-CROSS-005",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-MIN60",
+        "ALPHA158-KSFT2"
+      ],
+      "parent_composite_scores": [
+        0.9796474358974359,
+        0.8466346153846154
+      ],
+      "median_absolute_spearman": 0.1567936944210289,
+      "selection_priority": 0.8921606096224092
+    },
+    {
+      "task_id": "G01-CROSS-006",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-BETA60",
+        "ALPHA158-CNTP5"
+      ],
+      "parent_composite_scores": [
+        0.9118589743589743,
+        0.8145833333333334
+      ],
+      "median_absolute_spearman": 0.08620454945390979,
+      "selection_priority": 0.8783934428561347
+    },
+    {
+      "task_id": "G01-CROSS-007",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-BETA60",
+        "ALPHA158-CNTD5"
+      ],
+      "parent_composite_scores": [
+        0.9118589743589743,
+        0.7844551282051282
+      ],
+      "median_absolute_spearman": 0.08683483324824581,
+      "selection_priority": 0.8676594859229622
+    },
+    {
+      "task_id": "G01-CROSS-008",
+      "generation": 1,
+      "parent_factor_ids": [
+        "ALPHA158-CNTD30",
+        "ALPHA158-MIN5"
+      ],
+      "parent_composite_scores": [
+        0.8753205128205128,
+        0.805448717948718
+      ],
+      "median_absolute_spearman": 0.12136572397608053,
+      "selection_priority": 0.8518595135764067
+    }
+  ]
+}

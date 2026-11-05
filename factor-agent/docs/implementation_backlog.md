@@ -42,6 +42,15 @@ feature/evoalpha-workflow
 
 ### 2026-11-05
 
+#### 完成第 1 代确定性父代选择
+
+- Refinement 按训练期综合分数加权且不放回抽取 12 个不同父代；
+- Crossover 仅从相似度 `≤0.80` 的组合中选择 8 对父代；
+- Crossover 优先分数固定为 `70% × 父代平均分 + 30% × (1 - 相似度)`；
+- 每个父代每代最多参与两次 Crossover；
+- 固定第 1 代随机种子为 `43`，相同输入可完整复现；
+- 已生成 `generation_01_parent_plan.json`，尚未调用 Agent 生成子代。
+
 #### 完成初始 Top 30 相关性分析
 
 - 使用 2001 年训练期清洗和市值中性化后的最终因子值；
@@ -154,6 +163,7 @@ feature/evoalpha-workflow
 - [x] 固定三代候选数量、种群规模、验证 Top 10 和测试一次协议；
 - [x] 为各阶段定义可替换 Tool Protocol；
 - [x] 实现初始 Top 30 训练期相似度矩阵和 `0.80` 父代配对过滤；
+- [x] 实现固定随机种子的 Refinement 与 Crossover 父代选择器；
 - [ ] 将 Research Agent 改为父代诊断与 Refinement Agent；
 - [ ] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
 - [ ] 保存交叉中间因子并分别回测；

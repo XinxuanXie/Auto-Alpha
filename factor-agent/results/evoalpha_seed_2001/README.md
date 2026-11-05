@@ -97,6 +97,32 @@ Signed similarity   = -1.000000
 - `top30_similarity_matrix.csv`：完整 30×30 绝对相关矩阵；
 - `top30_similarity_summary.json`：数量和阈值摘要。
 
+## Generation 1 父代计划
+
+固定随机种子：`43`。
+
+Refinement 父代：
+
+```text
+CNTP30, CNTP5, BETA60, MIN30, QTLU60, IMIN30,
+SUMP30, KSFT2, MIN60, SUMN30, RANK60, ROC60
+```
+
+Crossover 父代组合：
+
+| Task | Parent A | Parent B | Similarity | Priority |
+|---|---|---|---:|---:|
+| 1 | CNTP30 | CORR60 | 0.074632 | 0.945190 |
+| 2 | MIN60 | CORR60 | 0.120592 | 0.940265 |
+| 3 | CNTP30 | CORR30 | 0.124280 | 0.924014 |
+| 4 | CORR30 | KSFT2 | 0.057077 | 0.906483 |
+| 5 | MIN60 | KSFT2 | 0.156794 | 0.892161 |
+| 6 | BETA60 | CNTP5 | 0.086205 | 0.878393 |
+| 7 | BETA60 | CNTD5 | 0.086835 | 0.867659 |
+| 8 | CNTD30 | MIN5 | 0.121366 | 0.851860 |
+
+完整计划保存于 `generation_01_parent_plan.json`。该文件只决定父代和任务编号，尚未生成任何子代公式。
+
 ## 尚未执行
 
 - Qlib 逐列数值一致性比较；
@@ -104,3 +130,4 @@ Signed similarity   = -1.000000
 - 2002 年下半年最终 Test；
 - 父代相关性分析、Refinement、Crossover、Mutation 和种群更新。
 - Refinement、Crossover、Mutation 和种群更新。
+- Refinement/Crossover Agent、Mutation、子代评价和种群更新。
