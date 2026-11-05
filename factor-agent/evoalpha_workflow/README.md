@@ -35,6 +35,8 @@ evoalpha_workflow/
 ├── run_refinement_mock.py
 ├── crossover.py
 ├── run_crossover_mock.py
+├── candidate_evaluation.py
+├── run_candidate_evaluation.py
 │
 │   已实现确定性外层循环、三代协议、真实 Alpha158 Seed Evaluation
 │
@@ -144,3 +146,13 @@ PYTHONPATH=factor-agent python -m evoalpha_workflow.run_crossover_mock
 父代训练方向会显式写入公式，方向为 `-1` 时先增加 `negate`。Crossover 检查器要求中间因子完整使用两个定向父代公式，并限制公式深度、数据字段、lookback 和投资组合规则。Mutation 复用单一修改检查器。
 
 Mock Crossover 使用两个定向父代横截面标准化后的等权和；该公式仅用于验证接口，不代表正式的交叉研究策略。
+
+## 统一评价第 1 代候选
+
+```bash
+PYTHONPATH=factor-agent python -m evoalpha_workflow.run_candidate_evaluation
+```
+
+统一 Candidate Evaluator 对 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation 分别运行 2001 年训练期单因子评价。评分始终复用初始 157 个 Alpha158 建立的固定百分位参考，不根据子代重新拟合评分尺度。
+
+每个候选保存 Mean Rank IC、ICIR、月度稳定性、跨周期一致性、综合分数，以及相对直接父代的指标变化。Mutation 同时保存相对 Crossover intermediate 和两个原始父代的变化。

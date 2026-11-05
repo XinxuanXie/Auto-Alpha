@@ -153,6 +153,37 @@ Mock Crossover 先根据训练期方向定向两个父代，再对两个父代�
 
 输出文件为 `generation_01_crossover_mock.json`。其中同时保存 8 个中间因子和 8 个最终变异因子；二者都只是接口验证产物，不进入正式种群更新。
 
+## Mock 候选训练期评价
+
+使用初始 Alpha158 固定评分参考，在 2001 年训练期分别评价 28 个 Mock 候选：
+
+```text
+评价候选：                         28
+通过硬性门槛：                     28
+优于至少一个直接父代：              10
+Refinement 优于直接父代：          2 / 12
+Crossover 优于至少一个原始父代：   5 / 8
+Mutation 优于中间因子：            3 / 8
+```
+
+最高分候选：
+
+```text
+G01-CROSS-002-INTERMEDIATE
+Composite score: 1.000000
+Mean Rank IC 20d: 0.086581
+Rank ICIR 20d: 0.738429
+```
+
+固定百分位评分被限制在 `[0, 1]`。分数为 `1.0` 表示候选达到或超过初始 157 个因子的参考分布顶部，不表示完美预测。
+
+输出文件：
+
+- `generation_01_candidate_evaluations.json`：完整候选、指标和父子增量；
+- `generation_01_candidate_evaluations.parquet`：紧凑汇总表。
+
+这些结果来自规则型 Mock 公式，用于验证评价、固定评分和父子比较链路，不能代表真实 LLM Agent 的研究能力。
+
 ## 尚未执行
 
 - Qlib 逐列数值一致性比较；

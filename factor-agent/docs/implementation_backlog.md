@@ -42,6 +42,18 @@ feature/evoalpha-workflow
 
 ### 2026-11-06
 
+#### 完成统一 Candidate Evaluator 与 Mock 子代训练期评价
+
+- 统一接收 Refinement、Crossover intermediate 和 Mutation 的 CandidateProposal；
+- 使用与种子阶段相同的 2001 年训练期、数据清洗和 5/10/20 日 Rank IC 协议；
+- 所有候选复用初始 157 个 Alpha158 的固定百分位评分参考；
+- 保存候选相对直接父代的 Mean Rank IC、ICIR、稳定性、一致性和综合分数增量；
+- Mutation 同时记录相对中间因子和两个原始父代的指标变化；
+- 真实运行 28 个 Mock 候选，全部通过硬性门槛，10 个优于至少一个直接父代；
+- 细分结果为 Refinement `2/12`、Crossover `5/8`、Mutation `3/8`；
+- 最高分为 `G01-CROSS-002-INTERMEDIATE`，固定综合分数达到上限 `1.0`；
+- Mock 结果只验证评价链路，不代表真实 Agent 的表现。
+
 #### 完成 Crossover 与 Mutation 结构化接口及 Mock 验证
 
 - Crossover 输入固定双父代任务、两个父代 FormulaSpec、训练指标、训练方向和相似度；
@@ -188,6 +200,7 @@ feature/evoalpha-workflow
 - [x] 实现固定随机种子的 Refinement 与 Crossover 父代选择器；
 - [x] 完成 Refinement Agent Prompt、结构化输出、确定性检查器和 Mock 验证；
 - [x] 完成 Crossover/Mutation Prompt、结构化输出、方向处理、检查器和 Mock 验证；
+- [x] 完成统一 Candidate Evaluator、固定评分和父子指标增量记录；
 - [ ] 将 Research Agent 改为父代诊断与 Refinement Agent；
 - [ ] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
 - [ ] 保存交叉中间因子并分别回测；
