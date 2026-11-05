@@ -123,6 +123,21 @@ Crossover 父代组合：
 
 完整计划保存于 `generation_01_parent_plan.json`。该文件只决定父代和任务编号，尚未生成任何子代公式。
 
+## Mock Refinement 接口验证
+
+使用规则型 Mock Client 执行第 1 代 12 个 Refinement 任务：
+
+```text
+生成子代：          12
+单窗口修改：        11
+增加标准化层：       1
+结构或谱系校验失败： 0
+```
+
+`KSFT2` 不包含滚动窗口，因此 Mock 为其增加一层横截面 z-score；其余 11 个父代只修改一个滚动窗口。
+
+输出文件为 `generation_01_refinement_mock.json`。该文件用于验证 Prompt 输入、结构化输出、FormulaSpec 校验和 CandidateProposal 转换，不属于正式 Agent 研究结果，不进入种群更新。
+
 ## 尚未执行
 
 - Qlib 逐列数值一致性比较；
@@ -131,3 +146,4 @@ Crossover 父代组合：
 - 父代相关性分析、Refinement、Crossover、Mutation 和种群更新。
 - Refinement、Crossover、Mutation 和种群更新。
 - Refinement/Crossover Agent、Mutation、子代评价和种群更新。
+- 真实 Refinement/Crossover Agent、Mutation、子代评价和种群更新。

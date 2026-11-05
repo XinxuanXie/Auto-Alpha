@@ -31,6 +31,8 @@ evoalpha_workflow/
 ├── run_similarity.py
 ├── parent_selection.py
 ├── run_parent_selection.py
+├── refinement.py
+├── run_refinement_mock.py
 │
 │   已实现确定性外层循环、三代协议、真实 Alpha158 Seed Evaluation
 │
@@ -105,3 +107,20 @@ Priority
 ```
 
 每个父代每代最多参与两次 Crossover，固定随机种子为 `random_seed + generation`。
+
+## 验证 Refinement Agent 接口
+
+```bash
+PYTHONPATH=factor-agent python -m evoalpha_workflow.run_refinement_mock
+```
+
+当前 Mock Client 只用于验证结构化接口：
+
+- 输入父代 FormulaSpec、训练指标和固定任务；
+- 输出诊断、单一修改类型、预期指标变化和新 FormulaSpec；
+- 检查任务 ID、父子谱系、公式深度、lookback、方向和组合规则；
+- Window 修改必须只改变一个窗口；
+- Normalization 必须用 `rank` 或 `zscore` 包裹完整父代公式；
+- 最终转换为标准 `CandidateProposal`。
+
+Mock 子代不进入正式种群。后续真实 API Client 复用相同 Prompt、输出模型和确定性检查器。

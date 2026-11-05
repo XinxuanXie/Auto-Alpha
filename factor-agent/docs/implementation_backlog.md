@@ -42,6 +42,16 @@ feature/evoalpha-workflow
 
 ### 2026-11-05
 
+#### 完成 Refinement Agent 结构化接口与 Mock 验证
+
+- 定义 Refinement Prompt、结构化输出模型和可替换 Model Client 接口；
+- 输入包含固定任务、父代 FormulaSpec、训练指标、允许算子和修改约束；
+- 输出包含父代诊断、单一修改类型、修改说明、保留逻辑、预期指标影响和子代 FormulaSpec；
+- 新增确定性检查器，验证任务身份、谱系、公式深度、lookback、方向和回测规则；
+- Window 修改只允许改变一个窗口，Normalization 必须完整包裹父代公式；
+- 使用 Mock Client 为第 1 代生成 12 个合法子代，其中 11 个窗口修改、1 个标准化修改；
+- Mock 子代只验证接口，不进入正式种群，真实学校 API 尚未接入。
+
 #### 完成第 1 代确定性父代选择
 
 - Refinement 按训练期综合分数加权且不放回抽取 12 个不同父代；
@@ -164,6 +174,7 @@ feature/evoalpha-workflow
 - [x] 为各阶段定义可替换 Tool Protocol；
 - [x] 实现初始 Top 30 训练期相似度矩阵和 `0.80` 父代配对过滤；
 - [x] 实现固定随机种子的 Refinement 与 Crossover 父代选择器；
+- [x] 完成 Refinement Agent Prompt、结构化输出、确定性检查器和 Mock 验证；
 - [ ] 将 Research Agent 改为父代诊断与 Refinement Agent；
 - [ ] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
 - [ ] 保存交叉中间因子并分别回测；

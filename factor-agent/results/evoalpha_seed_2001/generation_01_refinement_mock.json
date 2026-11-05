@@ -1,0 +1,1244 @@
+[
+  {
+    "task_id": "G01-REF-001",
+    "generation": 1,
+    "child_factor_id": "G01-REF-001-CHILD",
+    "parent_factor_id": "ALPHA158-CNTP30",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-001-CHILD",
+      "name": "Refined Qlib Alpha158 CNTP30",
+      "description": "Mock refinement of ALPHA158-CNTP30 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "mean",
+        "field": null,
+        "value": null,
+        "window": 60,
+        "min_periods": 1,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "greater_than",
+            "field": null,
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "close",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              },
+              {
+                "op": "lag",
+                "field": null,
+                "value": null,
+                "window": 1,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "field",
+                    "field": "close",
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 60,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-002",
+    "generation": 1,
+    "child_factor_id": "G01-REF-002-CHILD",
+    "parent_factor_id": "ALPHA158-CNTP5",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-002-CHILD",
+      "name": "Refined Qlib Alpha158 CNTP5",
+      "description": "Mock refinement of ALPHA158-CNTP5 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "mean",
+        "field": null,
+        "value": null,
+        "window": 10,
+        "min_periods": 1,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "greater_than",
+            "field": null,
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "close",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              },
+              {
+                "op": "lag",
+                "field": null,
+                "value": null,
+                "window": 1,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "field",
+                    "field": "close",
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 10,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-003",
+    "generation": 1,
+    "child_factor_id": "G01-REF-003-CHILD",
+    "parent_factor_id": "ALPHA158-BETA60",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-003-CHILD",
+      "name": "Refined Qlib Alpha158 BETA60",
+      "description": "Mock refinement of ALPHA158-BETA60 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "slope",
+            "field": null,
+            "value": null,
+            "window": 30,
+            "min_periods": 1,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "close",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          },
+          {
+            "op": "field",
+            "field": "close",
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": []
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 29,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-004",
+    "generation": 1,
+    "child_factor_id": "G01-REF-004-CHILD",
+    "parent_factor_id": "ALPHA158-MIN30",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-004-CHILD",
+      "name": "Refined Qlib Alpha158 MIN30",
+      "description": "Mock refinement of ALPHA158-MIN30 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "rolling_min",
+            "field": null,
+            "value": null,
+            "window": 60,
+            "min_periods": 1,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "low",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          },
+          {
+            "op": "field",
+            "field": "close",
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": []
+          }
+        ]
+      },
+      "required_fields": [
+        "close",
+        "low"
+      ],
+      "lookback_days": 59,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-005",
+    "generation": 1,
+    "child_factor_id": "G01-REF-005-CHILD",
+    "parent_factor_id": "ALPHA158-QTLU60",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-005-CHILD",
+      "name": "Refined Qlib Alpha158 QTLU60",
+      "description": "Mock refinement of ALPHA158-QTLU60 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "quantile",
+            "field": null,
+            "value": null,
+            "window": 30,
+            "min_periods": 1,
+            "quantile": 0.8,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "close",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          },
+          {
+            "op": "field",
+            "field": "close",
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": []
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 29,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-006",
+    "generation": 1,
+    "child_factor_id": "G01-REF-006-CHILD",
+    "parent_factor_id": "ALPHA158-IMIN30",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-006-CHILD",
+      "name": "Refined Qlib Alpha158 IMIN30",
+      "description": "Mock refinement of ALPHA158-IMIN30 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "idx_min",
+            "field": null,
+            "value": null,
+            "window": 60,
+            "min_periods": 1,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "low",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          },
+          {
+            "op": "constant",
+            "field": null,
+            "value": 30.0,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": []
+          }
+        ]
+      },
+      "required_fields": [
+        "low"
+      ],
+      "lookback_days": 59,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-007",
+    "generation": 1,
+    "child_factor_id": "G01-REF-007-CHILD",
+    "parent_factor_id": "ALPHA158-SUMP30",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-007-CHILD",
+      "name": "Refined Qlib Alpha158 SUMP30",
+      "description": "Mock refinement of ALPHA158-SUMP30 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "sum",
+            "field": null,
+            "value": null,
+            "window": 60,
+            "min_periods": 1,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "elementwise_max",
+                "field": null,
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "subtract",
+                    "field": null,
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": [
+                      {
+                        "op": "field",
+                        "field": "close",
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": []
+                      },
+                      {
+                        "op": "lag",
+                        "field": null,
+                        "value": null,
+                        "window": 1,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": [
+                          {
+                            "op": "field",
+                            "field": "close",
+                            "value": null,
+                            "window": null,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "op": "constant",
+                    "field": null,
+                    "value": 0.0,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "field": null,
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "sum",
+                "field": null,
+                "value": null,
+                "window": 30,
+                "min_periods": 1,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "abs",
+                    "field": null,
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": [
+                      {
+                        "op": "subtract",
+                        "field": null,
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": [
+                          {
+                            "op": "field",
+                            "field": "close",
+                            "value": null,
+                            "window": null,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": []
+                          },
+                          {
+                            "op": "lag",
+                            "field": null,
+                            "value": null,
+                            "window": 1,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": [
+                              {
+                                "op": "field",
+                                "field": "close",
+                                "value": null,
+                                "window": null,
+                                "min_periods": null,
+                                "quantile": null,
+                                "ddof": null,
+                                "args": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "constant",
+                "field": null,
+                "value": 1e-12,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 60,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-008",
+    "generation": 1,
+    "child_factor_id": "G01-REF-008-CHILD",
+    "parent_factor_id": "ALPHA158-KSFT2",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "normalization",
+    "change_description": "Add one cross-sectional z-score normalization layer.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-008-CHILD",
+      "name": "Refined Qlib Alpha158 KSFT2",
+      "description": "Mock refinement of ALPHA158-KSFT2 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "zscore",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "divide",
+            "field": null,
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "subtract",
+                "field": null,
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "subtract",
+                    "field": null,
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": [
+                      {
+                        "op": "multiply",
+                        "field": null,
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": [
+                          {
+                            "op": "constant",
+                            "field": null,
+                            "value": 2.0,
+                            "window": null,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": []
+                          },
+                          {
+                            "op": "field",
+                            "field": "close",
+                            "value": null,
+                            "window": null,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": []
+                          }
+                        ]
+                      },
+                      {
+                        "op": "field",
+                        "field": "high",
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": []
+                      }
+                    ]
+                  },
+                  {
+                    "op": "field",
+                    "field": "low",
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": []
+                  }
+                ]
+              },
+              {
+                "op": "add",
+                "field": null,
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "subtract",
+                    "field": null,
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": [
+                      {
+                        "op": "field",
+                        "field": "high",
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": []
+                      },
+                      {
+                        "op": "field",
+                        "field": "low",
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": []
+                      }
+                    ]
+                  },
+                  {
+                    "op": "constant",
+                    "field": null,
+                    "value": 1e-12,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "required_fields": [
+        "close",
+        "high",
+        "low"
+      ],
+      "lookback_days": 0,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-009",
+    "generation": 1,
+    "child_factor_id": "G01-REF-009-CHILD",
+    "parent_factor_id": "ALPHA158-MIN60",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-009-CHILD",
+      "name": "Refined Qlib Alpha158 MIN60",
+      "description": "Mock refinement of ALPHA158-MIN60 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "rolling_min",
+            "field": null,
+            "value": null,
+            "window": 30,
+            "min_periods": 1,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "low",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          },
+          {
+            "op": "field",
+            "field": "close",
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": []
+          }
+        ]
+      },
+      "required_fields": [
+        "close",
+        "low"
+      ],
+      "lookback_days": 29,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-010",
+    "generation": 1,
+    "child_factor_id": "G01-REF-010-CHILD",
+    "parent_factor_id": "ALPHA158-SUMN30",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-010-CHILD",
+      "name": "Refined Qlib Alpha158 SUMN30",
+      "description": "Mock refinement of ALPHA158-SUMN30 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "sum",
+            "field": null,
+            "value": null,
+            "window": 60,
+            "min_periods": 1,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "elementwise_max",
+                "field": null,
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "subtract",
+                    "field": null,
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": [
+                      {
+                        "op": "lag",
+                        "field": null,
+                        "value": null,
+                        "window": 1,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": [
+                          {
+                            "op": "field",
+                            "field": "close",
+                            "value": null,
+                            "window": null,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": []
+                          }
+                        ]
+                      },
+                      {
+                        "op": "field",
+                        "field": "close",
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": []
+                      }
+                    ]
+                  },
+                  {
+                    "op": "constant",
+                    "field": null,
+                    "value": 0.0,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "op": "add",
+            "field": null,
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "sum",
+                "field": null,
+                "value": null,
+                "window": 30,
+                "min_periods": 1,
+                "quantile": null,
+                "ddof": null,
+                "args": [
+                  {
+                    "op": "abs",
+                    "field": null,
+                    "value": null,
+                    "window": null,
+                    "min_periods": null,
+                    "quantile": null,
+                    "ddof": null,
+                    "args": [
+                      {
+                        "op": "subtract",
+                        "field": null,
+                        "value": null,
+                        "window": null,
+                        "min_periods": null,
+                        "quantile": null,
+                        "ddof": null,
+                        "args": [
+                          {
+                            "op": "field",
+                            "field": "close",
+                            "value": null,
+                            "window": null,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": []
+                          },
+                          {
+                            "op": "lag",
+                            "field": null,
+                            "value": null,
+                            "window": 1,
+                            "min_periods": null,
+                            "quantile": null,
+                            "ddof": null,
+                            "args": [
+                              {
+                                "op": "field",
+                                "field": "close",
+                                "value": null,
+                                "window": null,
+                                "min_periods": null,
+                                "quantile": null,
+                                "ddof": null,
+                                "args": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "op": "constant",
+                "field": null,
+                "value": 1e-12,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 60,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-011",
+    "generation": 1,
+    "child_factor_id": "G01-REF-011-CHILD",
+    "parent_factor_id": "ALPHA158-RANK60",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-011-CHILD",
+      "name": "Refined Qlib Alpha158 RANK60",
+      "description": "Mock refinement of ALPHA158-RANK60 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "ts_rank",
+        "field": null,
+        "value": null,
+        "window": 30,
+        "min_periods": 1,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "field",
+            "field": "close",
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": []
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 29,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  },
+  {
+    "task_id": "G01-REF-012",
+    "generation": 1,
+    "child_factor_id": "G01-REF-012-CHILD",
+    "parent_factor_id": "ALPHA158-ROC60",
+    "diagnosis": "The parent has a coherent signal but its fixed transformation may be sensitive to the selected horizon or cross-sectional scale.",
+    "change_type": "window",
+    "change_description": "Change one rolling window while preserving the formula structure.",
+    "preserved_core_logic": "The original fields, direction and primary economic signal remain unchanged.",
+    "expected_metric_effects": {
+      "mean_rank_ic_20d": "preserve or improve predictive strength",
+      "rank_icir_20d": "improve stability across training dates"
+    },
+    "factor_spec": {
+      "factor_id": "G01-REF-012-CHILD",
+      "name": "Refined Qlib Alpha158 ROC60",
+      "description": "Mock refinement of ALPHA158-ROC60 for interface validation.",
+      "hypothesis_id": null,
+      "formula": {
+        "op": "divide",
+        "field": null,
+        "value": null,
+        "window": null,
+        "min_periods": null,
+        "quantile": null,
+        "ddof": null,
+        "args": [
+          {
+            "op": "lag",
+            "field": null,
+            "value": null,
+            "window": 30,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": [
+              {
+                "op": "field",
+                "field": "close",
+                "value": null,
+                "window": null,
+                "min_periods": null,
+                "quantile": null,
+                "ddof": null,
+                "args": []
+              }
+            ]
+          },
+          {
+            "op": "field",
+            "field": "close",
+            "value": null,
+            "window": null,
+            "min_periods": null,
+            "quantile": null,
+            "ddof": null,
+            "args": []
+          }
+        ]
+      },
+      "required_fields": [
+        "close"
+      ],
+      "lookback_days": 30,
+      "higher_is_better": true,
+      "rebalance_frequency": "weekly",
+      "universe_filters": null,
+      "portfolio_rules": {
+        "top_k": 20,
+        "exit_rank": 30
+      }
+    }
+  }
+]
