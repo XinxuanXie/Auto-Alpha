@@ -63,7 +63,7 @@ class EvaluatedCandidate(BaseModel):
     generation: int = Field(ge=0)
     proposal_type: ProposalType
     parent_factor_ids: tuple[str, ...] = ()
-    composite_score: float
+    composite_score: float | None = None
     passed_hard_filters: bool = True
     direction: int = Field(default=1, ge=-1, le=1)
     artifact: dict[str, Any] = Field(default_factory=dict)
@@ -71,8 +71,10 @@ class EvaluatedCandidate(BaseModel):
 
     @model_validator(mode="after")
     def validate_candidate(self) -> Self:
-        if not isfinite(self.composite_score):
+        if self.composite_score is not None and not isfinite(self.composite_score):
             raise ValueError("composite_score must be finite")
+        if self.passed_hard_filters and self.composite_score is None:
+            raise ValueError("valid candidates require composite_score")
         if self.direction not in {-1, 1}:
             raise ValueError("direction must be -1 or 1")
         if self.proposal_type == ProposalType.SEED:

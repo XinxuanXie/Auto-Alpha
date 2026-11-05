@@ -25,11 +25,12 @@ evoalpha_workflow/
 ├── state.py
 ├── tools.py
 ├── workflow.py
+├── seed_evaluation.py
+├── run_seed_evaluation.py
 │
-│   已实现确定性外层循环、三代协议、验证和最终测试阶段
+│   已实现确定性外层循环、三代协议、真实 Alpha158 Seed Evaluation
 │
 └── 后续模块
-    ├── seed_evaluation.py
     ├── parent_selection.py
     ├── refinement.py
     ├── crossover.py
@@ -59,3 +60,20 @@ Seed Evaluation
 ```
 
 `workflow.py` 只负责编排、验证数量与谱系、更新种群和记录事件。具体实现通过 `tools.py` 的接口注入，后续可将 Refinement、Crossover 和 Mutation 替换为 Agent，而不改变外层循环。
+
+## 运行 Alpha158 Seed Evaluation
+
+在仓库根目录执行：
+
+```bash
+PYTHONPATH=factor-agent python -m evoalpha_workflow.run_seed_evaluation
+```
+
+默认设置：
+
+- 2000 年作为 warm-up；
+- 2001 年作为训练与初始种子评分区间；
+- 2002 年不进入 Seed Evaluation；
+- 输入为历史时点成分股面板；
+- 评价 157 个非 VWAP Alpha158；
+- 输出逐因子指标、固定评分参考和初始 Top 30。

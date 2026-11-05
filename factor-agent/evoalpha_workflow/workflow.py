@@ -224,7 +224,12 @@ class EvoAlphaWorkflow:
         candidates: Sequence[EvaluatedCandidate],
     ) -> list[EvaluatedCandidate]:
         return sorted(
-            (candidate for candidate in candidates if candidate.passed_hard_filters),
+            (
+                candidate
+                for candidate in candidates
+                if candidate.passed_hard_filters
+                and candidate.composite_score is not None
+            ),
             key=lambda candidate: (-candidate.composite_score, candidate.factor_id),
         )
 
