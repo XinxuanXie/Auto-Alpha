@@ -1,0 +1,12 @@
+{
+  "admitted_after_similarity": 10,
+  "best_composite_score": 0.9836538461538462,
+  "best_factor_id": "G01-CROSS-004-MUTATION",
+  "children_in_next_population": 4,
+  "crossover_intermediates": 8,
+  "evaluated_candidates": 28,
+  "mutations": 8,
+  "next_population_size": 30,
+  "output_dir": "factor-agent/results/evoalpha_generation_01_real",
+  "refinements": 12
+}

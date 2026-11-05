@@ -9,7 +9,12 @@ from typing import Any, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field
 
-from factor_pipeline.spec import FactorSpec, FormulaNode, FormulaOperator
+from factor_pipeline.spec import (
+    FactorSpec,
+    FormulaNode,
+    FormulaOperator,
+    UniverseFilterSpec,
+)
 
 from .parent_selection import RefinementTask
 from .state import CandidateProposal, EvaluatedCandidate, ProposalType
@@ -55,8 +60,11 @@ class RefinementModelClient(Protocol):
 
 
 class RefinementAgent:
-    def __init__(self, client: RefinementModelClient) -> None:
+    def __init__(self, client: RefinementModelClient, max_attempts: int = 1) -> None:
+        if max_attempts < 1:
+            raise ValueError("max_attempts must be at least 1")
         self.client = client
+        self.max_attempts = max_attempts
 
     def propose(
         self,
@@ -67,16 +75,28 @@ class RefinementAgent:
         if task.parent_factor_id != parent.factor_id:
             raise ValueError("refinement task parent does not match candidate")
         system_prompt, user_prompt = self.build_prompts(task, parent, parent_spec)
-        proposal = RefinementProposal.model_validate(
-            self.client.complete(system_prompt, user_prompt)
-        )
-        self._validate_identity(task, parent, proposal)
-        FormulaRefinementChecker.validate(
-            parent_spec,
-            proposal.factor_spec,
-            proposal.change_type,
-        )
-        return proposal
+        last_error = None
+        for attempt in range(1, self.max_attempts + 1):
+            try:
+                response = _canonicalize_factor_spec_metadata(
+                    self.client.complete(system_prompt, user_prompt)
+                )
+                proposal = RefinementProposal.model_validate(
+                    response
+                )
+                self._validate_identity(task, parent, proposal)
+                FormulaRefinementChecker.validate(
+                    parent_spec,
+                    proposal.factor_spec,
+                    proposal.change_type,
+                )
+                return proposal
+            except Exception as error:
+                last_error = error
+                if attempt == self.max_attempts:
+                    raise
+                user_prompt = _correction_prompt(user_prompt, error)
+        raise RuntimeError("unreachable refinement retry state") from last_error
 
     @staticmethod
     def build_prompts(
@@ -117,6 +137,7 @@ class RefinementAgent:
                 "expected_metric_effects",
                 "factor_spec",
             ],
+            "output_schema": RefinementProposal.model_json_schema(),
         }
         return system_prompt, json.dumps(payload, ensure_ascii=False, sort_keys=True)
 
@@ -171,11 +192,17 @@ class FormulaRefinementChecker:
         if change_type == RefinementChangeType.WINDOW:
             differences = _same_shape_differences(parent.formula, child.formula)
             if differences != ["window"]:
-                raise ValueError("window refinement must change exactly one window")
+                raise ValueError(
+                    "window refinement must keep the entire formula tree unchanged and "
+                    f"change exactly one window; observed differences={differences}"
+                )
         elif change_type == RefinementChangeType.OPERATOR:
             differences = _same_shape_differences(parent.formula, child.formula)
             if differences != ["op"]:
-                raise ValueError("operator refinement must change exactly one operator")
+                raise ValueError(
+                    "operator refinement must keep the formula shape unchanged and change "
+                    f"exactly one compatible operator; observed differences={differences}"
+                )
         elif change_type == RefinementChangeType.NORMALIZATION:
             if child.formula.op not in {FormulaOperator.RANK, FormulaOperator.ZSCORE}:
                 raise ValueError("normalization refinement must add rank or zscore")
@@ -191,6 +218,25 @@ class FormulaRefinementChecker:
                 raise ValueError("risk adjustment must divide the parent signal")
             if not _contains_subtree(child.formula, parent.formula):
                 raise ValueError("risk adjustment must retain the parent formula")
+
+
+def _canonicalize_factor_spec_metadata(response: dict[str, Any]) -> dict[str, Any]:
+    """Derive FactorSpec metadata from executable structure instead of LLM text."""
+    normalized = copy.deepcopy(response)
+    factor_spec = normalized.get("factor_spec")
+    if not isinstance(factor_spec, dict):
+        return normalized
+    formula = FormulaNode.model_validate(factor_spec.get("formula"))
+    required_history = formula.required_history()
+    universe_payload = factor_spec.get("universe_filters")
+    if universe_payload is not None:
+        universe = UniverseFilterSpec.model_validate(universe_payload)
+        required_history = max(required_history, universe.required_history())
+    factor_spec["required_fields"] = sorted(
+        field.value for field in formula.referenced_fields()
+    )
+    factor_spec["lookback_days"] = required_history
+    return normalized
 
 
 class RuleBasedMockRefinementClient:
@@ -297,3 +343,12 @@ def _change_first_window(formula: dict[str, Any]) -> bool:
         if _change_first_window(argument):
             return True
     return False
+
+
+def _correction_prompt(original_prompt: str, error: Exception) -> str:
+    return (
+        original_prompt
+        + "\n\nThe previous response failed deterministic validation with this error: "
+        + str(error)[:1_500]
+        + "\nReturn a corrected JSON object only."
+    )

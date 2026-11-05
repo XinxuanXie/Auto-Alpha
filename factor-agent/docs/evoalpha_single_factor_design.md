@@ -2,7 +2,7 @@
 
 ## 文档目的
 
-本文档记录当前确定的 EvoAlpha 式单因子进化方案、已经采用的简化决策、尚未实现的工程事项和后续升级方向。它是后续实现的设计基线；现有代码仍以原 Manager 工作流和单因子 `factor_pipeline` 为准。
+本文档记录 EvoAlpha 式单因子进化方案、已经采用的简化决策、当前实现状态和后续升级方向。实现位于独立的 `evoalpha_workflow/`，并与旧 Manager 工作流并列复用 `factor_pipeline` 的确定性基础能力。
 
 ## 核心原则
 
@@ -36,7 +36,7 @@
 - 单因子回测与 Evaluation；
 - SQLite Research Record、Checkpoint 和 Memory。
 
-Manager 不自主决定采用哪种研究路线。每轮任务由固定配置预先指定，Manager 只负责调用对应 Tool、维护状态、处理失败和保存记录。
+EvoAlpha 第一版使用独立的确定性 Python 编排器，每轮任务由固定配置预先指定，不让 LLM 自主选择研究路线。旧 Manager 工作流保持不变；后续只有在需要统一入口时才通过显式 Adapter 接入。
 
 ## 候选来源
 
@@ -51,7 +51,7 @@ Manager 不自主决定采用哪种研究路线。每轮任务由固定配置预
 
 ### 数据范围
 
-初始来源同时包括 Alpha101 与 Alpha158，不加入此前 Agent 生成和回测过的候选因子。
+第一版初始来源为 Alpha158，不加入此前 Agent 生成和回测过的候选因子。Alpha101 在 Parser 与缺失算子完成后再加入对照实验。
 
 当前日频面板提供：
 
@@ -67,15 +67,15 @@ open, high, low, close, volume, mktcap
 
 真实 VWAP 需要日内价格与对应成交量，或成交金额除以成交股数。当前 OHLCV 不能精确恢复。第一版不使用 Typical Price 静默冒充 VWAP。
 
-当前预计可进入实现阶段的候选为：
+当前正式进入初始评价的候选为：
 
 ```text
-Alpha101：53 个
 Alpha158：157 个（排除 VWAP0）
-合计：210 个
 ```
 
-### 当前代码缺口
+此前估计的 53 个 Alpha101 候选尚未完成统一 Parser 和数值校验，因此未进入本次种子池。
+
+### 当前实现边界
 
 `agentic_workflow/factor_library.py` 目前主要是 Research Agent 的知识库，不是可执行公式导入器。
 
@@ -321,8 +321,9 @@ rejection_reason
 - [x] 计算 ICIR、月度稳定性和跨周期一致性；
 - [x] 实现训练期方向翻转，并支持向验证/测试传入冻结方向；
 - [x] 实现可保存和复用的固定参考分布综合评分；
-- [ ] 将单因子评价核心接入 Alpha158/101 批量运行入口；
-- [ ] 输出逐因子成绩表，而不是 LightGBM 模型成绩。
+- [x] 将单因子评价核心接入 Alpha158 批量运行入口；
+- [x] 输出逐因子成绩表，而不是 LightGBM 模型成绩；
+- [ ] 将 Alpha101 接入同一批量运行入口。
 
 ### P1：统一 DSL 与公式导入
 
@@ -337,27 +338,28 @@ rejection_reason
 
 ### P2：初始 Population
 
-- [ ] 批量评价可执行 Alpha101/158；
-- [ ] 应用覆盖率和常数检查；
-- [ ] 生成固定百分位评分参考；
-- [ ] 选择训练集 Top 30；
-- [ ] 保存初始种群快照。
+- [x] 批量评价 157 个可执行 Alpha158；
+- [x] 应用覆盖率和常数检查；
+- [x] 生成固定百分位评分参考；
+- [x] 选择训练集 Top 30；
+- [x] 保存初始种群快照；
+- [ ] 在 Alpha101 可执行后运行扩展种子池对照实验。
 
 ### P3：进化 Agent
 
-- [ ] 将 Research Agent 改为父代诊断与 Refinement 输出；
-- [ ] 新增 Crossover Agent；
-- [ ] 保存交叉中间因子；
-- [ ] 新增交叉后 Mutation；
-- [ ] 扩展 Hypothesis Checker 检查修改一致性和交叉合理性；
-- [ ] 限制公式深度与单次修改范围。
+- [x] 实现父代诊断与 Refinement 输出；
+- [x] 新增 Crossover Agent；
+- [x] 保存交叉中间因子；
+- [x] 新增交叉后 Mutation；
+- [x] 使用确定性公式检查器验证修改一致性和交叉合理性；
+- [x] 限制公式深度与单次修改范围。
 
 ### P4：相关性、种群与谱系
 
-- [ ] 实现日度横截面 Spearman 相似度；
-- [ ] 实现父代配对阈值；
-- [ ] 实现 Crossover 子代多样性过滤；
-- [ ] 实现固定种群更新；
+- [x] 实现日度横截面 Spearman 相似度；
+- [x] 实现父代配对阈值；
+- [x] 实现 Crossover 子代多样性过滤；
+- [x] 实现固定种群更新；
 - [ ] 扩展 SQLite schema 保存 lineage 和 metric deltas；
 - [ ] 实现每代审计报告。
 

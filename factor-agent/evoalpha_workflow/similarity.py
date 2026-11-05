@@ -32,6 +32,7 @@ class SimilarityConfig:
     parent_pair_similarity_limit: float = 0.80
     factor_config: FactorConfig = FactorConfig()
     output_dir: Path | None = None
+    output_prefix: str = "top30"
 
     def __post_init__(self) -> None:
         if self.warmup_calendar_days < 0:
@@ -40,6 +41,11 @@ class SimilarityConfig:
             raise ValueError("minimum_cross_section must be at least 3")
         if not 0 <= self.parent_pair_similarity_limit <= 1:
             raise ValueError("parent_pair_similarity_limit must be between 0 and 1")
+        if not self.output_prefix or any(
+            character not in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-"
+            for character in self.output_prefix
+        ):
+            raise ValueError("output_prefix contains unsupported characters")
 
 
 @dataclass(frozen=True)
@@ -187,9 +193,10 @@ class TrainingFactorSimilarityAnalyzer:
     def _write_outputs(self, result: SimilarityResult) -> None:
         output_dir = self.config.output_dir
         output_dir.mkdir(parents=True, exist_ok=True)
+        prefix = self.config.output_prefix
         pair_rows = [asdict(pair) for pair in result.pairs]
-        pl.DataFrame(pair_rows).write_parquet(output_dir / "top30_pair_similarity.parquet")
-        (output_dir / "top30_pair_similarity.json").write_text(
+        pl.DataFrame(pair_rows).write_parquet(output_dir / f"{prefix}_pair_similarity.parquet")
+        (output_dir / f"{prefix}_pair_similarity.json").write_text(
             json.dumps(pair_rows, ensure_ascii=False, indent=2),
             encoding="utf-8",
         )
@@ -207,8 +214,8 @@ class TrainingFactorSimilarityAnalyzer:
                     key = (left, right) if (left, right) in lookup else (right, left)
                     row[right] = lookup[key]
             matrix_rows.append(row)
-        pl.DataFrame(matrix_rows).write_csv(output_dir / "top30_similarity_matrix.csv")
-        (output_dir / "top30_similarity_summary.json").write_text(
+        pl.DataFrame(matrix_rows).write_csv(output_dir / f"{prefix}_similarity_matrix.csv")
+        (output_dir / f"{prefix}_similarity_summary.json").write_text(
             json.dumps(
                 {
                     "factor_count": len(result.factor_ids),

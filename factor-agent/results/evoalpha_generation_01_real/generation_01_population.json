@@ -1,0 +1,4465 @@
+[
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Equal-weighted sum of the directionally oriented ALPHA158-CORR30 volume-price correlation and ALPHA158-KSFT2 close-location signals, using a 40-day correlation window.",
+        "factor_id": "G01-CROSS-004-MUTATION",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "volume",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            },
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "constant",
+                              "quantile": null,
+                              "value": 1.0,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "add",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "log",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "correlation",
+                  "quantile": null,
+                  "value": null,
+                  "window": 40
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "negate",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": null,
+                                  "min_periods": null,
+                                  "op": "constant",
+                                  "quantile": null,
+                                  "value": 2.0,
+                                  "window": null
+                                },
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "multiply",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            },
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "high",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "low",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "high",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            },
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "low",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "constant",
+                          "quantile": null,
+                          "value": 1e-12,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "add",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "divide",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "negate",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "add",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 39,
+        "name": "Oriented Volume-Price and Close-Location Composite",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "high",
+          "low",
+          "volume"
+        ],
+        "universe_filters": null
+      },
+      "mutation": {
+        "child_factor_id": "G01-CROSS-004-MUTATION",
+        "diagnosis": "The intermediate combines complementary volume-price and close-location information, but the 30-day correlation window may be somewhat sensitive to short-term fluctuations. A modestly longer window can improve stability while preserving both parent mechanisms and their directional orientations.",
+        "expected_metric_effects": {
+          "cross_horizon_consistency": "Expected to remain strong because both parent mechanisms and their orientations are preserved.",
+          "monthly_stability": "Expected to improve modestly from smoother estimation of the volume-price relationship.",
+          "rank_ic": "Expected to remain positive, with potentially less sensitivity to transient volume-price conditions.",
+          "rank_icir": "Expected to improve modestly if the longer correlation estimate reduces signal noise."
+        },
+        "generation": 1,
+        "intermediate_factor_id": "G01-CROSS-004-INTERMEDIATE",
+        "mutation_description": "Changed only the volume-price correlation window from 30 to 40 days; every operator, field, value, min_periods setting, and other window remains unchanged.",
+        "mutation_type": "window",
+        "task_id": "G01-CROSS-004"
+      }
+    },
+    "composite_score": 0.9836538461538462,
+    "direction": 1,
+    "factor_id": "G01-CROSS-004-MUTATION",
+    "generation": 1,
+    "metrics": {
+      "composite_score": 0.9836538461538462,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "G01-CROSS-004-MUTATION",
+      "mean_rank_ic_10d": 0.06533525453643775,
+      "mean_rank_ic_20d": 0.06469845505703371,
+      "mean_rank_ic_5d": 0.06083657325132426,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.9090909090909091,
+      "monthly_stability_percentile": 1.0,
+      "parent_comparisons": [
+        {
+          "deltas": {
+            "composite_score": 0.008653846153846234,
+            "cross_horizon_consistency": 0.0,
+            "mean_rank_ic_20d": 0.005090877731845599,
+            "monthly_stability": 0.0,
+            "rank_icir_20d": 0.02817316371854872
+          },
+          "parent_factor_id": "G01-CROSS-004-INTERMEDIATE",
+          "relationship": "direct_parent"
+        },
+        {
+          "deltas": {
+            "composite_score": 0.048557692307692246,
+            "cross_horizon_consistency": 0.0,
+            "mean_rank_ic_20d": 0.013656638575642886,
+            "monthly_stability": 0.09090909090909083,
+            "rank_icir_20d": -0.07393125666950884
+          },
+          "parent_factor_id": "ALPHA158-CORR30",
+          "relationship": "original_parent"
+        },
+        {
+          "deltas": {
+            "composite_score": 0.13701923076923084,
+            "cross_horizon_consistency": 0.0,
+            "mean_rank_ic_20d": 0.02619253711672015,
+            "monthly_stability": 0.09090909090909083,
+            "rank_icir_20d": 0.23630833022956277
+          },
+          "parent_factor_id": "ALPHA158-KSFT2",
+          "relationship": "original_parent"
+        }
+      ],
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9711538461538461,
+      "rank_icir_20d": 0.5553194152458999,
+      "rank_icir_percentile": 0.9903846153846154,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [
+      "G01-CROSS-004-INTERMEDIATE"
+    ],
+    "passed_hard_filters": true,
+    "proposal_type": "mutation"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Min($low,60)/$close",
+        "factor_id": "ALPHA158-MIN60",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "low",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "rolling_min",
+              "quantile": null,
+              "value": null,
+              "window": 60
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 MIN60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.9796474358974359,
+    "direction": 1,
+    "factor_id": "ALPHA158-MIN60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.9796474358974359,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-MIN60",
+      "mean_rank_ic_10d": 0.06399143631328524,
+      "mean_rank_ic_20d": 0.06731783314616305,
+      "mean_rank_ic_5d": 0.04691978955108296,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9807692307692307,
+      "rank_icir_20d": 0.3801367062904593,
+      "rank_icir_percentile": 0.9871794871794872,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Mean($close>Ref($close,1),30)",
+        "factor_id": "ALPHA158-CNTP30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "lag",
+                  "quantile": null,
+                  "value": null,
+                  "window": 1
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "greater_than",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": 1,
+          "op": "mean",
+          "quantile": null,
+          "value": null,
+          "window": 30
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 30,
+        "name": "Qlib Alpha158 CNTP30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.9543269230769231,
+    "direction": -1,
+    "factor_id": "ALPHA158-CNTP30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.9543269230769231,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-CNTP30",
+      "mean_rank_ic_10d": 0.04892511210652225,
+      "mean_rank_ic_20d": 0.05723065130857739,
+      "mean_rank_ic_5d": 0.042306705311817384,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9294871794871795,
+      "rank_icir_20d": 0.37883249670413777,
+      "rank_icir_percentile": 0.9807692307692307,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Corr($close,Log($volume+1),60)",
+        "factor_id": "ALPHA158-CORR60",
+        "formula": {
+          "args": [
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "volume",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "constant",
+                      "quantile": null,
+                      "value": 1.0,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "add",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "log",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": 1,
+          "op": "correlation",
+          "quantile": null,
+          "value": null,
+          "window": 60
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 CORR60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "volume"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.9530448717948719,
+    "direction": -1,
+    "factor_id": "ALPHA158-CORR60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.9530448717948719,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-CORR60",
+      "mean_rank_ic_10d": 0.055528784769378434,
+      "mean_rank_ic_20d": 0.0566776154243015,
+      "mean_rank_ic_5d": 0.04110570623774115,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9166666666666666,
+      "rank_icir_20d": 0.6145015757788551,
+      "rank_icir_percentile": 0.9935897435897436,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "crossover": {
+        "complementarity_analysis": "ALPHA158-BETA60 measures the normalized long-horizon price trend through a 60-day regression slope, capturing persistent directional drift. ALPHA158-CNTD5 measures very short-horizon directional consistency by contrasting recent up-day and down-day frequencies. Their low median absolute Spearman correlation of 0.0868 indicates that they contain largely distinct information: one reflects trend magnitude and persistence, while the other reflects immediate path consistency. Both have positive predictive rank IC under their supplied training direction of -1, so both are explicitly negated before combination.",
+        "expected_metric_effects": {
+          "cross_horizon_consistency": "Expected to improve or remain strong because the 60-day trend component provides persistence while the 5-day component adds timely confirmation.",
+          "monthly_stability": "Expected to improve modestly through diversification of medium- and short-horizon information.",
+          "rank_ic": "Expected to remain positive across 5-day, 10-day, and 20-day horizons by combining two individually consistent oriented signals.",
+          "signal_robustness": "Expected to improve because cross-sectional ranking limits the influence of scale differences and extreme slope values."
+        },
+        "generation": 1,
+        "integration_logic": "Each parent formula is first negated to preserve its supplied training direction, then cross-sectionally ranked so the differently scaled signals contribute comparably. The two oriented ranks are added, giving equal material weight to medium-term normalized trend and short-term directional persistence without using future observations.",
+        "intermediate_factor_id": "G01-CROSS-007-INTERMEDIATE",
+        "parent_factor_ids": [
+          "ALPHA158-BETA60",
+          "ALPHA158-CNTD5"
+        ],
+        "task_id": "G01-CROSS-007"
+      },
+      "factor_spec": {
+        "description": "Equal-weight cross-sectional blend of the direction-preserving ranks of normalized 60-day price trend and 5-day directional consistency.",
+        "factor_id": "G01-CROSS-007-INTERMEDIATE",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": 1,
+                          "op": "slope",
+                          "quantile": null,
+                          "value": null,
+                          "window": 60
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "divide",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "negate",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "rank",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                },
+                                {
+                                  "args": [
+                                    {
+                                      "args": [],
+                                      "ddof": null,
+                                      "field": "close",
+                                      "min_periods": null,
+                                      "op": "field",
+                                      "quantile": null,
+                                      "value": null,
+                                      "window": null
+                                    }
+                                  ],
+                                  "ddof": null,
+                                  "field": null,
+                                  "min_periods": null,
+                                  "op": "lag",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": 1
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "greater_than",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": 1,
+                          "op": "mean",
+                          "quantile": null,
+                          "value": null,
+                          "window": 5
+                        },
+                        {
+                          "args": [
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                },
+                                {
+                                  "args": [
+                                    {
+                                      "args": [],
+                                      "ddof": null,
+                                      "field": "close",
+                                      "min_periods": null,
+                                      "op": "field",
+                                      "quantile": null,
+                                      "value": null,
+                                      "window": null
+                                    }
+                                  ],
+                                  "ddof": null,
+                                  "field": null,
+                                  "min_periods": null,
+                                  "op": "lag",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": 1
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "less_than",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": 1,
+                          "op": "mean",
+                          "quantile": null,
+                          "value": null,
+                          "window": 5
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "negate",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "rank",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "add",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Oriented Trend and Directional Persistence Blend",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.9471153846153847,
+    "direction": 1,
+    "factor_id": "G01-CROSS-007-INTERMEDIATE",
+    "generation": 1,
+    "metrics": {
+      "composite_score": 0.9471153846153847,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "G01-CROSS-007-INTERMEDIATE",
+      "mean_rank_ic_10d": 0.07171369462925697,
+      "mean_rank_ic_20d": 0.07254765700422536,
+      "mean_rank_ic_5d": 0.062029055671521074,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "parent_comparisons": [
+        {
+          "deltas": {
+            "composite_score": 0.03525641025641035,
+            "cross_horizon_consistency": 0.0,
+            "mean_rank_ic_20d": 0.006844633769009872,
+            "monthly_stability": 0.0,
+            "rank_icir_20d": 0.0490477575108173
+          },
+          "parent_factor_id": "ALPHA158-BETA60",
+          "relationship": "direct_parent"
+        },
+        {
+          "deltas": {
+            "composite_score": 0.1626602564102565,
+            "cross_horizon_consistency": 0.0,
+            "mean_rank_ic_20d": 0.03548768721346651,
+            "monthly_stability": -0.09090909090909094,
+            "rank_icir_20d": 0.11078906665658911
+          },
+          "parent_factor_id": "ALPHA158-CNTD5",
+          "relationship": "direct_parent"
+        }
+      ],
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9903846153846154,
+      "rank_icir_20d": 0.3801911662052597,
+      "rank_icir_percentile": 0.9903846153846154,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [
+      "ALPHA158-BETA60",
+      "ALPHA158-CNTD5"
+    ],
+    "passed_hard_filters": true,
+    "proposal_type": "crossover"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Corr($close,Log($volume+1),30)",
+        "factor_id": "ALPHA158-CORR30",
+        "formula": {
+          "args": [
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "volume",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "constant",
+                      "quantile": null,
+                      "value": 1.0,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "add",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "log",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": 1,
+          "op": "correlation",
+          "quantile": null,
+          "value": null,
+          "window": 30
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 29,
+        "name": "Qlib Alpha158 CORR30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "volume"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.935096153846154,
+    "direction": -1,
+    "factor_id": "ALPHA158-CORR30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.935096153846154,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-CORR30",
+      "mean_rank_ic_10d": 0.0511006998090176,
+      "mean_rank_ic_20d": 0.05104181648139083,
+      "mean_rank_ic_5d": 0.03978069749455581,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8717948717948718,
+      "rank_icir_20d": 0.6292506719154087,
+      "rank_icir_percentile": 1.0,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Slope($close,60)/$close",
+        "factor_id": "ALPHA158-BETA60",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "slope",
+              "quantile": null,
+              "value": null,
+              "window": 60
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 BETA60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.9118589743589743,
+    "direction": -1,
+    "factor_id": "ALPHA158-BETA60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.9118589743589743,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-BETA60",
+      "mean_rank_ic_10d": 0.06626035218983116,
+      "mean_rank_ic_20d": 0.06570302323521549,
+      "mean_rank_ic_5d": 0.04802768297643653,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9743589743589743,
+      "rank_icir_20d": 0.3311434086944424,
+      "rank_icir_percentile": 0.9102564102564102,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Ref($close,30)/$close",
+        "factor_id": "ALPHA158-ROC30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "lag",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 30,
+        "name": "Qlib Alpha158 ROC30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8891025641025642,
+    "direction": 1,
+    "factor_id": "ALPHA158-ROC30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8891025641025642,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-ROC30",
+      "mean_rank_ic_10d": 0.056318425133661594,
+      "mean_rank_ic_20d": 0.07384121655266172,
+      "mean_rank_ic_5d": 0.040030068177738465,
+      "median_stock_coverage": 0.9928795138240722,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9935897435897436,
+      "rank_icir_20d": 0.36462485928245986,
+      "rank_icir_percentile": 0.9743589743589743,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Mean($close,60)/$close",
+        "factor_id": "ALPHA158-MA60",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "mean",
+              "quantile": null,
+              "value": null,
+              "window": 60
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 MA60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8875000000000001,
+    "direction": 1,
+    "factor_id": "ALPHA158-MA60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8875000000000001,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-MA60",
+      "mean_rank_ic_10d": 0.06726309605123408,
+      "mean_rank_ic_20d": 0.07527420488143224,
+      "mean_rank_ic_5d": 0.057022383183819074,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 1.0,
+      "rank_icir_20d": 0.3607972958714827,
+      "rank_icir_percentile": 0.9615384615384616,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Quantile($close,60,0.2)/$close",
+        "factor_id": "ALPHA158-QTLD60",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "quantile",
+              "quantile": 0.2,
+              "value": null,
+              "window": 60
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 QTLD60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.883974358974359,
+    "direction": 1,
+    "factor_id": "ALPHA158-QTLD60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.883974358974359,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-QTLD60",
+      "mean_rank_ic_10d": 0.06420792794851665,
+      "mean_rank_ic_20d": 0.0681445883043099,
+      "mean_rank_ic_5d": 0.05316974250562988,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9871794871794872,
+      "rank_icir_20d": 0.36361618271208385,
+      "rank_icir_percentile": 0.967948717948718,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Mean($close>Ref($close,1),30)-Mean($close<Ref($close,1),30)",
+        "factor_id": "ALPHA158-CNTD30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "lag",
+                      "quantile": null,
+                      "value": null,
+                      "window": 1
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "greater_than",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "mean",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "lag",
+                      "quantile": null,
+                      "value": null,
+                      "window": 1
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "less_than",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "mean",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "subtract",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 30,
+        "name": "Qlib Alpha158 CNTD30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8753205128205128,
+    "direction": -1,
+    "factor_id": "ALPHA158-CNTD30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8753205128205128,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-CNTD30",
+      "mean_rank_ic_10d": 0.04611325619216797,
+      "mean_rank_ic_20d": 0.052217821172152346,
+      "mean_rank_ic_5d": 0.04053520163966436,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8782051282051282,
+      "rank_icir_20d": 0.338330275282161,
+      "rank_icir_percentile": 0.9294871794871795,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Normalized 40-day linear slope of closing price, preserving the original trend-following mechanism while reducing lag relative to the 60-day specification.",
+        "factor_id": "G01-REF-003-CHILD",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "slope",
+              "quantile": null,
+              "value": null,
+              "window": 40
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 39,
+        "name": "Qlib Alpha158 BETA40 Refined",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      },
+      "refinement": {
+        "change_description": "Shorten the slope lookback from 60 to 40 trading days to improve responsiveness while retaining the normalized price-trend mechanism.",
+        "change_type": "window",
+        "child_factor_id": "G01-REF-003-CHILD",
+        "diagnosis": "The 60-day normalized price-trend slope has strong and consistent predictive efficacy, but its lower 5-day rank IC and moderate monthly stability suggest that the long window may respond too slowly to medium-term trend changes.",
+        "expected_metric_effects": {
+          "coverage": "Unchanged after the adjusted 39-day effective lookback is available.",
+          "monthly_stability": "Expected modest improvement or maintenance if the shorter window captures regime changes more promptly.",
+          "rank_ic_10d": "Expected to remain positive with potentially modest improvement from reduced lag.",
+          "rank_ic_20d": "Expected to remain positive, though possibly slightly less stable than the original longer window.",
+          "rank_ic_5d": "Expected improvement from faster adaptation to medium-term price trends."
+        },
+        "generation": 1,
+        "parent_factor_id": "ALPHA158-BETA60",
+        "preserved_core_logic": "The factor remains the linear slope of close over time, normalized by the current close price; only the slope window is changed, with direction, rebalance frequency, portfolio rules, and data requirements preserved.",
+        "task_id": "G01-REF-003"
+      }
+    },
+    "composite_score": 0.8620192307692307,
+    "direction": -1,
+    "factor_id": "G01-REF-003-CHILD",
+    "generation": 1,
+    "metrics": {
+      "composite_score": 0.8620192307692307,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "G01-REF-003-CHILD",
+      "mean_rank_ic_10d": 0.06269667501564552,
+      "mean_rank_ic_20d": 0.07931889794822046,
+      "mean_rank_ic_5d": 0.04211924527218077,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.5454545454545454,
+      "monthly_stability_percentile": 0.10256410256410256,
+      "parent_comparisons": [
+        {
+          "deltas": {
+            "composite_score": -0.049839743589743635,
+            "cross_horizon_consistency": 0.0,
+            "mean_rank_ic_20d": 0.013615874713004975,
+            "monthly_stability": -0.18181818181818188,
+            "rank_icir_20d": 0.08049189807826945
+          },
+          "parent_factor_id": "ALPHA158-BETA60",
+          "relationship": "direct_parent"
+        }
+      ],
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 1.0,
+      "rank_icir_20d": 0.4116353067727119,
+      "rank_icir_percentile": 0.9903846153846154,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [
+      "ALPHA158-BETA60"
+    ],
+    "passed_hard_filters": true,
+    "proposal_type": "refinement"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Rank($close,60)",
+        "factor_id": "ALPHA158-RANK60",
+        "formula": {
+          "args": [
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": 1,
+          "op": "ts_rank",
+          "quantile": null,
+          "value": null,
+          "window": 60
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 RANK60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8576923076923076,
+    "direction": -1,
+    "factor_id": "ALPHA158-RANK60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8576923076923076,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-RANK60",
+      "mean_rank_ic_10d": 0.059017684624628204,
+      "mean_rank_ic_20d": 0.05527558058367328,
+      "mean_rank_ic_5d": 0.04922705497141369,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9038461538461539,
+      "rank_icir_20d": 0.29908324005800885,
+      "rank_icir_percentile": 0.8461538461538461,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Daily close-location factor, attenuated when the close does not exceed the open. The original high-low range positioning mechanism is preserved while adding same-day price-action confirmation.",
+        "factor_id": "G01-REF-008-CHILD",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "constant",
+                              "quantile": null,
+                              "value": 2.0,
+                              "window": null
+                            },
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "multiply",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "high",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "low",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "subtract",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "high",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "low",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "constant",
+                      "quantile": null,
+                      "value": 1e-12,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "add",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "divide",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "open",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "greater_than",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1.0,
+                  "window": null
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 0.5,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "where",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "multiply",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 0,
+        "name": "Qlib Alpha158 KSFT2 with Price-Action Confirmation",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "high",
+          "low",
+          "open"
+        ],
+        "universe_filters": null
+      },
+      "refinement": {
+        "change_description": "Multiply the original close-location signal by a confirmation weight of 1.0 when close exceeds open and 0.5 otherwise, using only same-day OHLC data.",
+        "change_type": "confirmation",
+        "child_factor_id": "G01-REF-008-CHILD",
+        "diagnosis": "The parent captures close location within the daily high-low range and has strong, consistent rank IC, but it can be noisy when the close is weak relative to the open. A lightweight price-action confirmation can reduce exposure to less supportive daily bars without changing the underlying close-location mechanism.",
+        "expected_metric_effects": {
+          "coverage": "Expected to remain unchanged because the confirmation uses available OHLC fields and does not introduce a rolling warm-up period.",
+          "direction": "Preserved; higher values remain better.",
+          "monthly_stability": "Expected to improve modestly by attenuating less-confirmed observations.",
+          "rank_ic": "Expected to improve modestly by filtering weaker daily price-action contexts.",
+          "rank_icir": "Expected to improve through reduced noise and more stable cross-sectional ordering."
+        },
+        "generation": 1,
+        "parent_factor_id": "ALPHA158-KSFT2",
+        "preserved_core_logic": "The core signal remains (2*close-high-low)/(high-low+1e-12), preserving its interpretation as the close location within the daily trading range. The added multiplier only confirms or attenuates the signal based on same-day close-versus-open price action.",
+        "task_id": "G01-REF-008"
+      }
+    },
+    "composite_score": 0.8572115384615386,
+    "direction": -1,
+    "factor_id": "G01-REF-008-CHILD",
+    "generation": 1,
+    "metrics": {
+      "composite_score": 0.8572115384615386,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "G01-REF-008-CHILD",
+      "mean_rank_ic_10d": 0.042521106051500064,
+      "mean_rank_ic_20d": 0.03942193646108595,
+      "mean_rank_ic_5d": 0.04484340642071124,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "parent_comparisons": [
+        {
+          "deltas": {
+            "composite_score": 0.010576923076923261,
+            "cross_horizon_consistency": 0.0,
+            "mean_rank_ic_20d": 0.0009160185207723881,
+            "monthly_stability": 0.0,
+            "rank_icir_20d": 0.015861877155936954
+          },
+          "parent_factor_id": "ALPHA158-KSFT2",
+          "relationship": "direct_parent"
+        }
+      ],
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.7660256410256411,
+      "rank_icir_20d": 0.3348729621722741,
+      "rank_icir_percentile": 0.9134615384615384,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [
+      "ALPHA158-KSFT2"
+    ],
+    "passed_hard_filters": true,
+    "proposal_type": "refinement"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: (Sum(Greater($close-Ref($close,1),0),30)-Sum(Greater(Ref($close,1)-$close,0),30))/(Sum(Abs($close-Ref($close,1)),30)+1e-12)",
+        "factor_id": "ALPHA158-SUMD30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            },
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "lag",
+                              "quantile": null,
+                              "value": null,
+                              "window": 1
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "constant",
+                          "quantile": null,
+                          "value": 0.0,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "elementwise_max",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "sum",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                },
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "lag",
+                              "quantile": null,
+                              "value": null,
+                              "window": 1
+                            },
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "constant",
+                          "quantile": null,
+                          "value": 0.0,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "elementwise_max",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "sum",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "subtract",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            },
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "lag",
+                              "quantile": null,
+                              "value": null,
+                              "window": 1
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "abs",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "sum",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1e-12,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "add",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 30,
+        "name": "Qlib Alpha158 SUMD30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8548076923076924,
+    "direction": -1,
+    "factor_id": "ALPHA158-SUMD30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8548076923076924,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-SUMD30",
+      "mean_rank_ic_10d": 0.052308696082228545,
+      "mean_rank_ic_20d": 0.05890749744423431,
+      "mean_rank_ic_5d": 0.04120997220633429,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9423076923076923,
+      "rank_icir_20d": 0.3464657054607504,
+      "rank_icir_percentile": 0.9423076923076923,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Sum(Greater(Ref($close,1)-$close,0),30)/(Sum(Abs($close-Ref($close,1)),30)+1e-12)",
+        "factor_id": "ALPHA158-SUMN30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "lag",
+                          "quantile": null,
+                          "value": null,
+                          "window": 1
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "constant",
+                      "quantile": null,
+                      "value": 0.0,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "elementwise_max",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "sum",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            },
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "lag",
+                              "quantile": null,
+                              "value": null,
+                              "window": 1
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "abs",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "sum",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1e-12,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "add",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 30,
+        "name": "Qlib Alpha158 SUMN30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8548076923076924,
+    "direction": 1,
+    "factor_id": "ALPHA158-SUMN30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8548076923076924,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-SUMN30",
+      "mean_rank_ic_10d": 0.052308696082228545,
+      "mean_rank_ic_20d": 0.05890749744423431,
+      "mean_rank_ic_5d": 0.04120997220633429,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9423076923076923,
+      "rank_icir_20d": 0.3464657054607504,
+      "rank_icir_percentile": 0.9423076923076923,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Sum(Greater($close-Ref($close,1),0),30)/(Sum(Abs($close-Ref($close,1)),30)+1e-12)",
+        "factor_id": "ALPHA158-SUMP30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "lag",
+                          "quantile": null,
+                          "value": null,
+                          "window": 1
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "constant",
+                      "quantile": null,
+                      "value": 0.0,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "elementwise_max",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "sum",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            },
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "close",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "lag",
+                              "quantile": null,
+                              "value": null,
+                              "window": 1
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "abs",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "sum",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1e-12,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "add",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 30,
+        "name": "Qlib Alpha158 SUMP30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8548076923076924,
+    "direction": -1,
+    "factor_id": "ALPHA158-SUMP30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8548076923076924,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-SUMP30",
+      "mean_rank_ic_10d": 0.052308696082228545,
+      "mean_rank_ic_20d": 0.05890749744423431,
+      "mean_rank_ic_5d": 0.04120997220633429,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9423076923076923,
+      "rank_icir_20d": 0.3464657054607504,
+      "rank_icir_percentile": 0.9423076923076923,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Min($low,30)/$close",
+        "factor_id": "ALPHA158-MIN30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "low",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "rolling_min",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 29,
+        "name": "Qlib Alpha158 MIN30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8516025641025642,
+    "direction": 1,
+    "factor_id": "ALPHA158-MIN30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8516025641025642,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-MIN30",
+      "mean_rank_ic_10d": 0.05571290607883139,
+      "mean_rank_ic_20d": 0.05981376097831474,
+      "mean_rank_ic_5d": 0.03961904654166313,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9551282051282052,
+      "rank_icir_20d": 0.33569669725574325,
+      "rank_icir_percentile": 0.9166666666666666,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: (2*$close-$high-$low)/($high-$low+1e-12)",
+        "factor_id": "ALPHA158-KSFT2",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "constant",
+                          "quantile": null,
+                          "value": 2.0,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "multiply",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "high",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "subtract",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "low",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "subtract",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "high",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "low",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "subtract",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1e-12,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "add",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 0,
+        "name": "Qlib Alpha158 KSFT2",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "high",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8466346153846154,
+    "direction": -1,
+    "factor_id": "ALPHA158-KSFT2",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8466346153846154,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-KSFT2",
+      "mean_rank_ic_10d": 0.04215186026690881,
+      "mean_rank_ic_20d": 0.038505917940313564,
+      "mean_rank_ic_5d": 0.04503534919480793,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.75,
+      "rank_icir_20d": 0.3190110850163371,
+      "rank_icir_percentile": 0.9038461538461539,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: ($close-Min($low,60))/(Max($high,60)-Min($low,60)+1e-12)",
+        "factor_id": "ALPHA158-RSV60",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "low",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "rolling_min",
+                  "quantile": null,
+                  "value": null,
+                  "window": 60
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "subtract",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "high",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": 1,
+                      "op": "rolling_max",
+                      "quantile": null,
+                      "value": null,
+                      "window": 60
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "low",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": 1,
+                      "op": "rolling_min",
+                      "quantile": null,
+                      "value": null,
+                      "window": 60
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "subtract",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1e-12,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "add",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 RSV60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "high",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8387820512820514,
+    "direction": -1,
+    "factor_id": "ALPHA158-RSV60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8387820512820514,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-RSV60",
+      "mean_rank_ic_10d": 0.06433620703656986,
+      "mean_rank_ic_20d": 0.06219694377279129,
+      "mean_rank_ic_5d": 0.05375443135899316,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9615384615384616,
+      "rank_icir_20d": 0.30661628356233045,
+      "rank_icir_percentile": 0.8717948717948718,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: ($close-Min($low,30))/(Max($high,30)-Min($low,30)+1e-12)",
+        "factor_id": "ALPHA158-RSV30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "low",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "rolling_min",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "subtract",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "high",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": 1,
+                      "op": "rolling_max",
+                      "quantile": null,
+                      "value": null,
+                      "window": 30
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "low",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": 1,
+                      "op": "rolling_min",
+                      "quantile": null,
+                      "value": null,
+                      "window": 30
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "subtract",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1e-12,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "add",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 29,
+        "name": "Qlib Alpha158 RSV30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "high",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8355769230769231,
+    "direction": -1,
+    "factor_id": "ALPHA158-RSV30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8355769230769231,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-RSV30",
+      "mean_rank_ic_10d": 0.04764790330781882,
+      "mean_rank_ic_20d": 0.052318385519119166,
+      "mean_rank_ic_5d": 0.04007425378270052,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8846153846153846,
+      "rank_icir_20d": 0.27793210165381843,
+      "rank_icir_percentile": 0.8076923076923077,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Mean($close<Ref($close,1),30)",
+        "factor_id": "ALPHA158-CNTN30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "lag",
+                  "quantile": null,
+                  "value": null,
+                  "window": 1
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "less_than",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": 1,
+          "op": "mean",
+          "quantile": null,
+          "value": null,
+          "window": 30
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 30,
+        "name": "Qlib Alpha158 CNTN30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.833974358974359,
+    "direction": 1,
+    "factor_id": "ALPHA158-CNTN30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.833974358974359,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-CNTN30",
+      "mean_rank_ic_10d": 0.04244094991184679,
+      "mean_rank_ic_20d": 0.04666060661353851,
+      "mean_rank_ic_5d": 0.03792869044698236,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8461538461538461,
+      "rank_icir_20d": 0.3022244668436305,
+      "rank_icir_percentile": 0.8525641025641025,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: (IdxMax($high,30)-IdxMin($low,30))/30",
+        "factor_id": "ALPHA158-IMXD30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "high",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "idx_max",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                },
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "low",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "idx_min",
+                  "quantile": null,
+                  "value": null,
+                  "window": 30
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "subtract",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "constant",
+              "quantile": null,
+              "value": 30.0,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 29,
+        "name": "Qlib Alpha158 IMXD30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "high",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8323717948717949,
+    "direction": -1,
+    "factor_id": "ALPHA158-IMXD30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8323717948717949,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-IMXD30",
+      "mean_rank_ic_10d": 0.03827524025695117,
+      "mean_rank_ic_20d": 0.04723811127558251,
+      "mean_rank_ic_5d": 0.02402871942001978,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8525641025641025,
+      "rank_icir_20d": 0.29771589348322913,
+      "rank_icir_percentile": 0.8397435897435898,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Quantile($close,60,0.8)/$close",
+        "factor_id": "ALPHA158-QTLU60",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "quantile",
+              "quantile": 0.8,
+              "value": null,
+              "window": 60
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 59,
+        "name": "Qlib Alpha158 QTLU60",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8259615384615385,
+    "direction": 1,
+    "factor_id": "ALPHA158-QTLU60",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8259615384615385,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-QTLU60",
+      "mean_rank_ic_10d": 0.059941004366627956,
+      "mean_rank_ic_20d": 0.06396053019771128,
+      "mean_rank_ic_5d": 0.05256816001218587,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.967948717948718,
+      "rank_icir_20d": 0.28280555895932374,
+      "rank_icir_percentile": 0.8269230769230769,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Mean($close>Ref($close,1),5)",
+        "factor_id": "ALPHA158-CNTP5",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "lag",
+                  "quantile": null,
+                  "value": null,
+                  "window": 1
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "greater_than",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": 1,
+          "op": "mean",
+          "quantile": null,
+          "value": null,
+          "window": 5
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 5,
+        "name": "Qlib Alpha158 CNTP5",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8145833333333334,
+    "direction": -1,
+    "factor_id": "ALPHA158-CNTP5",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8145833333333334,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-CNTP5",
+      "mean_rank_ic_10d": 0.0411506794162,
+      "mean_rank_ic_20d": 0.038503979153772704,
+      "mean_rank_ic_5d": 0.04406041321522706,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.7435897435897436,
+      "rank_icir_20d": 0.28111137699657784,
+      "rank_icir_percentile": 0.8205128205128205,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Slope($close,30)/$close",
+        "factor_id": "ALPHA158-BETA30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "slope",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 29,
+        "name": "Qlib Alpha158 BETA30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.8080128205128206,
+    "direction": -1,
+    "factor_id": "ALPHA158-BETA30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.8080128205128206,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-BETA30",
+      "mean_rank_ic_10d": 0.042836630366119,
+      "mean_rank_ic_20d": 0.0566940879149575,
+      "mean_rank_ic_5d": 0.02991958939875199,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.9230769230769231,
+      "rank_icir_20d": 0.28970300592729964,
+      "rank_icir_percentile": 0.8333333333333334,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Min($low,5)/$close",
+        "factor_id": "ALPHA158-MIN5",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "low",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "rolling_min",
+              "quantile": null,
+              "value": null,
+              "window": 5
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 4,
+        "name": "Qlib Alpha158 MIN5",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.805448717948718,
+    "direction": 1,
+    "factor_id": "ALPHA158-MIN5",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.805448717948718,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-MIN5",
+      "mean_rank_ic_10d": 0.051304684498207916,
+      "mean_rank_ic_20d": 0.05341845895579819,
+      "mean_rank_ic_5d": 0.05041445625848707,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8974358974358975,
+      "rank_icir_20d": 0.30274911752969297,
+      "rank_icir_percentile": 0.8589743589743589,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: ($close-Min($low,5))/(Max($high,5)-Min($low,5)+1e-12)",
+        "factor_id": "ALPHA158-RSV5",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "low",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": 1,
+                  "op": "rolling_min",
+                  "quantile": null,
+                  "value": null,
+                  "window": 5
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "subtract",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "high",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": 1,
+                      "op": "rolling_max",
+                      "quantile": null,
+                      "value": null,
+                      "window": 5
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "low",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": 1,
+                      "op": "rolling_min",
+                      "quantile": null,
+                      "value": null,
+                      "window": 5
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "subtract",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "constant",
+                  "quantile": null,
+                  "value": 1e-12,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "add",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 4,
+        "name": "Qlib Alpha158 RSV5",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "high",
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.7913461538461538,
+    "direction": -1,
+    "factor_id": "ALPHA158-RSV5",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.7913461538461538,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-RSV5",
+      "mean_rank_ic_10d": 0.04503846704150619,
+      "mean_rank_ic_20d": 0.0428693356893538,
+      "mean_rank_ic_5d": 0.04518141085439306,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.7272727272727273,
+      "monthly_stability_percentile": 0.6987179487179487,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8012820512820513,
+      "rank_icir_20d": 0.2732061021891109,
+      "rank_icir_percentile": 0.7884615384615384,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: IdxMin($low,30)/30",
+        "factor_id": "ALPHA158-IMIN30",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "low",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "idx_min",
+              "quantile": null,
+              "value": null,
+              "window": 30
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "constant",
+              "quantile": null,
+              "value": 30.0,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 29,
+        "name": "Qlib Alpha158 IMIN30",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "low"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.7903846153846155,
+    "direction": 1,
+    "factor_id": "ALPHA158-IMIN30",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.7903846153846155,
+      "cross_horizon_consistency": 1.0,
+      "direction": 1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-IMIN30",
+      "mean_rank_ic_10d": 0.04600324679691072,
+      "mean_rank_ic_20d": 0.04366163841079242,
+      "mean_rank_ic_5d": 0.027982995713861737,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.6363636363636364,
+      "monthly_stability_percentile": 0.33974358974358976,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.8141025641025641,
+      "rank_icir_20d": 0.33705969006828695,
+      "rank_icir_percentile": 0.9230769230769231,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  },
+  {
+    "artifact": {
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Mean($close>Ref($close,1),5)-Mean($close<Ref($close,1),5)",
+        "factor_id": "ALPHA158-CNTD5",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "lag",
+                      "quantile": null,
+                      "value": null,
+                      "window": 1
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "greater_than",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "mean",
+              "quantile": null,
+              "value": null,
+              "window": 5
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "close",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "lag",
+                      "quantile": null,
+                      "value": null,
+                      "window": 1
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "less_than",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "mean",
+              "quantile": null,
+              "value": null,
+              "window": 5
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "subtract",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 5,
+        "name": "Qlib Alpha158 CNTD5",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close"
+        ],
+        "universe_filters": null
+      }
+    },
+    "composite_score": 0.7844551282051282,
+    "direction": -1,
+    "factor_id": "ALPHA158-CNTD5",
+    "generation": 0,
+    "metrics": {
+      "composite_score": 0.7844551282051282,
+      "cross_horizon_consistency": 1.0,
+      "direction": -1,
+      "eligible_days": 228,
+      "factor_id": "ALPHA158-CNTD5",
+      "mean_rank_ic_10d": 0.03957655934063597,
+      "mean_rank_ic_20d": 0.037059969790758845,
+      "mean_rank_ic_5d": 0.04282001152575104,
+      "median_stock_coverage": 1.0,
+      "monthly_stability": 0.8181818181818182,
+      "monthly_stability_percentile": 0.9519230769230769,
+      "passed_hard_filters": true,
+      "rank_ic_percentile": 0.7115384615384616,
+      "rank_icir_20d": 0.2694020995486706,
+      "rank_icir_percentile": 0.7756410256410257,
+      "rejection_reasons": [],
+      "valid_rank_ic_day_ratio": 1.0,
+      "valid_rank_ic_days": 228
+    },
+    "parent_factor_ids": [],
+    "passed_hard_filters": true,
+    "proposal_type": "seed"
+  }
+]

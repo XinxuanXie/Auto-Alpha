@@ -4,7 +4,7 @@
 
 ## 数据
 
-- 位置：/workspaces/codespaces-blank/factor-data/（factor-agent 的同级目录）
+- 位置：仓库根目录的 `factor-data/`（`factor-agent/` 的同级目录）
 - 内容：panel.parquet、qlib_data/
 
 ## Alpha158 库级模型基线（2026-10-29 确定，已冻结）
@@ -58,9 +58,9 @@ FactorSpec、JSON AST 和支持算子见 `docs/factor_dsl.md`。
 
 ## EvoAlpha 单因子进化改造
 
-下一阶段继续复用 Manager、FactorSpec、DSL、单因子回测和 SQLite Memory，将候选来源改为单父代 Refinement 与双父代 Crossover + Mutation。初始种子来自可由当前数据安全实现的 Alpha101/158，所有选择和种群更新均依据逐因子预测指标，不使用 LightGBM。
+独立的 `evoalpha_workflow/` 已实现单父代 Refinement、双父代 Crossover + Mutation、真实 LLM 生成、训练期逐因子评价、相关性准入和 Top 30 种群更新。当前初始种子为 157 个可由现有数据安全执行的 Alpha158；Alpha101 仍属于后续扩展。所有选择和种群更新均依据逐因子预测指标，不使用 LightGBM。
 
-已确定的数据切分、20 日预测目标、综合评分、相关性规则、固定三代协议、简化决策和待实现清单见 `docs/evoalpha_single_factor_design.md`。
+第 1 代真实运行已完成 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation，结果位于 `results/evoalpha_generation_01_real/`。数据切分、20 日预测目标、综合评分、相关性规则、固定三代协议和后续清单见 `docs/evoalpha_single_factor_design.md`。
 
 ## 外层 Manager Agent
 
@@ -76,6 +76,7 @@ cp .env.example .env
 
 ```text
 OPENAI_API_KEY=你的本地Key
+OPENAI_BASE_URL=学校提供的 OpenAI-compatible endpoint
 OPENAI_MODEL=gpt-5.6-luna
 ```
 

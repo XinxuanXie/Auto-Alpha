@@ -37,17 +37,13 @@ evoalpha_workflow/
 ├── run_crossover_mock.py
 ├── candidate_evaluation.py
 ├── run_candidate_evaluation.py
-│
-│   已实现确定性外层循环、三代协议、真实 Alpha158 Seed Evaluation
-│
-└── 后续模块
-    ├── parent_selection.py
-    ├── refinement.py
-    ├── crossover.py
-    ├── mutation.py
-    ├── population.py
-    └── record.py
+├── llm_client.py
+├── population.py
+└── run_generation_one_real.py
 ```
+
+当前已实现真实 Alpha158 Seed Evaluation、父代选择、真实 LLM
+Refinement/Crossover/Mutation、统一训练期评价、相关性过滤和 Top 30 种群更新。
 
 ## 固定主循环
 
@@ -156,3 +152,24 @@ PYTHONPATH=factor-agent python -m evoalpha_workflow.run_candidate_evaluation
 统一 Candidate Evaluator 对 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation 分别运行 2001 年训练期单因子评价。评分始终复用初始 157 个 Alpha158 建立的固定百分位参考，不根据子代重新拟合评分尺度。
 
 每个候选保存 Mean Rank IC、ICIR、月度稳定性、跨周期一致性、综合分数，以及相对直接父代的指标变化。Mutation 同时保存相对 Crossover intermediate 和两个原始父代的变化。
+
+## 运行真实 LLM 第 1 代
+
+在仓库根目录的 `.env` 配置以下变量：
+
+```text
+OPENAI_API_KEY=...
+OPENAI_BASE_URL=学校提供的 OpenAI-compatible endpoint
+OPENAI_MODEL=学校接口支持的模型名
+```
+
+然后运行：
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=factor-agent \
+python -m evoalpha_workflow.run_generation_one_real --max-attempts 5
+```
+
+运行器按候选保存检查点，可在 API 或校验异常后从已完成任务继续。模型只生成受限 DSL 公式和研究解释；`required_fields` 与 `lookback_days` 由程序根据公式自动推导。所有响应依次通过 Pydantic 结构验证、公式语义检查、训练期单因子评价和相似度过滤。
+
+第 1 代真实运行结果位于 `results/evoalpha_generation_01_real/`。本次 28 个候选均成功执行，10 个通过相似度准入，最终 Top 30 保留 4 个新因子。本结果仅使用 2001 年训练期，尚未使用 2002 年验证/测试数据。

@@ -15,7 +15,9 @@ from .refinement import (
     FormulaRefinementChecker,
     RefinementChangeType,
     _change_first_window,
+    _canonicalize_factor_spec_metadata,
     _formula_depth,
+    _correction_prompt,
 )
 from .state import CandidateProposal, EvaluatedCandidate, ProposalType
 
@@ -80,8 +82,11 @@ class MutationModelClient(Protocol):
 
 
 class CrossoverAgent:
-    def __init__(self, client: CrossoverModelClient) -> None:
+    def __init__(self, client: CrossoverModelClient, max_attempts: int = 1) -> None:
+        if max_attempts < 1:
+            raise ValueError("max_attempts must be at least 1")
         self.client = client
+        self.max_attempts = max_attempts
 
     def propose(
         self,
@@ -99,18 +104,30 @@ class CrossoverAgent:
             spec_a,
             spec_b,
         )
-        proposal = CrossoverProposal.model_validate(
-            self.client.complete(system_prompt, user_prompt)
-        )
-        self._validate_identity(task, proposal)
-        CrossoverFormulaChecker.validate(
-            parent_a,
-            parent_b,
-            spec_a,
-            spec_b,
-            proposal.factor_spec,
-        )
-        return proposal
+        last_error = None
+        for attempt in range(1, self.max_attempts + 1):
+            try:
+                response = _canonicalize_factor_spec_metadata(
+                    self.client.complete(system_prompt, user_prompt)
+                )
+                proposal = CrossoverProposal.model_validate(
+                    response
+                )
+                self._validate_identity(task, proposal)
+                CrossoverFormulaChecker.validate(
+                    parent_a,
+                    parent_b,
+                    spec_a,
+                    spec_b,
+                    proposal.factor_spec,
+                )
+                return proposal
+            except Exception as error:
+                last_error = error
+                if attempt == self.max_attempts:
+                    raise
+                user_prompt = _correction_prompt(user_prompt, error)
+        raise RuntimeError("unreachable crossover retry state") from last_error
 
     @staticmethod
     def build_prompts(
@@ -161,6 +178,7 @@ class CrossoverAgent:
                 "expected_metric_effects",
                 "factor_spec",
             ],
+            "output_schema": CrossoverProposal.model_json_schema(),
         }
         return system_prompt, json.dumps(payload, ensure_ascii=False, sort_keys=True)
 
@@ -189,31 +207,46 @@ class CrossoverAgent:
 
 
 class MutationAgent:
-    def __init__(self, client: MutationModelClient) -> None:
+    def __init__(self, client: MutationModelClient, max_attempts: int = 1) -> None:
+        if max_attempts < 1:
+            raise ValueError("max_attempts must be at least 1")
         self.client = client
+        self.max_attempts = max_attempts
 
     def propose(self, crossover: CrossoverProposal) -> MutationProposal:
         system_prompt, user_prompt = self.build_prompts(crossover)
-        proposal = MutationProposal.model_validate(
-            self.client.complete(system_prompt, user_prompt)
-        )
-        expected_id = f"{crossover.task_id}-MUTATION"
-        if proposal.task_id != crossover.task_id:
-            raise ValueError("mutation response task_id mismatch")
-        if proposal.generation != crossover.generation:
-            raise ValueError("mutation response generation mismatch")
-        if proposal.intermediate_factor_id != crossover.intermediate_factor_id:
-            raise ValueError("mutation response intermediate factor mismatch")
-        if proposal.child_factor_id != expected_id:
-            raise ValueError(f"mutation child_factor_id must equal {expected_id}")
-        if proposal.factor_spec.factor_id != expected_id:
-            raise ValueError("mutation FactorSpec id must equal child_factor_id")
-        FormulaRefinementChecker.validate(
-            crossover.factor_spec,
-            proposal.factor_spec,
-            proposal.mutation_type,
-        )
-        return proposal
+        last_error = None
+        for attempt in range(1, self.max_attempts + 1):
+            try:
+                response = _canonicalize_factor_spec_metadata(
+                    self.client.complete(system_prompt, user_prompt)
+                )
+                proposal = MutationProposal.model_validate(
+                    response
+                )
+                expected_id = f"{crossover.task_id}-MUTATION"
+                if proposal.task_id != crossover.task_id:
+                    raise ValueError("mutation response task_id mismatch")
+                if proposal.generation != crossover.generation:
+                    raise ValueError("mutation response generation mismatch")
+                if proposal.intermediate_factor_id != crossover.intermediate_factor_id:
+                    raise ValueError("mutation response intermediate factor mismatch")
+                if proposal.child_factor_id != expected_id:
+                    raise ValueError(f"mutation child_factor_id must equal {expected_id}")
+                if proposal.factor_spec.factor_id != expected_id:
+                    raise ValueError("mutation FactorSpec id must equal child_factor_id")
+                FormulaRefinementChecker.validate(
+                    crossover.factor_spec,
+                    proposal.factor_spec,
+                    proposal.mutation_type,
+                )
+                return proposal
+            except Exception as error:
+                last_error = error
+                if attempt == self.max_attempts:
+                    raise
+                user_prompt = _correction_prompt(user_prompt, error)
+        raise RuntimeError("unreachable mutation retry state") from last_error
 
     @staticmethod
     def build_prompts(crossover: CrossoverProposal) -> tuple[str, str]:
@@ -232,6 +265,29 @@ class MutationAgent:
                 "allowed_mutation_types": [
                     item.value for item in RefinementChangeType
                 ],
+                "exact_formula_rules": {
+                    "window": (
+                        "Copy the intermediate formula tree exactly and change one window "
+                        "value only; preserve every op, field, value, min_periods, quantile, "
+                        "ddof, argument and all other windows."
+                    ),
+                    "operator": (
+                        "Copy the intermediate formula shape exactly and replace one op with "
+                        "one shape-compatible op only; preserve every other property."
+                    ),
+                    "normalization": (
+                        "Set formula to rank(intermediate formula) or zscore(intermediate "
+                        "formula), with the exact full intermediate formula as its only arg."
+                    ),
+                    "confirmation": (
+                        "Use multiply or where at the root and retain the exact full "
+                        "intermediate formula as a subtree."
+                    ),
+                    "risk_adjustment": (
+                        "Use divide at the root and retain the exact full intermediate "
+                        "formula as a subtree."
+                    ),
+                },
             },
             "required_output_fields": [
                 "task_id",
@@ -244,6 +300,7 @@ class MutationAgent:
                 "expected_metric_effects",
                 "factor_spec",
             ],
+            "output_schema": MutationProposal.model_json_schema(),
         }
         return system_prompt, json.dumps(payload, ensure_ascii=False, sort_keys=True)
 

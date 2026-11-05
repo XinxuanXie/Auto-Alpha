@@ -42,6 +42,26 @@ feature/evoalpha-workflow
 
 ### 2026-11-06
 
+#### 完成真实 LLM 第 1 代端到端运行
+
+- 接入学校 OpenAI-compatible API，并使用环境变量管理 endpoint、模型名和密钥；
+- 真实执行 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation；
+- 增加 JSON response mode、候选级检查点和最多 5 次确定性纠错重试；
+- 将 `required_fields` 与 `lookback_days` 改为由程序从公式和股票池过滤条件自动推导；
+- 为 Mutation 增加五类变异的精确公式结构规则，避免变异类型与公式不一致；
+- 28 个候选均通过 FormulaSpec 编译和 2001 年训练期硬性评价门槛；
+- 相似度准入接纳 10 个候选，其中 8 个 Refinement、1 个 Crossover、1 个 Mutation；
+- 新 Top 30 最终保留 4 个子代，最佳入选子代为 `G01-CROSS-004-MUTATION`，综合分数 `0.9836538462`；
+- 结果保存于 `factor-agent/results/evoalpha_generation_01_real/`，2002 年验证/测试数据仍保持隔离。
+- EvoAlpha、Formula DSL、数据管道和单因子评价相关测试共 53 项通过；当前系统 Python 未安装旧工作流所需的 `langgraph`，旧工作流全套测试需在 `environment-manager.yml` 定义的 Python 3.11 环境执行。
+
+#### 完成相似度准入与 Top 30 种群更新
+
+- Refinement 与直接父代相似度高于 `0.90` 时，只有综合分数提升才可准入；
+- Crossover intermediate 和 Mutation 与当前种群及已接纳子代的最高相似度不得超过 `0.90`；
+- 使用通过准入的子代与原种群合并，并按固定综合分数选出下一代 Top 30；
+- 输出每个候选的准入结论、原因、最相似因子及相似度，保证种群更新可审计。
+
 #### 完成统一 Candidate Evaluator 与 Mock 子代训练期评价
 
 - 统一接收 Refinement、Crossover intermediate 和 Mutation 的 CandidateProposal；
@@ -201,10 +221,11 @@ feature/evoalpha-workflow
 - [x] 完成 Refinement Agent Prompt、结构化输出、确定性检查器和 Mock 验证；
 - [x] 完成 Crossover/Mutation Prompt、结构化输出、方向处理、检查器和 Mock 验证；
 - [x] 完成统一 Candidate Evaluator、固定评分和父子指标增量记录；
-- [ ] 将 Research Agent 改为父代诊断与 Refinement Agent；
-- [ ] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
-- [ ] 保存交叉中间因子并分别回测；
-- [ ] 实现父代配对相关性、Crossover 子代重复过滤和种群更新；
+- [x] 将 Research Agent 改为父代诊断与 Refinement Agent；
+- [x] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
+- [x] 保存交叉中间因子并分别回测；
+- [x] 实现父代配对相关性、Crossover 子代重复过滤和种群更新；
+- [x] 使用真实学校 API 完成第 1 代 28 个候选的生成、回测与种群更新；
 - [ ] 扩展 SQLite 保存 generation、parents、变异类型、父子指标增量和相似度；
 - [ ] 输出每代种群审计报告；
 - [ ] 完成训练、验证 Top 10、最终测试一次的冻结流程。

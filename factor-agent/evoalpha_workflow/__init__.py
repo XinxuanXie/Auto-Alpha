@@ -2,8 +2,10 @@
 
 from .config import EvoAlphaConfig
 from .candidate_evaluation import CandidateEvaluationConfig, TrainingCandidateEvaluator
+from .llm_client import OpenAIJSONClient
 from .crossover import CrossoverAgent, CrossoverProposal, MutationAgent, MutationProposal
 from .parent_selection import ParentSelectionPlan, ParentSelector
+from .population import PopulationUpdateResult, PopulationUpdater
 from .refinement import RefinementAgent, RefinementProposal
 from .seed_evaluation import Alpha158SeedEvaluationConfig, Alpha158SeedEvaluator
 from .similarity import SimilarityConfig, TrainingFactorSimilarityAnalyzer
@@ -15,12 +17,15 @@ __all__ = [
     "EvoAlphaConfig",
     "CandidateEvaluationConfig",
     "TrainingCandidateEvaluator",
+    "OpenAIJSONClient",
     "CrossoverAgent",
     "CrossoverProposal",
     "MutationAgent",
     "MutationProposal",
     "ParentSelectionPlan",
     "ParentSelector",
+    "PopulationUpdateResult",
+    "PopulationUpdater",
     "RefinementAgent",
     "RefinementProposal",
     "Alpha158SeedEvaluationConfig",

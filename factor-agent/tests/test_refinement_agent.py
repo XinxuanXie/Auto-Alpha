@@ -93,6 +93,30 @@ class RefinementAgentTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "exactly one window"):
             RefinementAgent(StaticClient(response)).propose(task, parent)
 
+    def test_derives_factor_metadata_from_generated_formula(self):
+        task = self.plan.refinement_tasks[0]
+        parent = self.population[task.parent_factor_id]
+        response = RuleBasedMockRefinementClient().complete(
+            *RefinementAgent.build_prompts(
+                task,
+                parent,
+                FactorSpec.model_validate(parent.artifact["factor_spec"]),
+            )
+        )
+        response["factor_spec"]["required_fields"] = ["open"]
+        response["factor_spec"]["lookback_days"] = 504
+
+        proposal = RefinementAgent(StaticClient(response)).propose(task, parent)
+
+        self.assertEqual(
+            set(proposal.factor_spec.required_fields),
+            proposal.factor_spec.formula.referenced_fields(),
+        )
+        self.assertEqual(
+            proposal.factor_spec.lookback_days,
+            proposal.factor_spec.formula.required_history(),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
