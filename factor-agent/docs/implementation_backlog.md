@@ -39,6 +39,16 @@ feature/evoalpha-workflow
 
 ## 修改记录
 
+### 2026-11-05：完成初始 Top 30 相关性分析
+
+- 使用 2001 年训练期清洗和市值中性化后的最终因子值；
+- 对每个交易日计算 Top 30 两两横截面 Spearman；
+- 使用日度绝对相关系数的中位数作为配对相似度；
+- 435 个组合中有 390 个满足 `≤0.80` 配对阈值，45 个被排除；
+- 相关性分布中位数为 `0.413430`；
+- 最低相似组合为 `CORR60 × CNTP5`，最高相似组合为 `SUMN30 × SUMP30`；
+- 已输出完整矩阵、逐对记录和机器可读摘要。
+
 ### 2026-11-05：接入真实 Alpha158 Seed Evaluator
 
 - 使用现有 `panel.parquet` 与历史时点成分股区间；
@@ -140,6 +150,7 @@ feature/evoalpha-workflow
 - [x] 建立独立纯 Python EvoAlpha 外层主循环和状态模型；
 - [x] 固定三代候选数量、种群规模、验证 Top 10 和测试一次协议；
 - [x] 为各阶段定义可替换 Tool Protocol；
+- [x] 实现初始 Top 30 训练期相似度矩阵和 `0.80` 父代配对过滤；
 - [ ] 将 Research Agent 改为父代诊断与 Refinement Agent；
 - [ ] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
 - [ ] 保存交叉中间因子并分别回测；

@@ -27,6 +27,8 @@ evoalpha_workflow/
 ├── workflow.py
 ├── seed_evaluation.py
 ├── run_seed_evaluation.py
+├── similarity.py
+├── run_similarity.py
 │
 │   已实现确定性外层循环、三代协议、真实 Alpha158 Seed Evaluation
 │
@@ -77,3 +79,11 @@ PYTHONPATH=factor-agent python -m evoalpha_workflow.run_seed_evaluation
 - 输入为历史时点成分股面板；
 - 评价 157 个非 VWAP Alpha158；
 - 输出逐因子指标、固定评分参考和初始 Top 30。
+
+## 运行 Top 30 相关性分析
+
+```bash
+PYTHONPATH=factor-agent python -m evoalpha_workflow.run_similarity
+```
+
+相关性定义为每日横截面 Spearman 绝对值的训练期中位数。默认将相似度高于 `0.80` 的组合排除出双父代候选池，同时保留有符号相关性用于解释。

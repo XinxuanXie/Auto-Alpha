@@ -52,9 +52,55 @@ Best composite score: 0.9796474359
 - `alpha158_score_reference.json`：后续父代和子代复用的固定百分位评分尺子；
 - `alpha158_top30.json`：初始种群完整记录。
 
+## Top 30 相关性分析
+
+定义：
+
+```text
+Similarity(A, B) = median_t(|Spearman(A_t, B_t)|)
+```
+
+结果：
+
+```text
+因子数量：                    30
+全部组合：                   435
+可用于双父代配对（≤ 0.80）：390
+因高相似度排除（> 0.80）：   45
+相似度中位数：             0.413430
+相似度 25% 分位数：        0.242927
+相似度 75% 分位数：        0.625148
+```
+
+最低相似组合：
+
+```text
+ALPHA158-CORR60 × ALPHA158-CNTP5
+Absolute similarity = 0.047986
+Signed similarity   = 0.006372
+```
+
+最高相似组合：
+
+```text
+ALPHA158-SUMN30 × ALPHA158-SUMP30
+Absolute similarity = 1.000000
+Signed similarity   = -1.000000
+```
+
+主要高重复结构集中在同窗口的 `SUMP/SUMN/SUMD` 与 `CNTP/CNTN/CNTD`。绝对相关会把方向相反但信息完全重复的因子识别为高相似，符合双父代配对应避免重复信息的目标。
+
+相关性输出：
+
+- `top30_pair_similarity.parquet`：435 个因子对的相似度与配对资格；
+- `top30_pair_similarity.json`：可读 JSON 版本；
+- `top30_similarity_matrix.csv`：完整 30×30 绝对相关矩阵；
+- `top30_similarity_summary.json`：数量和阈值摘要。
+
 ## 尚未执行
 
 - Qlib 逐列数值一致性比较；
 - 2002 年上半年 Validation；
 - 2002 年下半年最终 Test；
 - 父代相关性分析、Refinement、Crossover、Mutation 和种群更新。
+- Refinement、Crossover、Mutation 和种群更新。
