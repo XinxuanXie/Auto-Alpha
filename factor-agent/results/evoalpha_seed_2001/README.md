@@ -138,6 +138,21 @@ Crossover 父代组合：
 
 输出文件为 `generation_01_refinement_mock.json`。该文件用于验证 Prompt 输入、结构化输出、FormulaSpec 校验和 CandidateProposal 转换，不属于正式 Agent 研究结果，不进入种群更新。
 
+## Mock Crossover 与 Mutation 接口验证
+
+对第 1 代 8 个双父代任务执行：
+
+```text
+Crossover intermediate： 8
+Mutation child：          8
+单窗口 Mutation：         8
+结构或谱系校验失败：       0
+```
+
+Mock Crossover 先根据训练期方向定向两个父代，再对两个父代分别做横截面 z-score 并等权相加。随后 Mock Mutation 只改变中间因子中的一个滚动窗口。
+
+输出文件为 `generation_01_crossover_mock.json`。其中同时保存 8 个中间因子和 8 个最终变异因子；二者都只是接口验证产物，不进入正式种群更新。
+
 ## 尚未执行
 
 - Qlib 逐列数值一致性比较；

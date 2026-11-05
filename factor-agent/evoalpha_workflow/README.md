@@ -33,6 +33,8 @@ evoalpha_workflow/
 ├── run_parent_selection.py
 ├── refinement.py
 ├── run_refinement_mock.py
+├── crossover.py
+├── run_crossover_mock.py
 │
 │   已实现确定性外层循环、三代协议、真实 Alpha158 Seed Evaluation
 │
@@ -124,3 +126,21 @@ PYTHONPATH=factor-agent python -m evoalpha_workflow.run_refinement_mock
 - 最终转换为标准 `CandidateProposal`。
 
 Mock 子代不进入正式种群。后续真实 API Client 复用相同 Prompt、输出模型和确定性检查器。
+
+## 验证 Crossover 与 Mutation 接口
+
+```bash
+PYTHONPATH=factor-agent python -m evoalpha_workflow.run_crossover_mock
+```
+
+每个 Crossover 任务依次产生：
+
+```text
+两个定向父代
+→ Crossover intermediate
+→ 单步 Mutation
+```
+
+父代训练方向会显式写入公式，方向为 `-1` 时先增加 `negate`。Crossover 检查器要求中间因子完整使用两个定向父代公式，并限制公式深度、数据字段、lookback 和投资组合规则。Mutation 复用单一修改检查器。
+
+Mock Crossover 使用两个定向父代横截面标准化后的等权和；该公式仅用于验证接口，不代表正式的交叉研究策略。

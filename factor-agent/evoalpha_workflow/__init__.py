@@ -1,6 +1,7 @@
 """Independent EvoAlpha workflow built on shared factor infrastructure."""
 
 from .config import EvoAlphaConfig
+from .crossover import CrossoverAgent, CrossoverProposal, MutationAgent, MutationProposal
 from .parent_selection import ParentSelectionPlan, ParentSelector
 from .refinement import RefinementAgent, RefinementProposal
 from .seed_evaluation import Alpha158SeedEvaluationConfig, Alpha158SeedEvaluator
@@ -11,6 +12,10 @@ from .workflow import EvoAlphaWorkflow, EvoAlphaWorkflowError
 
 __all__ = [
     "EvoAlphaConfig",
+    "CrossoverAgent",
+    "CrossoverProposal",
+    "MutationAgent",
+    "MutationProposal",
     "ParentSelectionPlan",
     "ParentSelector",
     "RefinementAgent",

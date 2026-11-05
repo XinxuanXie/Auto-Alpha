@@ -40,6 +40,18 @@ feature/evoalpha-workflow
 
 ## 修改记录
 
+### 2026-11-06
+
+#### 完成 Crossover 与 Mutation 结构化接口及 Mock 验证
+
+- Crossover 输入固定双父代任务、两个父代 FormulaSpec、训练指标、训练方向和相似度；
+- 方向为负的父代先使用 `negate` 定向，再参与公式交叉；
+- Crossover 输出包含互补性分析、融合逻辑、预期指标影响和中间 FactorSpec；
+- 检查器要求中间公式同时保留两个定向父代，并校验公式深度、lookback 和回测规则；
+- Mutation 对中间因子只执行一次可审计修改，并复用 Refinement 单一修改检查器；
+- 使用 Mock Client 生成 8 个中间因子和 8 个 Mutation 子代，全部通过结构与谱系校验；
+- 本次 8 个 Mock Mutation 均为单窗口修改，不进入正式种群。
+
 ### 2026-11-05
 
 #### 完成 Refinement Agent 结构化接口与 Mock 验证
@@ -175,6 +187,7 @@ feature/evoalpha-workflow
 - [x] 实现初始 Top 30 训练期相似度矩阵和 `0.80` 父代配对过滤；
 - [x] 实现固定随机种子的 Refinement 与 Crossover 父代选择器；
 - [x] 完成 Refinement Agent Prompt、结构化输出、确定性检查器和 Mock 验证；
+- [x] 完成 Crossover/Mutation Prompt、结构化输出、方向处理、检查器和 Mock 验证；
 - [ ] 将 Research Agent 改为父代诊断与 Refinement Agent；
 - [ ] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
 - [ ] 保存交叉中间因子并分别回测；

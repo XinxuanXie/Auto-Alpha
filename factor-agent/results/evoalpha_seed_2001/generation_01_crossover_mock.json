@@ -1,0 +1,3590 @@
+{
+  "intermediates": [
+    {
+      "task_id": "G01-CROSS-001",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-001-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-CNTP30",
+        "ALPHA158-CORR60"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-001-INTERMEDIATE",
+        "name": "Crossover ALPHA158-CNTP30 and ALPHA158-CORR60",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "mean",
+                      "field": null,
+                      "value": null,
+                      "window": 30,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "greater_than",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            },
+                            {
+                              "op": "lag",
+                              "field": null,
+                              "value": null,
+                              "window": 1,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "volume"
+        ],
+        "lookback_days": 59,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-002",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-002-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-MIN60",
+        "ALPHA158-CORR60"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-002-INTERMEDIATE",
+        "name": "Crossover ALPHA158-MIN60 and ALPHA158-CORR60",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "divide",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "rolling_min",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "low",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    },
+                    {
+                      "op": "field",
+                      "field": "close",
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "low",
+          "volume"
+        ],
+        "lookback_days": 59,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-003",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-003-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-CNTP30",
+        "ALPHA158-CORR30"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-003-INTERMEDIATE",
+        "name": "Crossover ALPHA158-CNTP30 and ALPHA158-CORR30",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "mean",
+                      "field": null,
+                      "value": null,
+                      "window": 30,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "greater_than",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            },
+                            {
+                              "op": "lag",
+                              "field": null,
+                              "value": null,
+                              "window": 1,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 30,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "volume"
+        ],
+        "lookback_days": 30,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-004",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-004-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-CORR30",
+        "ALPHA158-KSFT2"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-004-INTERMEDIATE",
+        "name": "Crossover ALPHA158-CORR30 and ALPHA158-KSFT2",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 30,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "subtract",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "multiply",
+                                  "field": null,
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "constant",
+                                      "field": null,
+                                      "value": 2.0,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    },
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "field",
+                              "field": "low",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "low",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "constant",
+                              "field": null,
+                              "value": 1e-12,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "high",
+          "low",
+          "volume"
+        ],
+        "lookback_days": 29,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-005",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-005-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-MIN60",
+        "ALPHA158-KSFT2"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-005-INTERMEDIATE",
+        "name": "Crossover ALPHA158-MIN60 and ALPHA158-KSFT2",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "divide",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "rolling_min",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "low",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    },
+                    {
+                      "op": "field",
+                      "field": "close",
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "subtract",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "multiply",
+                                  "field": null,
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "constant",
+                                      "field": null,
+                                      "value": 2.0,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    },
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "field",
+                              "field": "low",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "low",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "constant",
+                              "field": null,
+                              "value": 1e-12,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "high",
+          "low"
+        ],
+        "lookback_days": 59,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-006",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-006-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-BETA60",
+        "ALPHA158-CNTP5"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-006-INTERMEDIATE",
+        "name": "Crossover ALPHA158-BETA60 and ALPHA158-CNTP5",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "slope",
+                          "field": null,
+                          "value": null,
+                          "window": 60,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "mean",
+                      "field": null,
+                      "value": null,
+                      "window": 5,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "greater_than",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            },
+                            {
+                              "op": "lag",
+                              "field": null,
+                              "value": null,
+                              "window": 1,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close"
+        ],
+        "lookback_days": 59,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-007",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-007-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-BETA60",
+        "ALPHA158-CNTD5"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-007-INTERMEDIATE",
+        "name": "Crossover ALPHA158-BETA60 and ALPHA158-CNTD5",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "slope",
+                          "field": null,
+                          "value": null,
+                          "window": 60,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 5,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "greater_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 5,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "less_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close"
+        ],
+        "lookback_days": 59,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-008",
+      "generation": 1,
+      "intermediate_factor_id": "G01-CROSS-008-INTERMEDIATE",
+      "parent_factor_ids": [
+        "ALPHA158-CNTD30",
+        "ALPHA158-MIN5"
+      ],
+      "complementarity_analysis": "The selected parents have strong individual training scores and low absolute cross-sectional similarity, so they may contribute distinct predictive signals.",
+      "integration_logic": "Orient each parent by its training direction, normalize both cross-sectionally, and add them with equal weight.",
+      "expected_metric_effects": {
+        "rank_icir_20d": "improve stability through complementary information",
+        "monthly_stability": "reduce dependence on one parent mechanism"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-008-INTERMEDIATE",
+        "name": "Crossover ALPHA158-CNTD30 and ALPHA158-MIN5",
+        "description": "Mock normalized sum of two oriented parent signals.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 30,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "greater_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 30,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "less_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "divide",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "rolling_min",
+                      "field": null,
+                      "value": null,
+                      "window": 5,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "low",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    },
+                    {
+                      "op": "field",
+                      "field": "close",
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "low"
+        ],
+        "lookback_days": 30,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "task_id": "G01-CROSS-001",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-001-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-001-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-001-MUTATION",
+        "name": "Mutated G01-CROSS-001-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "mean",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "greater_than",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            },
+                            {
+                              "op": "lag",
+                              "field": null,
+                              "value": null,
+                              "window": 1,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "volume"
+        ],
+        "lookback_days": 60,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-002",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-002-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-002-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-002-MUTATION",
+        "name": "Mutated G01-CROSS-002-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "divide",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "rolling_min",
+                      "field": null,
+                      "value": null,
+                      "window": 30,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "low",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    },
+                    {
+                      "op": "field",
+                      "field": "close",
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "low",
+          "volume"
+        ],
+        "lookback_days": 59,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-003",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-003-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-003-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-003-MUTATION",
+        "name": "Mutated G01-CROSS-003-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "mean",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "greater_than",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            },
+                            {
+                              "op": "lag",
+                              "field": null,
+                              "value": null,
+                              "window": 1,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 30,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "volume"
+        ],
+        "lookback_days": 60,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-004",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-004-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-004-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-004-MUTATION",
+        "name": "Mutated G01-CROSS-004-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "correlation",
+                      "field": null,
+                      "value": null,
+                      "window": 60,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        },
+                        {
+                          "op": "log",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "add",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "volume",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "constant",
+                                  "field": null,
+                                  "value": 1.0,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "subtract",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "multiply",
+                                  "field": null,
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "constant",
+                                      "field": null,
+                                      "value": 2.0,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    },
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "field",
+                              "field": "low",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "low",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "constant",
+                              "field": null,
+                              "value": 1e-12,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "high",
+          "low",
+          "volume"
+        ],
+        "lookback_days": 59,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-005",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-005-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-005-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-005-MUTATION",
+        "name": "Mutated G01-CROSS-005-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "divide",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "rolling_min",
+                      "field": null,
+                      "value": null,
+                      "window": 30,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "low",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    },
+                    {
+                      "op": "field",
+                      "field": "close",
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "subtract",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "multiply",
+                                  "field": null,
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "constant",
+                                      "field": null,
+                                      "value": 2.0,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    },
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "field",
+                              "field": "low",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "add",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "subtract",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "high",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "field",
+                                  "field": "low",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            },
+                            {
+                              "op": "constant",
+                              "field": null,
+                              "value": 1e-12,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "high",
+          "low"
+        ],
+        "lookback_days": 29,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-006",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-006-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-006-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-006-MUTATION",
+        "name": "Mutated G01-CROSS-006-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "slope",
+                          "field": null,
+                          "value": null,
+                          "window": 30,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "mean",
+                      "field": null,
+                      "value": null,
+                      "window": 5,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "greater_than",
+                          "field": null,
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            },
+                            {
+                              "op": "lag",
+                              "field": null,
+                              "value": null,
+                              "window": 1,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close"
+        ],
+        "lookback_days": 29,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-007",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-007-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-007-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-007-MUTATION",
+        "name": "Mutated G01-CROSS-007-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "divide",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "slope",
+                          "field": null,
+                          "value": null,
+                          "window": 30,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "field",
+                              "field": "close",
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": []
+                            }
+                          ]
+                        },
+                        {
+                          "op": "field",
+                          "field": "close",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 5,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "greater_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 5,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "less_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close"
+        ],
+        "lookback_days": 29,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    },
+    {
+      "task_id": "G01-CROSS-008",
+      "generation": 1,
+      "child_factor_id": "G01-CROSS-008-MUTATION",
+      "intermediate_factor_id": "G01-CROSS-008-INTERMEDIATE",
+      "diagnosis": "The crossover intermediate combines both parents, while one local parameter can be varied to test whether its horizon is overly rigid.",
+      "mutation_type": "window",
+      "mutation_description": "Change one rolling window in the crossover intermediate.",
+      "expected_metric_effects": {
+        "mean_rank_ic_20d": "retain the combined signal while testing a nearby variant",
+        "rank_icir_20d": "preserve or improve temporal stability"
+      },
+      "factor_spec": {
+        "factor_id": "G01-CROSS-008-MUTATION",
+        "name": "Mutated G01-CROSS-008-INTERMEDIATE",
+        "description": "Mock single-step mutation of crossover intermediate.",
+        "hypothesis_id": null,
+        "formula": {
+          "op": "add",
+          "field": null,
+          "value": null,
+          "window": null,
+          "min_periods": null,
+          "quantile": null,
+          "ddof": null,
+          "args": [
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "negate",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "subtract",
+                      "field": null,
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 60,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "greater_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "op": "mean",
+                          "field": null,
+                          "value": null,
+                          "window": 30,
+                          "min_periods": 1,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": [
+                            {
+                              "op": "less_than",
+                              "field": null,
+                              "value": null,
+                              "window": null,
+                              "min_periods": null,
+                              "quantile": null,
+                              "ddof": null,
+                              "args": [
+                                {
+                                  "op": "field",
+                                  "field": "close",
+                                  "value": null,
+                                  "window": null,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": []
+                                },
+                                {
+                                  "op": "lag",
+                                  "field": null,
+                                  "value": null,
+                                  "window": 1,
+                                  "min_periods": null,
+                                  "quantile": null,
+                                  "ddof": null,
+                                  "args": [
+                                    {
+                                      "op": "field",
+                                      "field": "close",
+                                      "value": null,
+                                      "window": null,
+                                      "min_periods": null,
+                                      "quantile": null,
+                                      "ddof": null,
+                                      "args": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "op": "zscore",
+              "field": null,
+              "value": null,
+              "window": null,
+              "min_periods": null,
+              "quantile": null,
+              "ddof": null,
+              "args": [
+                {
+                  "op": "divide",
+                  "field": null,
+                  "value": null,
+                  "window": null,
+                  "min_periods": null,
+                  "quantile": null,
+                  "ddof": null,
+                  "args": [
+                    {
+                      "op": "rolling_min",
+                      "field": null,
+                      "value": null,
+                      "window": 5,
+                      "min_periods": 1,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": [
+                        {
+                          "op": "field",
+                          "field": "low",
+                          "value": null,
+                          "window": null,
+                          "min_periods": null,
+                          "quantile": null,
+                          "ddof": null,
+                          "args": []
+                        }
+                      ]
+                    },
+                    {
+                      "op": "field",
+                      "field": "close",
+                      "value": null,
+                      "window": null,
+                      "min_periods": null,
+                      "quantile": null,
+                      "ddof": null,
+                      "args": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "required_fields": [
+          "close",
+          "low"
+        ],
+        "lookback_days": 60,
+        "higher_is_better": true,
+        "rebalance_frequency": "weekly",
+        "universe_filters": null,
+        "portfolio_rules": {
+          "top_k": 20,
+          "exit_rank": 30
+        }
+      }
+    }
+  ]
+}
