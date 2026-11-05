@@ -35,11 +35,14 @@ feature/evoalpha-workflow
 2. 架构、接口或运行方式变化时，同步更新对应专题文档；
 3. 简化方案、排除项和临时假设必须进入待完善清单；
 4. 测试失败或尚未验证的内容必须明确标注，不能写成已完成；
-5. Git 提交前核对代码、测试与文档状态一致。
+5. Git 提交前核对代码、测试与文档状态一致；
+6. 修改记录按日期分组，同一天只保留一个 `### YYYY-MM-DD` 标题，各次修改使用四级小节。
 
 ## 修改记录
 
-### 2026-11-05：完成初始 Top 30 相关性分析
+### 2026-11-05
+
+#### 完成初始 Top 30 相关性分析
 
 - 使用 2001 年训练期清洗和市值中性化后的最终因子值；
 - 对每个交易日计算 Top 30 两两横截面 Spearman；
@@ -49,7 +52,7 @@ feature/evoalpha-workflow
 - 最低相似组合为 `CORR60 × CNTP5`，最高相似组合为 `SUMN30 × SUMP30`；
 - 已输出完整矩阵、逐对记录和机器可读摘要。
 
-### 2026-11-05：接入真实 Alpha158 Seed Evaluator
+#### 接入真实 Alpha158 Seed Evaluator
 
 - 使用现有 `panel.parquet` 与历史时点成分股区间；
 - 固定读取 2000 年 warm-up，并仅使用 2001 年训练期选择种子；
@@ -62,7 +65,7 @@ feature/evoalpha-workflow
 - 训练期方向统计为 67 个保持原方向、90 个统一翻转；
 - 结果报告位于 `factor-agent/results/evoalpha_seed_2001/README.md`。
 
-### 2026-11-05：完成 EvoAlpha 确定性主循环骨架
+#### 完成 EvoAlpha 确定性主循环骨架
 
 - 使用纯 Python 建立独立外层循环，不引入新的 LangGraph 状态机；
 - 新增可序列化状态、阶段、候选、谱系、种群快照和事件模型；
@@ -71,18 +74,18 @@ feature/evoalpha-workflow
 - 通过 Tool Protocol 保留后续接入 Agent 和真实评价器的替换接口；
 - 当前使用 Fake Tools 验证完整流程，真实 Alpha158 Seed Evaluator 尚待接入。
 
-### 2026-11-05：建立 EvoAlpha 双重分支隔离
+#### 建立 EvoAlpha 双重分支隔离
 
 - 创建 Git 分支 `feature/evoalpha-workflow`；
 - 新建独立 Python 包 `evoalpha_workflow/`；
 - 撤销 Alpha158 扩展对旧 `agentic_workflow/factor_library.py` 的直接依赖；
 - 旧 Agent Workflow 保留原入口和原内部模块；
-- EvoAlpha 与旧工作流只共享确定性的 `factor_pipeline` 基础设施。
+- EvoAlpha 与旧工作流只共享确定性的 `factor_pipeline` 基础设施；
 - 旧完整架构先保存为 `feature/intuition-hypothesis-pipeline` 的本地基线 commit；
 - EvoAlpha 独立包随后保存为 `feature/evoalpha-workflow` 的本地 commit；
 - 当前阶段只使用本地 Git 历史，不推送 GitHub。
 
-### 2026-11-05：Alpha158 可执行公式扩展
+#### Alpha158 可执行公式扩展
 
 - 扩展 FormulaSpec 与 Polars Compiler，加入 Alpha158 所需滚动、相关性、回归和逐元素算子；
 - 新增 Alpha158 统一公式目录、受限 Parser 和机器可读支持清单；
