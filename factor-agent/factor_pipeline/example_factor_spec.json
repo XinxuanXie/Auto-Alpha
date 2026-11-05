@@ -1,0 +1,43 @@
+{
+  "factor_id": "F-ABNORMAL-VOLUME-REVERSAL",
+  "name": "异常放量短期反转",
+  "description": "近期价格变化与异常成交量共同刻画短期过度反应。",
+  "hypothesis_id": "H-ABNORMAL-VOLUME-REVERSAL",
+  "formula": {
+    "op": "negate",
+    "args": [
+      {
+        "op": "multiply",
+        "args": [
+          {"op": "return", "field": "close", "window": 5},
+          {
+            "op": "zscore",
+            "args": [
+              {
+                "op": "divide",
+                "args": [
+                  {"op": "field", "field": "volume"},
+                  {"op": "mean", "field": "volume", "window": 20}
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "required_fields": ["close", "volume"],
+  "lookback_days": 20,
+  "higher_is_better": true,
+  "rebalance_frequency": "weekly",
+  "universe_filters": {
+    "min_price": 5.0,
+    "min_liquidity_percentile": 0.2,
+    "liquidity_lookback_days": 20,
+    "min_market_cap_percentile": 0.1
+  },
+  "portfolio_rules": {
+    "top_k": 20,
+    "exit_rank": 30
+  }
+}

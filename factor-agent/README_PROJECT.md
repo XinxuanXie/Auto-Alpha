@@ -7,7 +7,9 @@
 - 位置：/workspaces/codespaces-blank/factor-data/（factor-agent 的同级目录）
 - 内容：panel.parquet、qlib_data/
 
-## 基线（2026-10-29 确定，已冻结）
+## Alpha158 库级模型基线（2026-10-29 确定，已冻结）
+
+该基线把 Alpha158 作为一组特征输入 LightGBM，用于确认数据、Qlib 特征和模型链路能够运行。它不是单因子筛选或 EvoAlpha 种群评价口径，不参与初始 Top 30、父子增量比较和种群更新。
 
 - 特征集：Alpha158；可用列：157 列；删除列：VWAP0；数据中无 $vwap
 - 模型：Qlib 基准 LightGBM 参数：learning_rate 0.0421，lambda_l1 205.6999，lambda_l2 580.9768
@@ -23,23 +25,100 @@ MLFLOW_ALLOW_FILE_STORE=true /opt/conda/envs/factor-agent/bin/python backtest/ru
 
 结果写入 results/alpha158_baseline_result.md。
 
+## 独立因子数据与回测管线
+
+`factor_pipeline` 不依赖 Qlib，使用 Polars 懒加载处理 `panel.parquet`，用于验证后续 Agent 生成因子的统一数据与回测接口。
+
+当前固定口径：
+
+- 历史时点 S&P 500 成分股；
+- 5 日收益与 20 日异常成交量反转因子；
+- 横截面 1%/99% 缩尾、标准化和市值中性化；
+- 每周最后一个交易日收盘生成信号；
+- 下一交易日开盘买入 Top 20，等权持有至下一次调仓；
+- 单边换手成本 10 bps；
+- 默认仅运行 2015–2019 验证段。
+
+在 `factor-agent/` 目录执行：
+
+```bash
+conda run -n autoalpha-agent python -m factor_pipeline
+```
+
+默认结果写入 `.runtime/backtests/`。详细设计和字段说明见 `docs/data_backtest_pipeline.md`，当前验证结果见 `results/abnormal_volume_reversal_validation.md`。
+
+运行任意合法 JSON FactorSpec：
+
+```bash
+conda run -n autoalpha-agent python -m factor_pipeline \
+  --factor-spec factor_pipeline/example_factor_spec.json
+```
+
+FactorSpec、JSON AST 和支持算子见 `docs/factor_dsl.md`。
+
+## EvoAlpha 单因子进化改造
+
+下一阶段继续复用 Manager、FactorSpec、DSL、单因子回测和 SQLite Memory，将候选来源改为单父代 Refinement 与双父代 Crossover + Mutation。初始种子来自可由当前数据安全实现的 Alpha101/158，所有选择和种群更新均依据逐因子预测指标，不使用 LightGBM。
+
+已确定的数据切分、20 日预测目标、综合评分、相关性规则、固定三代协议、简化决策和待实现清单见 `docs/evoalpha_single_factor_design.md`。
+
+## 外层 Manager Agent
+
+外层 Manager 使用 OpenAI-compatible Chat Completions API。它在四个候选全部完成实现、回测和评价后读取完整实验依据，返回合法的下一动作、理由、后续指令和置信度；随后 Research Record 持久化完整决策。LangGraph 负责动作白名单、最大迭代次数、Checkpoint 和失败路由。
+
+首次使用：
+
+```bash
+cp .env.example .env
+```
+
+在 `.env` 中填写本地 Key：
+
+```text
+OPENAI_API_KEY=你的本地Key
+OPENAI_MODEL=gpt-5.6-luna
+```
+
+运行：
+
+```bash
+cd factor-agent
+conda run -n autoalpha-agent python -m agentic_workflow \
+  --manager openai \
+  --research-goal "发现具有稳定横截面预测能力的美股因子"
+```
+
+`.env` 已被 Git 忽略。离线测试使用 `--manager rule`。当前 Hypothesis Research、Implementation、Backtest、Evaluation、Manager 与 SQLite Record 均已接入真实实现；Mock Tools 仅用于单元测试。详细说明见 `docs/outer_manager_agent.md`。
+
+四个 Research Agents 每轮执行无需 API Key 的实时检索：优先查询 Crossref 公共学术 API，失败时回退到 `ddgs` 网页元搜索。候选假设保存引用资料的标题、URL 与相关性说明；网页来源用于启发研究，最终假设仍受本地数据字段、历史失败记录和确定性 Checker 约束。
+
+Research Agents 同时检索本地 Factor Knowledge Base。当前目录包含 Alpha101、Qlib Alpha158 和经典学术因子共 279 条，并记录公式、经济逻辑、数据要求和当前实现状态。详细说明见 `docs/factor_knowledge_base.md`。
+
+每个 Specialist 采用两阶段研究流程：`Financial Intuition Agent → Hypothesis Formulation Agent`。第一阶段组合 2–4 个因子组件形成金融机制，第二阶段将其约束为当前数据可验证的五日横截面假设。四个方向均通过 Checker 后分别进入 Implementation、真实回测和 Evaluation，再由 Manager 比较完整结果。详细说明见 `docs/two_stage_research.md`。
+
 ## ALPHA20
 
 ALPHA20：不使用。
 
 ## 评判方法
 
-- 主要评判工具：因子级检验工具（待建设）；指标：因子 IC、ICIR、五分位收益差、换手率
-- LightGBM 回测：用于库级里程碑检查
+- 主要评判工具：真实单因子回测与 Evaluation Agent；现有开放式 Research Workflow 的硬性门槛为 Rank IC > 0.02 且成本后净收益 > 0，同时记录 ICIR、Sharpe、回撤和换手率。EvoAlpha 改造将使用 `docs/evoalpha_single_factor_design.md` 定义的预测能力综合评分。
+- LightGBM 回测：仅用于历史库级里程碑检查，不参与单因子进化
 
 ## 目录
 
 factor-agent/
 - ENV.md
 - README_PROJECT.md
+- factor_pipeline/
 - backtest/run_backtest_alpha158.py
 - data_tools/convert_to_qlib.py
 - data_tools/verify_qlib.py
+- docs/data_backtest_pipeline.md
+- docs/factor_dsl.md
+- docs/evoalpha_single_factor_design.md
+- docs/outer_manager_agent.md
+- results/abnormal_volume_reversal_validation.md
 - results/alpha158_baseline_result.md
 
 同级目录：factor-data/、qlib-src/、rd-agent-log-backup/、mvp-agent-v1-archive-2026-10-29.zip

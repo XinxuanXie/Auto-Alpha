@@ -3,3 +3,8 @@ factor-data/qlib_data/
 factor-agent/library/reference_ranks.parquet
 __pycache__/
 mlruns/
+factor-agent/.runtime/
+.env
+.env.*
+!.env.example
+.DS_Store
