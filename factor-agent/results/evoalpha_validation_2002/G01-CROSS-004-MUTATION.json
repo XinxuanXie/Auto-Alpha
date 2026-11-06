@@ -1,0 +1,340 @@
+{
+  "data_config": {
+    "end_date": "2002-12-31",
+    "exit_buffer_calendar_days": 45,
+    "membership_path": "factor-data/membership_intervals.parquet",
+    "panel_path": "factor-data/panel.parquet",
+    "start_date": "2002-01-01",
+    "warmup_calendar_days": 90
+  },
+  "data_validation": {
+    "max_date": "2026-09-30 00:00:00",
+    "membership_path": "factor-data/membership_intervals.parquet",
+    "min_date": "2000-01-03 00:00:00",
+    "panel_path": "factor-data/panel.parquet",
+    "rows": 5260971,
+    "stocks": 1195
+  },
+  "factor_spec": {
+    "description": "Equal-weighted sum of the directionally oriented ALPHA158-CORR30 volume-price correlation and ALPHA158-KSFT2 close-location signals, using a 40-day correlation window.",
+    "factor_id": "G01-CROSS-004-MUTATION",
+    "formula": {
+      "args": [
+        {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "close",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "volume",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "constant",
+                          "quantile": null,
+                          "value": 1.0,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "add",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "log",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "correlation",
+              "quantile": null,
+              "value": null,
+              "window": 40
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "negate",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": null,
+                              "op": "constant",
+                              "quantile": null,
+                              "value": 2.0,
+                              "window": null
+                            },
+                            {
+                              "args": [],
+                              "ddof": null,
+                              "field": "close",
+                              "min_periods": null,
+                              "op": "field",
+                              "quantile": null,
+                              "value": null,
+                              "window": null
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "multiply",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "high",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "low",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "subtract",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                },
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "high",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "low",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "subtract",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "constant",
+                      "quantile": null,
+                      "value": 1e-12,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "add",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "divide",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "negate",
+          "quantile": null,
+          "value": null,
+          "window": null
+        }
+      ],
+      "ddof": null,
+      "field": null,
+      "min_periods": null,
+      "op": "add",
+      "quantile": null,
+      "value": null,
+      "window": null
+    },
+    "higher_is_better": true,
+    "hypothesis_id": null,
+    "lookback_days": 39,
+    "name": "Oriented Volume-Price and Close-Location Composite",
+    "portfolio_rules": {
+      "exit_rank": 30,
+      "top_k": 20
+    },
+    "rebalance_frequency": "weekly",
+    "required_fields": [
+      "close",
+      "high",
+      "low",
+      "volume"
+    ],
+    "universe_filters": null
+  },
+  "protocol": {
+    "direction_frozen": 1,
+    "formula_frozen": true,
+    "parameter_tuning_performed": false,
+    "period": {
+      "end": "2002-12-31",
+      "start": "2002-01-01"
+    },
+    "score_reference": "factor-agent/results/evoalpha_seed_2001/alpha158_score_reference.json",
+    "selection_performed": false
+  },
+  "top20_weekly_backtest_2002": {
+    "annualized_net_return": -0.016918294471766515,
+    "annualized_net_volatility": 0.3107303350644907,
+    "annualized_rank_icir": 2.3920253840651196,
+    "annualized_sharpe": 0.09692082017070106,
+    "average_positions": 20.0,
+    "average_turnover": 0.839423076923077,
+    "cumulative_gross_return": 0.02702732719657397,
+    "cumulative_net_return": -0.016918294471766515,
+    "end_date": "2002-12-31",
+    "exit_rank": 30,
+    "max_drawdown": -0.3473275212814846,
+    "mean_rank_ic": 0.03421638014527477,
+    "missing_price_positions": 0,
+    "periods": 52,
+    "rank_icir": 0.33171423747916273,
+    "selected_positions": 1040,
+    "start_date": "2002-01-01",
+    "top_k": 20,
+    "transaction_cost_bps": 10.0
+  },
+  "training_metrics_2001": {
+    "composite_score": 0.9836538461538462,
+    "cross_horizon_consistency": 1.0,
+    "mean_rank_ic_10d": 0.06533525453643775,
+    "mean_rank_ic_20d": 0.06469845505703371,
+    "mean_rank_ic_5d": 0.06083657325132426,
+    "monthly_stability": 0.9090909090909091,
+    "rank_icir_20d": 0.5553194152458999
+  },
+  "validation_metrics_2002": {
+    "composite_score": 0.9427884615384615,
+    "cross_horizon_consistency": 1.0,
+    "direction": 1,
+    "eligible_days": 232,
+    "factor_id": "G01-CROSS-004-MUTATION",
+    "mean_rank_ic_10d": 0.051653466853241944,
+    "mean_rank_ic_20d": 0.05623819465400541,
+    "mean_rank_ic_5d": 0.04567495646143763,
+    "median_stock_coverage": 1.0,
+    "monthly_stability": 0.75,
+    "monthly_stability_percentile": 0.9006410256410257,
+    "passed_hard_filters": true,
+    "rank_ic_percentile": 0.9134615384615384,
+    "rank_icir_20d": 0.5479350905286492,
+    "rank_icir_percentile": 0.9903846153846154,
+    "rejection_reasons": [],
+    "valid_rank_ic_day_ratio": 1.0,
+    "valid_rank_ic_days": 232
+  },
+  "validation_minus_training": {
+    "composite_score": -0.04086538461538469,
+    "cross_horizon_consistency": 0.0,
+    "mean_rank_ic_10d": -0.013681787683195806,
+    "mean_rank_ic_20d": -0.008460260403028302,
+    "mean_rank_ic_5d": -0.015161616789886631,
+    "monthly_stability": -0.15909090909090906,
+    "rank_icir_20d": -0.007384324717250701
+  }
+}

@@ -173,3 +173,14 @@ python -m evoalpha_workflow.run_generation_one_real --max-attempts 5
 运行器按候选保存检查点，可在 API 或校验异常后从已完成任务继续。模型只生成受限 DSL 公式和研究解释；`required_fields` 与 `lookback_days` 由程序根据公式自动推导。所有响应依次通过 Pydantic 结构验证、公式语义检查、训练期单因子评价和相似度过滤。
 
 第 1 代真实运行结果位于 `results/evoalpha_generation_01_real/`。本次 28 个候选均成功执行，10 个通过相似度准入，最终 Top 30 保留 4 个新因子。本结果仅使用 2001 年训练期，尚未使用 2002 年验证/测试数据。
+
+## 运行单因子样本外验证
+
+冻结训练期公式和方向，在 2002 年运行预测指标与 Top 20 周频回测：
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=factor-agent \
+python -m evoalpha_workflow.run_single_factor_validation
+```
+
+默认验证 `G01-CROSS-004-MUTATION`，不进行参数调整或候选重选。结果写入 `results/evoalpha_validation_2002/`，包括 JSON 汇总和逐周 Parquet 明细。
