@@ -1,0 +1,12 @@
+{
+  "annual_windows": 27,
+  "data_end": "2026-09-30",
+  "data_start": "2000-01-03",
+  "factor_count": 157,
+  "failures": {},
+  "result_rows": 11932,
+  "rolling_10y_windows": 18,
+  "rolling_20y_windows": 8,
+  "rolling_5y_windows": 23,
+  "window_count_per_factor": 76
+}

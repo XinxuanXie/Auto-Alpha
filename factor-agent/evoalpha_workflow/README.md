@@ -202,3 +202,18 @@ Refinement 与 Mutation 使用 `deepseek-flash`，Crossover 使用高推理强�
 
 真实结果位于 `results/evoalpha_deepseek_2001_2012_3gen/`。该目录中的 README
 记录三代准入、验证 Top 10、指标与公式重复审计结论。
+
+## 运行原始 Alpha158 长期基准
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=factor-agent \
+python -m evoalpha_workflow.run_alpha158_benchmark
+```
+
+默认使用本地全部 2000–2026 数据，对 157 个可执行 Alpha158 输出逐年以及按年滚动的
+5/10/20 年指标。每个因子只计算一次全历史日度 IC 序列和正反两个方向的周频持仓，
+各窗口由这些基础序列聚合，避免重复扫描约 12,000 次完整面板。运行器按因子保存
+checkpoint，并校验标签缓存对应的数据文件身份。
+
+结果位于 `results/alpha158_full_history_benchmark/`，包含完整 Parquet/CSV、四类拆分表、
+逐窗口汇总、逐因子稳定性汇总和运行说明。
