@@ -1,0 +1,7 @@
+{
+  "factor_count": 30,
+  "pair_count": 435,
+  "eligible_pairs": 403,
+  "excluded_pairs": 32,
+  "similarity_limit": 0.8
+}

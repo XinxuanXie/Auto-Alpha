@@ -1,0 +1,3482 @@
+[
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.061944151776607094,
+    "median_signed_spearman": 0.047673790695162775,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.07167506596396335,
+    "median_signed_spearman": -0.04574264697058788,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.07380451921807686,
+    "median_signed_spearman": 0.0616127584510338,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.07652283786860302,
+    "median_signed_spearman": -0.05462412249648998,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.08213466453865814,
+    "median_signed_spearman": 0.07491075704148709,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-009-CHILD",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.08837051460141443,
+    "median_signed_spearman": -0.07364890259561038,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.08880861123444493,
+    "median_signed_spearman": 0.08399851199404797,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-009-CHILD",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.08940122160488642,
+    "median_signed_spearman": 0.0825497815533895,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.10078943410861918,
+    "median_signed_spearman": 0.09741658166632666,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.10651482605930424,
+    "median_signed_spearman": 0.10346236954895699,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.11173574586138255,
+    "median_signed_spearman": 0.10877064308257232,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.1143637066857402,
+    "median_signed_spearman": -0.075062796251185,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.11586756747026987,
+    "median_signed_spearman": -0.11423421693686772,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.12193882375529501,
+    "median_signed_spearman": -0.12078662714650859,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.12535300704515992,
+    "median_signed_spearman": -0.12265988263953055,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.13005172020688083,
+    "median_signed_spearman": 0.1290385321541286,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.13005172020688083,
+    "median_signed_spearman": 0.1290385321541286,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.1321812443900289,
+    "median_signed_spearman": 0.13084036336145344,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.139251053004212,
+    "median_signed_spearman": 0.13797184788739153,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-009-CHILD",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.14751870936081465,
+    "median_signed_spearman": 0.14572504462147925,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.14928215636534575,
+    "median_signed_spearman": -0.14866620363224778,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.1569724276855007,
+    "median_signed_spearman": -0.1567558249028177,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.15709976215069593,
+    "median_signed_spearman": 0.15412439249756998,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.16003247215115932,
+    "median_signed_spearman": -0.1599495997983992,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.1647814911259645,
+    "median_signed_spearman": -0.16441303461676976,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.16825486955061994,
+    "median_signed_spearman": -0.16717155227341987,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.17227201708806833,
+    "median_signed_spearman": 0.17227201708806833,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.17227201708806833,
+    "median_signed_spearman": 0.17227201708806833,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.17349611798447193,
+    "median_signed_spearman": 0.17349611798447193,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.17741024564098257,
+    "median_signed_spearman": -0.17741024564098257,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.18397878391513564,
+    "median_signed_spearman": 0.18376629030279285,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.1895373021492086,
+    "median_signed_spearman": 0.1895373021492086,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.20222637961026854,
+    "median_signed_spearman": -0.20222637961026854,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.20273629894519576,
+    "median_signed_spearman": -0.20273629894519576,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.20980250321001284,
+    "median_signed_spearman": -0.2096994947979792,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.21211332845331382,
+    "median_signed_spearman": -0.21206515647832064,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-MIN20",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.22135106140424562,
+    "median_signed_spearman": -0.22108894218401862,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.22138254953019812,
+    "median_signed_spearman": -0.2213520214080856,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.2279480157920632,
+    "median_signed_spearman": 0.2279480157920632,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.2279480157920632,
+    "median_signed_spearman": 0.2279480157920632,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.22956600626402504,
+    "median_signed_spearman": -0.22953219672234954,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.23102358009432036,
+    "median_signed_spearman": 0.23102358009432036,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.23300080400321602,
+    "median_signed_spearman": -0.23300080400321602,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.23300080400321602,
+    "median_signed_spearman": -0.23300080400321602,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.23522267206477737,
+    "median_signed_spearman": -0.23522267206477737,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.25009547611415184,
+    "median_signed_spearman": 0.25009547611415184,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.25475616292826614,
+    "median_signed_spearman": 0.25475616292826614,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.26660228240912964,
+    "median_signed_spearman": -0.26660228240912964,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.26948123792495166,
+    "median_signed_spearman": -0.26948123792495166,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.2820699987957364,
+    "median_signed_spearman": -0.2820699987957364,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.28285328141015753,
+    "median_signed_spearman": 0.28285328141015753,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.2853657494629978,
+    "median_signed_spearman": 0.2853657494629978,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.2853657494629978,
+    "median_signed_spearman": 0.2853657494629978,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.2923609134436538,
+    "median_signed_spearman": -0.29233154579447007,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.2954952299809199,
+    "median_signed_spearman": -0.2954952299809199,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.2954952299809199,
+    "median_signed_spearman": -0.2954952299809199,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.2978001992007968,
+    "median_signed_spearman": 0.2978001992007968,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.30424057277905897,
+    "median_signed_spearman": 0.30424057277905897,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-009-CHILD",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.30515857939457264,
+    "median_signed_spearman": -0.30515857939457264,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.3064207439419664,
+    "median_signed_spearman": 0.3064207439419664,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.31310995643982575,
+    "median_signed_spearman": -0.31310995643982575,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.3145894183576734,
+    "median_signed_spearman": -0.3145894183576734,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.31544804579218316,
+    "median_signed_spearman": -0.31544804579218316,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.31544804579218316,
+    "median_signed_spearman": -0.31544804579218316,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.3259613358453434,
+    "median_signed_spearman": 0.3259613358453434,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.3345939783759135,
+    "median_signed_spearman": -0.3345939783759135,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.33491337165348656,
+    "median_signed_spearman": -0.3334290137160548,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.34575085500341995,
+    "median_signed_spearman": -0.34575085500341995,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.3478199512798051,
+    "median_signed_spearman": 0.3478199512798051,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.35487333831985785,
+    "median_signed_spearman": 0.35487333831985785,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.35845769962917673,
+    "median_signed_spearman": -0.35845769962917673,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.36513554054216213,
+    "median_signed_spearman": -0.36513554054216213,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.36513554054216213,
+    "median_signed_spearman": -0.36513554054216213,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.36544813420874545,
+    "median_signed_spearman": 0.36544813420874545,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-MUTATION",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.3680453847422994,
+    "median_signed_spearman": -0.3680453847422994,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-005-CHILD",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.3680453847422994,
+    "median_signed_spearman": -0.3680453847422994,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.37637475710480806,
+    "median_signed_spearman": 0.37637475710480806,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.37872641090564363,
+    "median_signed_spearman": 0.37872641090564363,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.37872641090564363,
+    "median_signed_spearman": 0.37872641090564363,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.39435143340573364,
+    "median_signed_spearman": -0.39435143340573364,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.39435143340573364,
+    "median_signed_spearman": -0.39435143340573364,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.3949196596786387,
+    "median_signed_spearman": -0.3949196596786387,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.39532723277881054,
+    "median_signed_spearman": -0.39532723277881054,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.395830745462094,
+    "median_signed_spearman": 0.395830745462094,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.39609758439033754,
+    "median_signed_spearman": 0.39609758439033754,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.39664725483910546,
+    "median_signed_spearman": -0.39664725483910546,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.3979360339716876,
+    "median_signed_spearman": -0.3979360339716876,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.40212900051600203,
+    "median_signed_spearman": -0.40212900051600203,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-MIN30",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.40429188916755665,
+    "median_signed_spearman": -0.40429188916755665,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.40685439348427466,
+    "median_signed_spearman": -0.40685439348427466,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.4074276459250993,
+    "median_signed_spearman": -0.4074276459250993,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.4074276459250993,
+    "median_signed_spearman": -0.4074276459250993,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.41035700142800574,
+    "median_signed_spearman": -0.41035700142800574,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.416252193008772,
+    "median_signed_spearman": -0.416252193008772,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.41769920679682715,
+    "median_signed_spearman": -0.41769920679682715,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.4203135574103316,
+    "median_signed_spearman": 0.4203135574103316,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.4203135574103316,
+    "median_signed_spearman": 0.4203135574103316,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.4225875463501854,
+    "median_signed_spearman": 0.4225875463501854,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.4227945512325818,
+    "median_signed_spearman": 0.4227945512325818,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.4228384913539654,
+    "median_signed_spearman": -0.4228384913539654,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.43066658920558415,
+    "median_signed_spearman": 0.43066658920558415,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.4361833127332509,
+    "median_signed_spearman": -0.4361833127332509,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.4364675698702795,
+    "median_signed_spearman": -0.4364675698702795,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.43771778287113144,
+    "median_signed_spearman": 0.43771778287113144,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.43863506654026607,
+    "median_signed_spearman": 0.43863506654026607,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.4405819543278173,
+    "median_signed_spearman": 0.4405819543278173,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.4417979911919648,
+    "median_signed_spearman": 0.4417979911919648,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.4417979911919648,
+    "median_signed_spearman": 0.4417979911919648,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.44389358357433434,
+    "median_signed_spearman": 0.44389358357433434,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.447313021252085,
+    "median_signed_spearman": 0.447313021252085,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.447313021252085,
+    "median_signed_spearman": 0.447313021252085,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.45416591266365064,
+    "median_signed_spearman": 0.45416591266365064,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G02-CROSS-002-MUTATION",
+    "median_absolute_spearman": 0.4553259841460181,
+    "median_signed_spearman": 0.4553259841460181,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.45614380857523423,
+    "median_signed_spearman": 0.45614380857523423,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.45838540641359726,
+    "median_signed_spearman": -0.45838540641359726,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.4587791151164605,
+    "median_signed_spearman": 0.4587791151164605,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.4592846316106079,
+    "median_signed_spearman": 0.4592846316106079,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.4592846316106079,
+    "median_signed_spearman": 0.4592846316106079,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-MUTATION",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.4601630566522266,
+    "median_signed_spearman": 0.4601630566522266,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-005-CHILD",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.4601630566522266,
+    "median_signed_spearman": 0.4601630566522266,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.46198408793635176,
+    "median_signed_spearman": 0.46198408793635176,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-CROSS-002-INTERMEDIATE",
+    "median_absolute_spearman": 0.4621741444746539,
+    "median_signed_spearman": 0.4621741444746539,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-MUTATION",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.46330495721982884,
+    "median_signed_spearman": 0.46330495721982884,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-005-CHILD",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.46330495721982884,
+    "median_signed_spearman": 0.46330495721982884,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.46547497549361105,
+    "median_signed_spearman": 0.46547497549361105,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.46671546686186743,
+    "median_signed_spearman": -0.46671546686186743,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.4681240804963219,
+    "median_signed_spearman": 0.4681240804963219,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.4681240804963219,
+    "median_signed_spearman": 0.4681240804963219,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.46888344353377415,
+    "median_signed_spearman": 0.46888344353377415,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.46951455005820014,
+    "median_signed_spearman": 0.46951455005820014,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.47155801423205695,
+    "median_signed_spearman": -0.47155801423205695,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.4727755871023484,
+    "median_signed_spearman": 0.4727755871023484,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-MUTATION",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.4728665954663819,
+    "median_signed_spearman": 0.4728665954663819,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-005-CHILD",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.4728665954663819,
+    "median_signed_spearman": 0.4728665954663819,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-MIN20",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.47765839141051364,
+    "median_signed_spearman": -0.47765839141051364,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.47895791583166325,
+    "median_signed_spearman": 0.47895791583166325,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.47895791583166325,
+    "median_signed_spearman": 0.47895791583166325,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.480936523649709,
+    "median_signed_spearman": -0.480936523649709,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.48143856575426297,
+    "median_signed_spearman": -0.48143856575426297,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.48743415610987767,
+    "median_signed_spearman": -0.48743415610987767,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.48801584006336024,
+    "median_signed_spearman": -0.48801584006336024,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.48841299365197455,
+    "median_signed_spearman": -0.48841299365197455,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.49077940311761237,
+    "median_signed_spearman": -0.49077940311761237,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.4953678374713498,
+    "median_signed_spearman": -0.4953678374713498,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.5013911895647581,
+    "median_signed_spearman": 0.5013911895647581,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.5016471361123314,
+    "median_signed_spearman": -0.5016471361123314,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.5030767643070572,
+    "median_signed_spearman": 0.5030767643070572,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.5073779365960838,
+    "median_signed_spearman": -0.5073779365960838,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.5085807543230173,
+    "median_signed_spearman": -0.5085807543230173,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.5085807543230173,
+    "median_signed_spearman": -0.5085807543230173,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.5099178476713907,
+    "median_signed_spearman": 0.5099178476713907,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.511498493993976,
+    "median_signed_spearman": -0.511498493993976,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5127081948327793,
+    "median_signed_spearman": 0.5127081948327793,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.51411685683356,
+    "median_signed_spearman": 0.51411685683356,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.5181573686294745,
+    "median_signed_spearman": 0.5181573686294745,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.5194908139632557,
+    "median_signed_spearman": 0.5194908139632557,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.5226334825339302,
+    "median_signed_spearman": -0.5226334825339302,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.5230858363433454,
+    "median_signed_spearman": -0.5230858363433454,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5245769143076572,
+    "median_signed_spearman": 0.5245769143076572,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.5266385225540903,
+    "median_signed_spearman": -0.5266385225540903,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.5277644445517541,
+    "median_signed_spearman": -0.5277644445517541,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.5285371221484886,
+    "median_signed_spearman": -0.5285371221484886,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-IMXD30",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.5296687325125357,
+    "median_signed_spearman": -0.5296687325125357,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-CROSS-002-INTERMEDIATE",
+    "median_absolute_spearman": 0.5308851771574514,
+    "median_signed_spearman": 0.5308851771574514,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.5310267041612976,
+    "median_signed_spearman": 0.5310267041612976,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.5319520462559512,
+    "median_signed_spearman": -0.5319520462559512,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.5324079536318145,
+    "median_signed_spearman": -0.5324079536318145,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-MIN30",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.5392924291697166,
+    "median_signed_spearman": -0.5392924291697166,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-MIN30",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.5411544526178104,
+    "median_signed_spearman": 0.5411544526178104,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5417837351349405,
+    "median_signed_spearman": 0.5417837351349405,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.5434701552628906,
+    "median_signed_spearman": 0.5434701552628906,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.5434701552628906,
+    "median_signed_spearman": 0.5434701552628906,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.5440878024069875,
+    "median_signed_spearman": -0.5440878024069875,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.5440878024069875,
+    "median_signed_spearman": -0.5440878024069875,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5459075870366192,
+    "median_signed_spearman": -0.5459075870366192,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.5476312145248581,
+    "median_signed_spearman": -0.5476312145248581,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.5518531270653512,
+    "median_signed_spearman": 0.5518531270653512,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.5518531270653512,
+    "median_signed_spearman": 0.5518531270653512,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G02-CROSS-006-INTERMEDIATE",
+    "median_absolute_spearman": 0.5519087996351986,
+    "median_signed_spearman": 0.5519087996351986,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.5524774099096396,
+    "median_signed_spearman": -0.5524774099096396,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.5533370933483733,
+    "median_signed_spearman": -0.5533370933483733,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.5537211908847635,
+    "median_signed_spearman": -0.5537211908847635,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.5547947631790526,
+    "median_signed_spearman": -0.5547947631790526,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5565225780903122,
+    "median_signed_spearman": 0.5565225780903122,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.5566937165833601,
+    "median_signed_spearman": -0.5566937165833601,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.557250741002964,
+    "median_signed_spearman": -0.557250741002964,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.5580354926720912,
+    "median_signed_spearman": -0.5580354926720912,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.5582837051348205,
+    "median_signed_spearman": 0.5582837051348205,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.5588829802985882,
+    "median_signed_spearman": -0.5588829802985882,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.5596054907175451,
+    "median_signed_spearman": 0.5596054907175451,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.5604457794610597,
+    "median_signed_spearman": -0.5604457794610597,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5614937411202267,
+    "median_signed_spearman": -0.5614937411202267,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5614937411202267,
+    "median_signed_spearman": -0.5614937411202267,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.5632896451585806,
+    "median_signed_spearman": 0.5632896451585806,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.5654816219264877,
+    "median_signed_spearman": 0.5654816219264877,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.5688565820144768,
+    "median_signed_spearman": -0.5688565820144768,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-002-INTERMEDIATE",
+    "median_absolute_spearman": 0.5717074686633978,
+    "median_signed_spearman": 0.5717074686633978,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.5737148816096186,
+    "median_signed_spearman": -0.5737148816096186,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.5747181074242631,
+    "median_signed_spearman": 0.5747181074242631,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.575500606002424,
+    "median_signed_spearman": 0.575500606002424,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.5762952011808047,
+    "median_signed_spearman": -0.5762952011808047,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.5767427549710198,
+    "median_signed_spearman": -0.5767427549710198,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.5793212588204099,
+    "median_signed_spearman": -0.5793212588204099,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.5797962189439119,
+    "median_signed_spearman": 0.5797962189439119,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.5797962189439119,
+    "median_signed_spearman": 0.5797962189439119,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-MUTATION",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.583440509762039,
+    "median_signed_spearman": -0.583440509762039,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-005-CHILD",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.583440509762039,
+    "median_signed_spearman": -0.583440509762039,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.5858501194004776,
+    "median_signed_spearman": 0.5858501194004776,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.5871753317423947,
+    "median_signed_spearman": -0.5871753317423947,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.5885049726730542,
+    "median_signed_spearman": -0.5885049726730542,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.5885360181440725,
+    "median_signed_spearman": -0.5885360181440725,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-002-INTERMEDIATE",
+    "median_absolute_spearman": 0.5888762106803292,
+    "median_signed_spearman": 0.5888762106803292,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.5897067428269713,
+    "median_signed_spearman": 0.5897067428269713,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.5897067428269713,
+    "median_signed_spearman": 0.5897067428269713,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.5910714842859371,
+    "median_signed_spearman": -0.5910714842859371,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.5910714842859371,
+    "median_signed_spearman": -0.5910714842859371,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.5914245393053976,
+    "median_signed_spearman": 0.5914245393053976,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.5942387289549158,
+    "median_signed_spearman": -0.5942387289549158,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.5943596867196188,
+    "median_signed_spearman": 0.5943596867196188,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.5954262892952763,
+    "median_signed_spearman": 0.5954262892952763,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.5958643034572138,
+    "median_signed_spearman": 0.5958643034572138,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.5974983259933039,
+    "median_signed_spearman": -0.5974983259933039,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-CROSS-006-INTERMEDIATE",
+    "median_absolute_spearman": 0.5987873231492926,
+    "median_signed_spearman": 0.5987873231492926,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.599254941019764,
+    "median_signed_spearman": -0.599254941019764,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.599254941019764,
+    "median_signed_spearman": -0.599254941019764,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.5994244776979107,
+    "median_signed_spearman": 0.5994244776979107,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.5994244776979107,
+    "median_signed_spearman": 0.5994244776979107,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.6018356148661752,
+    "median_signed_spearman": 0.6018356148661752,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.602542701460714,
+    "median_signed_spearman": -0.602542701460714,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-CROSS-002-MUTATION",
+    "median_absolute_spearman": 0.603439021756087,
+    "median_signed_spearman": 0.603439021756087,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.6064249983180374,
+    "median_signed_spearman": -0.6064249983180374,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.6064249983180374,
+    "median_signed_spearman": -0.6064249983180374,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.6077647990591962,
+    "median_signed_spearman": -0.6077647990591962,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-CROSS-003-INTERMEDIATE",
+    "median_absolute_spearman": 0.6090423721694886,
+    "median_signed_spearman": 0.6090423721694886,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.6094060850012553,
+    "median_signed_spearman": 0.6094060850012553,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.6094060850012553,
+    "median_signed_spearman": 0.6094060850012553,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.6104311137244549,
+    "median_signed_spearman": 0.6104311137244549,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.6112275329101317,
+    "median_signed_spearman": -0.6112275329101317,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.6113247038775159,
+    "median_signed_spearman": 0.6113247038775159,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.6123331349978087,
+    "median_signed_spearman": -0.6123331349978087,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6167740154582261,
+    "median_signed_spearman": -0.6167740154582261,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6167740154582261,
+    "median_signed_spearman": -0.6167740154582261,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RSV10",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.6175958143832575,
+    "median_signed_spearman": -0.6175958143832575,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.6208305473221892,
+    "median_signed_spearman": -0.6208305473221892,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.6208305473221892,
+    "median_signed_spearman": -0.6208305473221892,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.6208305473221892,
+    "median_signed_spearman": -0.6208305473221892,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.6208305473221892,
+    "median_signed_spearman": -0.6208305473221892,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.6218444073776295,
+    "median_signed_spearman": -0.6218444073776295,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6223170172680691,
+    "median_signed_spearman": -0.6223170172680691,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6223170172680691,
+    "median_signed_spearman": -0.6223170172680691,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-MIN20",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.6226423625694503,
+    "median_signed_spearman": -0.6226423625694503,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G02-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.6226989076190187,
+    "median_signed_spearman": 0.6226989076190187,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.6260279121116483,
+    "median_signed_spearman": -0.6260279121116483,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.626455491311179,
+    "median_signed_spearman": -0.626455491311179,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.626455491311179,
+    "median_signed_spearman": -0.626455491311179,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.6298551335478331,
+    "median_signed_spearman": -0.6298551335478331,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.6298551335478331,
+    "median_signed_spearman": -0.6298551335478331,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.6302333049332197,
+    "median_signed_spearman": 0.6302333049332197,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.630325945303781,
+    "median_signed_spearman": 0.630325945303781,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.630325945303781,
+    "median_signed_spearman": 0.630325945303781,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.6305975303901215,
+    "median_signed_spearman": -0.6305975303901215,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.6305975303901215,
+    "median_signed_spearman": -0.6305975303901215,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.6315666542666171,
+    "median_signed_spearman": -0.6315666542666171,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.6330282601130404,
+    "median_signed_spearman": -0.6330282601130404,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.6330282601130404,
+    "median_signed_spearman": -0.6330282601130404,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.6335030136812819,
+    "median_signed_spearman": 0.6335030136812819,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-MIN20",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.6346179304717218,
+    "median_signed_spearman": 0.6346179304717218,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.635195372781491,
+    "median_signed_spearman": 0.635195372781491,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6352918531674127,
+    "median_signed_spearman": 0.6352918531674127,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.6353678155460838,
+    "median_signed_spearman": 0.6353678155460838,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-004-CHILD",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.6365266101064404,
+    "median_signed_spearman": 0.6365266101064404,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.6381669686678747,
+    "median_signed_spearman": 0.6381669686678747,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.6390397950307304,
+    "median_signed_spearman": 0.6390397950307304,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.6394437066904894,
+    "median_signed_spearman": 0.6394437066904894,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.6394437066904894,
+    "median_signed_spearman": 0.6394437066904894,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.6405221460885843,
+    "median_signed_spearman": -0.6405221460885843,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.6405221460885843,
+    "median_signed_spearman": -0.6405221460885843,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6423865466734737,
+    "median_signed_spearman": 0.6423865466734737,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.6429890679562718,
+    "median_signed_spearman": -0.6429890679562718,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.6439211356845427,
+    "median_signed_spearman": -0.6439211356845427,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.6456045024180096,
+    "median_signed_spearman": 0.6456045024180096,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.6470076440305761,
+    "median_signed_spearman": -0.6470076440305761,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.6524178305414108,
+    "median_signed_spearman": -0.6524178305414108,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.6524178305414108,
+    "median_signed_spearman": -0.6524178305414108,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.6556653448419153,
+    "median_signed_spearman": -0.6556653448419153,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.6579106956427826,
+    "median_signed_spearman": 0.6579106956427826,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6588259505067655,
+    "median_signed_spearman": 0.6588259505067655,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.659040200883695,
+    "median_signed_spearman": -0.659040200883695,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.659040200883695,
+    "median_signed_spearman": -0.659040200883695,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.6597471713346077,
+    "median_signed_spearman": -0.6597471713346077,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.6624491137964552,
+    "median_signed_spearman": -0.6624491137964552,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.6627901071604285,
+    "median_signed_spearman": 0.6627901071604285,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.6643857295429182,
+    "median_signed_spearman": 0.6643857295429182,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-MUTATION",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.664667901425117,
+    "median_signed_spearman": -0.664667901425117,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-005-CHILD",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.664667901425117,
+    "median_signed_spearman": -0.664667901425117,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.6649554918219672,
+    "median_signed_spearman": -0.6649554918219672,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-003-INTERMEDIATE",
+    "median_absolute_spearman": 0.66495864017191,
+    "median_signed_spearman": 0.66495864017191,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.6654739898959595,
+    "median_signed_spearman": -0.6654739898959595,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.6654739898959595,
+    "median_signed_spearman": -0.6654739898959595,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G02-CROSS-006-INTERMEDIATE",
+    "median_absolute_spearman": 0.6658535477004472,
+    "median_signed_spearman": 0.6658535477004472,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.6670215160860643,
+    "median_signed_spearman": -0.6670215160860643,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.6670215160860643,
+    "median_signed_spearman": -0.6670215160860643,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.6680872163488654,
+    "median_signed_spearman": 0.6680872163488654,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.6718970875883503,
+    "median_signed_spearman": -0.6718970875883503,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.6736590289011758,
+    "median_signed_spearman": -0.6736590289011758,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.6736659906639626,
+    "median_signed_spearman": -0.6736659906639626,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-MIN20",
+    "median_absolute_spearman": 0.6736659906639626,
+    "median_signed_spearman": -0.6736659906639626,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.6778168552674211,
+    "median_signed_spearman": -0.6778168552674211,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.67963083888381,
+    "median_signed_spearman": -0.67963083888381,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-CROSS-006-INTERMEDIATE",
+    "median_absolute_spearman": 0.6815403261613047,
+    "median_signed_spearman": 0.6815403261613047,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.6826730346921387,
+    "median_signed_spearman": -0.6826730346921387,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-002-INTERMEDIATE",
+    "median_absolute_spearman": 0.6834632138528554,
+    "median_signed_spearman": 0.6834632138528554,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.6837181908727634,
+    "median_signed_spearman": -0.6837181908727634,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.6837181908727634,
+    "median_signed_spearman": -0.6837181908727634,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.6862689517613118,
+    "median_signed_spearman": 0.6862689517613118,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.688060835599036,
+    "median_signed_spearman": -0.688060835599036,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.688996003984016,
+    "median_signed_spearman": -0.688996003984016,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.6901932247728991,
+    "median_signed_spearman": -0.6901932247728991,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.690627818511274,
+    "median_signed_spearman": 0.690627818511274,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.690627818511274,
+    "median_signed_spearman": 0.690627818511274,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-004-INTERMEDIATE",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.6928904515618063,
+    "median_signed_spearman": 0.6928904515618063,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.6941973047892191,
+    "median_signed_spearman": 0.6941973047892191,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.6941973047892191,
+    "median_signed_spearman": 0.6941973047892191,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.6950732122928491,
+    "median_signed_spearman": 0.6950732122928491,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.6951962847851391,
+    "median_signed_spearman": 0.6951962847851391,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.6951962847851391,
+    "median_signed_spearman": 0.6951962847851391,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.6962508008261635,
+    "median_signed_spearman": -0.6962508008261635,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.6962508008261635,
+    "median_signed_spearman": -0.6962508008261635,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.6971410605642422,
+    "median_signed_spearman": -0.6971410605642422,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.6971410605642422,
+    "median_signed_spearman": -0.6971410605642422,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.6990470197600928,
+    "median_signed_spearman": -0.6990470197600928,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.6997579952588442,
+    "median_signed_spearman": -0.6997579952588442,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-006-MUTATION",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.6999936159744639,
+    "median_signed_spearman": -0.6999936159744639,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.7011537274270722,
+    "median_signed_spearman": 0.7011537274270722,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.7044975699902799,
+    "median_signed_spearman": -0.7044975699902799,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.7044975699902799,
+    "median_signed_spearman": -0.7044975699902799,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.7047067548270193,
+    "median_signed_spearman": 0.7047067548270193,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.7065508262033048,
+    "median_signed_spearman": -0.7065508262033048,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.7065508262033048,
+    "median_signed_spearman": -0.7065508262033048,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.7071278148679679,
+    "median_signed_spearman": -0.7071278148679679,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.7084222576890307,
+    "median_signed_spearman": 0.7084222576890307,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-001-CHILD",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.7084222576890307,
+    "median_signed_spearman": 0.7084222576890307,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.7126024024096096,
+    "median_signed_spearman": -0.7126024024096096,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.7141962593151049,
+    "median_signed_spearman": -0.7141962593151049,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.7187155148620594,
+    "median_signed_spearman": -0.7187155148620594,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.7199774399097597,
+    "median_signed_spearman": -0.7199774399097597,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G02-CROSS-006-INTERMEDIATE",
+    "median_absolute_spearman": 0.7200994563978256,
+    "median_signed_spearman": 0.7200994563978256,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.7218473353893415,
+    "median_signed_spearman": -0.7218473353893415,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.722284223982017,
+    "median_signed_spearman": -0.722284223982017,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.7238551834207337,
+    "median_signed_spearman": -0.7238551834207337,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.7248500354001416,
+    "median_signed_spearman": -0.7248500354001416,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.7248500354001416,
+    "median_signed_spearman": -0.7248500354001416,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.7248500354001416,
+    "median_signed_spearman": -0.7248500354001416,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.7248500354001416,
+    "median_signed_spearman": -0.7248500354001416,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.7250803384504573,
+    "median_signed_spearman": 0.7250803384504573,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "G02-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.7256231264925059,
+    "median_signed_spearman": 0.7256231264925059,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.7270819228819083,
+    "median_signed_spearman": -0.7270819228819083,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.7297042516057796,
+    "median_signed_spearman": -0.7297042516057796,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G02-CROSS-004-INTERMEDIATE",
+    "median_absolute_spearman": 0.7306766827067308,
+    "median_signed_spearman": 0.7306766827067308,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.7326326905307621,
+    "median_signed_spearman": 0.7326326905307621,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.7326326905307621,
+    "median_signed_spearman": 0.7326326905307621,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.7327862471931815,
+    "median_signed_spearman": -0.7327862471931815,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.7327862471931815,
+    "median_signed_spearman": -0.7327862471931815,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.7328372673490693,
+    "median_signed_spearman": -0.7328372673490693,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.7328372673490693,
+    "median_signed_spearman": -0.7328372673490693,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G02-CROSS-002-MUTATION",
+    "median_absolute_spearman": 0.7340556082224328,
+    "median_signed_spearman": 0.7340556082224328,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.734072408289633,
+    "median_signed_spearman": -0.734072408289633,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.734072408289633,
+    "median_signed_spearman": -0.734072408289633,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.7348037392149568,
+    "median_signed_spearman": -0.7348037392149568,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.7348037392149568,
+    "median_signed_spearman": -0.7348037392149568,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.7369685478741915,
+    "median_signed_spearman": 0.7369685478741915,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.7387175925376265,
+    "median_signed_spearman": -0.7387175925376265,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.7441403390045156,
+    "median_signed_spearman": -0.7441403390045156,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.7450953969629691,
+    "median_signed_spearman": 0.7450953969629691,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.7453046524404767,
+    "median_signed_spearman": -0.7453046524404767,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-008-INTERMEDIATE",
+    "median_absolute_spearman": 0.7454809621617771,
+    "median_signed_spearman": 0.7454809621617771,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.7459370957483831,
+    "median_signed_spearman": 0.7459370957483831,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.7460246480985924,
+    "median_signed_spearman": -0.7460246480985924,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.7460246480985924,
+    "median_signed_spearman": -0.7460246480985924,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G02-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.7492584523569245,
+    "median_signed_spearman": 0.7492584523569245,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RSV5",
+    "factor_b": "ALPHA158-MIN5",
+    "median_absolute_spearman": 0.7520860163440654,
+    "median_signed_spearman": -0.7520860163440654,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.7542363289453157,
+    "median_signed_spearman": -0.7542363289453157,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.7547729710918842,
+    "median_signed_spearman": 0.7547729710918842,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "ALPHA158-CORD60",
+    "median_absolute_spearman": 0.7569952839811359,
+    "median_signed_spearman": -0.7569952839811359,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-006-INTERMEDIATE",
+    "factor_b": "ALPHA158-IMXD30",
+    "median_absolute_spearman": 0.7574151896607586,
+    "median_signed_spearman": -0.7574151896607586,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-RANK30",
+    "median_absolute_spearman": 0.7679608245707269,
+    "median_signed_spearman": -0.7679608245707269,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.7701704916475715,
+    "median_signed_spearman": 0.7701704916475715,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.7702800170966555,
+    "median_signed_spearman": 0.7702800170966555,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.7718221592886372,
+    "median_signed_spearman": 0.7718221592886372,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.7718406873627494,
+    "median_signed_spearman": 0.7718406873627494,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.7727300349201396,
+    "median_signed_spearman": 0.7727300349201396,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.7728915179757104,
+    "median_signed_spearman": -0.7728915179757104,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-007-INTERMEDIATE",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.7728915179757104,
+    "median_signed_spearman": -0.7728915179757104,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G02-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.7819301357205428,
+    "median_signed_spearman": 0.7819301357205428,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.7846144984579938,
+    "median_signed_spearman": 0.7846144984579938,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.7846144984579938,
+    "median_signed_spearman": 0.7846144984579938,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.7846144984579938,
+    "median_signed_spearman": 0.7846144984579938,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.7846144984579938,
+    "median_signed_spearman": 0.7846144984579938,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.7856077184308736,
+    "median_signed_spearman": 0.7856077184308736,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.7881764967059869,
+    "median_signed_spearman": -0.7881764967059869,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.7881764967059869,
+    "median_signed_spearman": -0.7881764967059869,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-001-MUTATION",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.7881855976507929,
+    "median_signed_spearman": 0.7881855976507929,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.7883516974067896,
+    "median_signed_spearman": -0.7883516974067896,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": true
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G02-REF-004-CHILD",
+    "median_absolute_spearman": 0.8042736490945964,
+    "median_signed_spearman": 0.8042736490945964,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-CORD60",
+    "factor_b": "G01-REF-009-CHILD",
+    "median_absolute_spearman": 0.810374345518658,
+    "median_signed_spearman": 0.810374345518658,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "ALPHA158-RSV5",
+    "median_absolute_spearman": 0.8131141324565297,
+    "median_signed_spearman": 0.8131141324565297,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-CROSS-002-INTERMEDIATE",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.8253817065786505,
+    "median_signed_spearman": 0.8253817065786505,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G01-CROSS-002-INTERMEDIATE",
+    "median_absolute_spearman": 0.8298324073296293,
+    "median_signed_spearman": 0.8298324073296293,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-CROSS-003-INTERMEDIATE",
+    "factor_b": "G01-CROSS-006-MUTATION",
+    "median_absolute_spearman": 0.8453201492805971,
+    "median_signed_spearman": 0.8453201492805971,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RSV5",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.8455343027137626,
+    "median_signed_spearman": 0.8455343027137626,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-CROSS-002-MUTATION",
+    "median_absolute_spearman": 0.8461959083133054,
+    "median_signed_spearman": 0.8461959083133054,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.8467867587986434,
+    "median_signed_spearman": 0.8467867587986434,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.8467867587986434,
+    "median_signed_spearman": 0.8467867587986434,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-CROSS-001-INTERMEDIATE",
+    "factor_b": "G02-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.863487163656943,
+    "median_signed_spearman": 0.863487163656943,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-CROSS-002-INTERMEDIATE",
+    "median_absolute_spearman": 0.8657377029508118,
+    "median_signed_spearman": 0.8657377029508118,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "G01-CROSS-008-MUTATION",
+    "median_absolute_spearman": 0.868507506030024,
+    "median_signed_spearman": 0.868507506030024,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-CROSS-008-INTERMEDIATE",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 0.868507506030024,
+    "median_signed_spearman": 0.868507506030024,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.8728521954087816,
+    "median_signed_spearman": 0.8728521954087816,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.8728521954087816,
+    "median_signed_spearman": 0.8728521954087816,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.88183618871225,
+    "median_signed_spearman": 0.88183618871225,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK10",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.882652633161971,
+    "median_signed_spearman": 0.882652633161971,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-RANK60",
+    "median_absolute_spearman": 0.8837879831519326,
+    "median_signed_spearman": 0.8837879831519326,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 0.8837879831519326,
+    "median_signed_spearman": 0.8837879831519326,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "ALPHA158-RSV10",
+    "median_absolute_spearman": 0.885010932043728,
+    "median_signed_spearman": 0.885010932043728,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-CROSS-007-INTERMEDIATE",
+    "factor_b": "G02-CROSS-007-INTERMEDIATE",
+    "median_absolute_spearman": 0.895241537199738,
+    "median_signed_spearman": 0.895241537199738,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-CROSS-002-MUTATION",
+    "factor_b": "G01-CROSS-001-MUTATION",
+    "median_absolute_spearman": 0.8992160128640515,
+    "median_signed_spearman": 0.8992160128640515,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-MIN20",
+    "factor_b": "ALPHA158-MIN30",
+    "median_absolute_spearman": 0.9024741670327411,
+    "median_signed_spearman": 0.9024741670327411,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-REF-003-CHILD",
+    "factor_b": "ALPHA158-RANK10",
+    "median_absolute_spearman": 0.9393702929781029,
+    "median_signed_spearman": 0.9393702929781029,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "ALPHA158-RANK20",
+    "median_absolute_spearman": 0.9475230220920883,
+    "median_signed_spearman": 0.9475230220920883,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK30",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 0.9475230220920883,
+    "median_signed_spearman": 0.9475230220920883,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.9676616946467784,
+    "median_signed_spearman": 0.9676616946467784,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G02-REF-001-CHILD",
+    "factor_b": "G01-REF-003-CHILD",
+    "median_absolute_spearman": 0.9676616946467784,
+    "median_signed_spearman": 0.9676616946467784,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK20",
+    "factor_b": "G02-REF-001-CHILD",
+    "median_absolute_spearman": 1.0,
+    "median_signed_spearman": 1.0,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "ALPHA158-RANK60",
+    "factor_b": "G01-REF-001-CHILD",
+    "median_absolute_spearman": 1.0,
+    "median_signed_spearman": 1.0,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  },
+  {
+    "factor_a": "G01-CROSS-008-MUTATION",
+    "factor_b": "G02-REF-005-CHILD",
+    "median_absolute_spearman": 1.0,
+    "median_signed_spearman": 1.0,
+    "valid_days": 2515,
+    "eligible_for_parent_pairing": false
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "api_requests_this_invocation": {
+    "crossover": 13,
+    "mutation": 12,
+    "refinement": 19
+  },
+  "api_requests_this_invocation_total": 44,
+  "best_validation_factor_id": "G02-CROSS-006-INTERMEDIATE",
+  "best_validation_score": 1.0,
+  "final_population_size": 30,
+  "generation_summaries": [
+    {
+      "admitted_after_similarity": 14,
+      "best_composite_score": 0.996474358974359,
+      "best_factor_id": "G01-CROSS-003-INTERMEDIATE",
+      "children_in_next_population": 11,
+      "evaluated_candidates": 28,
+      "generation": 1,
+      "passed_hard_filters": 28
+    },
+    {
+      "admitted_after_similarity": 13,
+      "best_composite_score": 1.0,
+      "best_factor_id": "G02-CROSS-001-INTERMEDIATE",
+      "children_in_next_population": 9,
+      "evaluated_candidates": 28,
+      "generation": 2,
+      "passed_hard_filters": 28
+    },
+    {
+      "admitted_after_similarity": 10,
+      "best_composite_score": 1.0,
+      "best_factor_id": "G02-CROSS-001-INTERMEDIATE",
+      "children_in_next_population": 9,
+      "evaluated_candidates": 28,
+      "generation": 3,
+      "passed_hard_filters": 28
+    }
+  ],
+  "generations_completed": 3,
+  "output_dir": "factor-agent/results/evoalpha_deepseek_2001_2012_3gen",
+  "training_period": {
+    "end_date": "2010-12-31",
+    "start_date": "2001-01-01"
+  },
+  "validation_period": {
+    "end_date": "2012-12-31",
+    "start_date": "2011-01-01"
+  },
+  "validation_top10": [
+    "G02-CROSS-006-INTERMEDIATE",
+    "G01-CROSS-007-INTERMEDIATE",
+    "G03-CROSS-008-MUTATION",
+    "G01-CROSS-003-INTERMEDIATE",
+    "G02-CROSS-001-MUTATION",
+    "G03-REF-006-CHILD",
+    "G02-CROSS-007-INTERMEDIATE",
+    "G03-REF-012-CHILD",
+    "G01-CROSS-006-MUTATION",
+    "G02-CROSS-001-INTERMEDIATE"
+  ],
+  "validation_valid_candidates": 30
+}

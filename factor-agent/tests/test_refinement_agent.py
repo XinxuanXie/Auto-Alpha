@@ -6,6 +6,7 @@ from evoalpha_workflow.parent_selection import ParentSelectionPlan
 from evoalpha_workflow.refinement import (
     RefinementAgent,
     RuleBasedMockRefinementClient,
+    _same_shape_differences,
 )
 from evoalpha_workflow.state import EvaluatedCandidate
 from factor_pipeline.spec import FactorSpec
@@ -76,7 +77,7 @@ class RefinementAgentTests(unittest.TestCase):
         self.assertIn("parent_training_metrics", payload)
         self.assertTrue(payload["constraints"]["one_primary_change_only"])
 
-    def test_rejects_response_with_more_than_one_window_change(self):
+    def test_canonicalizes_response_with_more_than_one_window_change(self):
         task = self.plan.refinement_tasks[0]
         parent = self.population[task.parent_factor_id]
         response = RuleBasedMockRefinementClient().complete(
@@ -90,8 +91,37 @@ class RefinementAgentTests(unittest.TestCase):
         formula["args"][0]["args"][1]["window"] = 2
         response["factor_spec"]["lookback_days"] = 61
 
-        with self.assertRaisesRegex(ValueError, "exactly one window"):
-            RefinementAgent(StaticClient(response)).propose(task, parent)
+        proposal = RefinementAgent(StaticClient(response)).propose(task, parent)
+
+        parent_spec = FactorSpec.model_validate(parent.artifact["factor_spec"])
+        self.assertEqual(
+            _same_shape_differences(parent_spec.formula, proposal.factor_spec.formula),
+            ["window"],
+        )
+
+    def test_window_refinement_discards_unrelated_formula_changes(self):
+        task = self.plan.refinement_tasks[0]
+        parent = self.population[task.parent_factor_id]
+        response = RuleBasedMockRefinementClient().complete(
+            *RefinementAgent.build_prompts(
+                task,
+                parent,
+                FactorSpec.model_validate(parent.artifact["factor_spec"]),
+            )
+        )
+        formula = response["factor_spec"]["formula"]
+        changed_node = formula
+        while changed_node.get("window") is None:
+            changed_node = changed_node["args"][0]
+        changed_node["op"] = "mean" if changed_node["op"] != "mean" else "std"
+
+        proposal = RefinementAgent(StaticClient(response)).propose(task, parent)
+
+        parent_spec = FactorSpec.model_validate(parent.artifact["factor_spec"])
+        self.assertEqual(
+            _same_shape_differences(parent_spec.formula, proposal.factor_spec.formula),
+            ["window"],
+        )
 
     def test_derives_factor_metadata_from_generated_formula(self):
         task = self.plan.refinement_tasks[0]

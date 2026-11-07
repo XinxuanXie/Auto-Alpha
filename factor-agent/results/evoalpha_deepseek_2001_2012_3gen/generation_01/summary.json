@@ -1,0 +1,9 @@
+{
+  "admitted_after_similarity": 14,
+  "best_composite_score": 0.996474358974359,
+  "best_factor_id": "G01-CROSS-003-INTERMEDIATE",
+  "children_in_next_population": 11,
+  "evaluated_candidates": 28,
+  "generation": 1,
+  "passed_hard_filters": 28
+}

@@ -1,4 +1,4 @@
-"""OpenAI-compatible JSON client for the HKUST GenAI endpoint."""
+"""JSON client for OpenAI-compatible model providers."""
 
 from __future__ import annotations
 
@@ -15,29 +15,58 @@ class OpenAIJSONClient:
         client: Any | None = None,
         temperature: float | None = None,
         json_mode: bool = True,
+        api_key_env: str = "OPENAI_API_KEY",
+        base_url_env: str = "OPENAI_BASE_URL",
+        default_base_url: str = "https://hkust.azure-api.net/hkust-genai/v1",
+        reasoning_effort: str | None = None,
+        max_tokens: int | None = None,
+        send_api_key_header: bool = True,
     ) -> None:
         self.model = model or os.getenv("OPENAI_MODEL", "gpt-5.6-luna")
         self.temperature = temperature
         self.json_mode = json_mode
+        self.reasoning_effort = reasoning_effort
+        self.max_tokens = max_tokens
+        self.request_count = 0
         if client is None:
-            api_key = os.getenv("OPENAI_API_KEY")
+            api_key = os.getenv(api_key_env)
             if not api_key:
-                raise ValueError("OPENAI_API_KEY is required")
+                raise ValueError(f"{api_key_env} is required")
             from openai import OpenAI
 
+            client_arguments = {
+                "api_key": api_key,
+                "base_url": os.getenv(base_url_env, default_base_url),
+                "timeout": 180.0,
+                "max_retries": 2,
+            }
+            if send_api_key_header:
+                client_arguments["default_headers"] = {"api-key": api_key}
             client = OpenAI(
-                api_key=api_key,
-                base_url=os.getenv(
-                    "OPENAI_BASE_URL",
-                    "https://hkust.azure-api.net/hkust-genai/v1",
-                ),
-                default_headers={"api-key": api_key},
-                timeout=120.0,
-                max_retries=2,
+                **client_arguments,
             )
         self.client = client
 
+    @classmethod
+    def deepseek(
+        cls,
+        model: str,
+        *,
+        reasoning_effort: str,
+        max_tokens: int = 16_384,
+    ) -> "OpenAIJSONClient":
+        return cls(
+            model=model,
+            api_key_env="DEEPSEEK_API_KEY",
+            base_url_env="DEEPSEEK_BASE_URL",
+            default_base_url="https://api.deepseek.com",
+            reasoning_effort=reasoning_effort,
+            max_tokens=max_tokens,
+            send_api_key_header=False,
+        )
+
     def complete(self, system_prompt: str, user_prompt: str) -> dict[str, Any]:
+        self.request_count += 1
         request = {
             "model": self.model,
             "messages": [
@@ -49,6 +78,10 @@ class OpenAIJSONClient:
             request["temperature"] = self.temperature
         if self.json_mode:
             request["response_format"] = {"type": "json_object"}
+        if self.reasoning_effort is not None:
+            request["reasoning_effort"] = self.reasoning_effort
+        if self.max_tokens is not None:
+            request["max_tokens"] = self.max_tokens
         response = self.client.chat.completions.create(
             **request,
         )

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from collections.abc import Sequence
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -63,6 +64,22 @@ class PopulationUpdater:
                         admitted=False,
                         reason="failed_hard_filters_or_missing_score",
                         composite_score=candidate.composite_score,
+                    )
+                )
+                continue
+            duplicate = _find_exact_formula_duplicate(
+                candidate,
+                [*current_population, *accepted_offspring],
+            )
+            if duplicate is not None:
+                decisions.append(
+                    CandidateAdmissionDecision(
+                        factor_id=candidate.factor_id,
+                        admitted=False,
+                        reason="exact_formula_duplicate",
+                        composite_score=candidate.composite_score,
+                        most_similar_factor_id=duplicate.factor_id,
+                        maximum_similarity=1.0,
                     )
                 )
                 continue
@@ -207,3 +224,31 @@ def _required_similarity(
         return lookup[key]
     except KeyError as error:
         raise ValueError(f"missing similarity for {left} and {right}") from error
+
+
+def _find_exact_formula_duplicate(
+    candidate: EvaluatedCandidate,
+    references: Sequence[EvaluatedCandidate],
+) -> EvaluatedCandidate | None:
+    fingerprint = _formula_fingerprint(candidate)
+    if fingerprint is None:
+        return None
+    return next(
+        (
+            reference
+            for reference in references
+            if _formula_fingerprint(reference) == fingerprint
+        ),
+        None,
+    )
+
+
+def _formula_fingerprint(candidate: EvaluatedCandidate) -> str | None:
+    factor_spec = candidate.artifact.get("factor_spec")
+    if not isinstance(factor_spec, dict) or "formula" not in factor_spec:
+        return None
+    return json.dumps(
+        factor_spec["formula"],
+        sort_keys=True,
+        separators=(",", ":"),
+    )

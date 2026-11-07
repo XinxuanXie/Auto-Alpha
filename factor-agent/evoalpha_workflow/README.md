@@ -39,7 +39,8 @@ evoalpha_workflow/
 ├── run_candidate_evaluation.py
 ├── llm_client.py
 ├── population.py
-└── run_generation_one_real.py
+├── run_generation_one_real.py
+└── run_three_generation_deepseek.py
 ```
 
 当前已实现真实 Alpha158 Seed Evaluation、父代选择、真实 LLM
@@ -184,3 +185,20 @@ python -m evoalpha_workflow.run_single_factor_validation
 ```
 
 默认验证 `G01-CROSS-004-MUTATION`，不进行参数调整或候选重选。结果写入 `results/evoalpha_validation_2002/`，包括 JSON 汇总和逐周 Parquet 明细。
+
+## 使用 DeepSeek 运行三代真实流程
+
+在仓库根目录的 `.env` 配置 `DEEPSEEK_API_KEY` 后执行：
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=factor-agent \
+python -m evoalpha_workflow.run_three_generation_deepseek
+```
+
+默认协议固定为 2001–2010 训练、2011–2012 冻结验证、三代各 28 个候选。
+Refinement 与 Mutation 使用 `deepseek-flash`，Crossover 使用高推理强度的
+`deepseek-v4-pro`。运行器逐任务、逐阶段保存 checkpoint，恢复时复用已完成的
+种子评价、Agent 输出、候选回测、相关性和种群结果。
+
+真实结果位于 `results/evoalpha_deepseek_2001_2012_3gen/`。该目录中的 README
+记录三代准入、验证 Top 10、指标与公式重复审计结论。

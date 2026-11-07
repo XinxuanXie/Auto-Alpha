@@ -1,0 +1,192 @@
+{
+  "crossover_tasks": [
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.16003247215115932,
+      "parent_composite_scores": [
+        0.996474358974359,
+        0.9870192307692307
+      ],
+      "parent_factor_ids": [
+        "G01-CROSS-007-INTERMEDIATE",
+        "ALPHA158-CORD60"
+      ],
+      "selection_priority": 0.9462130147649085,
+      "task_id": "G02-CROSS-001"
+    },
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.10078943410861918,
+      "parent_composite_scores": [
+        0.9870192307692307,
+        0.9389423076923078
+      ],
+      "parent_factor_ids": [
+        "ALPHA158-CORD60",
+        "ALPHA158-RANK10"
+      ],
+      "selection_priority": 0.9438497082289526,
+      "task_id": "G02-CROSS-002"
+    },
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.06908082032328129,
+      "parent_composite_scores": [
+        0.936698717948718,
+        0.8762820512820514
+      ],
+      "parent_factor_ids": [
+        "ALPHA158-IMXD30",
+        "ALPHA158-KSFT2"
+      ],
+      "selection_priority": 0.9138190231337848,
+      "task_id": "G02-CROSS-003"
+    },
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.05149143796575186,
+      "parent_composite_scores": [
+        0.9190705128205128,
+        0.8762820512820514
+      ],
+      "parent_factor_ids": [
+        "G01-REF-009-CHILD",
+        "ALPHA158-KSFT2"
+      ],
+      "selection_priority": 0.9129259660461718,
+      "task_id": "G02-CROSS-004"
+    },
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.1321812443900289,
+      "parent_composite_scores": [
+        0.9389423076923078,
+        0.9190705128205128
+      ],
+      "parent_factor_ids": [
+        "ALPHA158-RANK10",
+        "G01-REF-009-CHILD"
+      ],
+      "selection_priority": 0.9106501138624785,
+      "task_id": "G02-CROSS-005"
+    },
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.1143637066857402,
+      "parent_composite_scores": [
+        0.936698717948718,
+        0.8961538461538463
+      ],
+      "parent_factor_ids": [
+        "ALPHA158-IMXD30",
+        "ALPHA158-MIN5"
+      ],
+      "selection_priority": 0.9071892854301753,
+      "task_id": "G02-CROSS-006"
+    },
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.1280057661636609,
+      "parent_composite_scores": [
+        0.9570512820512821,
+        0.8391025641025641
+      ],
+      "parent_factor_ids": [
+        "ALPHA158-RANK60",
+        "ALPHA158-LOW0"
+      ],
+      "selection_priority": 0.8902521163047479,
+      "task_id": "G02-CROSS-007"
+    },
+    {
+      "generation": 2,
+      "median_absolute_spearman": 0.1280057661636609,
+      "parent_composite_scores": [
+        0.9570512820512821,
+        0.8391025641025641
+      ],
+      "parent_factor_ids": [
+        "G01-REF-001-CHILD",
+        "ALPHA158-LOW0"
+      ],
+      "selection_priority": 0.8902521163047479,
+      "task_id": "G02-CROSS-008"
+    }
+  ],
+  "generation": 2,
+  "random_seed": 44,
+  "refinement_tasks": [
+    {
+      "generation": 2,
+      "parent_composite_score": 0.95,
+      "parent_factor_id": "G01-REF-003-CHILD",
+      "task_id": "G02-REF-001"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.9201923076923078,
+      "parent_factor_id": "ALPHA158-MIN20",
+      "task_id": "G02-REF-002"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.86875,
+      "parent_factor_id": "ALPHA158-QTLD60",
+      "task_id": "G02-REF-003"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.9870192307692307,
+      "parent_factor_id": "ALPHA158-CORD60",
+      "task_id": "G02-REF-004"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.9791666666666667,
+      "parent_factor_id": "G01-CROSS-008-INTERMEDIATE",
+      "task_id": "G02-REF-005"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.996474358974359,
+      "parent_factor_id": "G01-CROSS-003-INTERMEDIATE",
+      "task_id": "G02-REF-006"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.9945512820512821,
+      "parent_factor_id": "G01-CROSS-001-MUTATION",
+      "task_id": "G02-REF-007"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.996474358974359,
+      "parent_factor_id": "G01-CROSS-007-INTERMEDIATE",
+      "task_id": "G02-REF-008"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.957852564102564,
+      "parent_factor_id": "ALPHA158-RANK20",
+      "task_id": "G02-REF-009"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.898076923076923,
+      "parent_factor_id": "ALPHA158-RSV5",
+      "task_id": "G02-REF-010"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.83125,
+      "parent_factor_id": "G01-REF-012-CHILD",
+      "task_id": "G02-REF-011"
+    },
+    {
+      "generation": 2,
+      "parent_composite_score": 0.8857371794871796,
+      "parent_factor_id": "ALPHA158-MIN60",
+      "task_id": "G02-REF-012"
+    }
+  ]
+}

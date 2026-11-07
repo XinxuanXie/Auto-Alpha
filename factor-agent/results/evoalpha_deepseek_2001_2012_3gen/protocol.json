@@ -1,0 +1,23 @@
+{
+  "generations": 3,
+  "models": {
+    "crossover": "deepseek-v4-pro",
+    "mutation": "deepseek-flash",
+    "refinement": "deepseek-flash"
+  },
+  "offspring_per_generation": 28,
+  "reasoning_effort": {
+    "crossover": "high",
+    "mutation": "none",
+    "refinement": "none"
+  },
+  "training_period": {
+    "end_date": "2010-12-31",
+    "start_date": "2001-01-01"
+  },
+  "validation_period": {
+    "end_date": "2012-12-31",
+    "start_date": "2011-01-01"
+  },
+  "warmup_period": "2000 calendar year available before training"
+}

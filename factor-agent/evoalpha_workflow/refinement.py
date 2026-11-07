@@ -81,8 +81,18 @@ class RefinementAgent:
                 response = _canonicalize_factor_spec_metadata(
                     self.client.complete(system_prompt, user_prompt)
                 )
+                response = _canonicalize_refinement_identity(response, task, parent)
                 proposal = RefinementProposal.model_validate(
                     response
+                )
+                proposal = proposal.model_copy(
+                    update={
+                        "factor_spec": _canonicalize_single_window_edit(
+                            parent_spec,
+                            proposal.factor_spec,
+                            proposal.change_type,
+                        )
+                    }
                 )
                 self._validate_identity(task, parent, proposal)
                 FormulaRefinementChecker.validate(
@@ -118,12 +128,36 @@ class RefinementAgent:
             "parent_training_metrics": parent.metrics,
             "allowed_change_types": [item.value for item in RefinementChangeType],
             "available_operators": operators,
+            "dsl_grammar": _dsl_grammar(),
             "constraints": {
                 "one_primary_change_only": True,
                 "maximum_formula_depth_increase": 2,
                 "preserve_direction_flag": parent_spec.higher_is_better,
                 "preserve_rebalance_and_portfolio_rules": True,
                 "child_factor_id": f"{task.task_id}-CHILD",
+                "exact_formula_rules": {
+                    "window": (
+                        "Copy the parent formula tree exactly and change one window value "
+                        "only; preserve every op, field, constant value, min_periods, "
+                        "quantile, ddof, argument and all other windows."
+                    ),
+                    "operator": (
+                        "Copy the parent formula shape exactly and replace one op with one "
+                        "shape-compatible op only; preserve every other property."
+                    ),
+                    "normalization": (
+                        "Set formula to rank(parent formula) or zscore(parent formula), with "
+                        "the exact full parent formula as its only argument."
+                    ),
+                    "confirmation": (
+                        "Use multiply or where at the root and retain the exact full parent "
+                        "formula as a subtree."
+                    ),
+                    "risk_adjustment": (
+                        "Use divide at the root and retain the exact full parent formula as "
+                        "a subtree."
+                    ),
+                },
             },
             "required_output_fields": [
                 "task_id",
@@ -237,6 +271,113 @@ def _canonicalize_factor_spec_metadata(response: dict[str, Any]) -> dict[str, An
     )
     factor_spec["lookback_days"] = required_history
     return normalized
+
+
+def _canonicalize_refinement_identity(
+    response: dict[str, Any],
+    task: RefinementTask,
+    parent: EvaluatedCandidate,
+) -> dict[str, Any]:
+    normalized = copy.deepcopy(response)
+    child_id = f"{task.task_id}-CHILD"
+    normalized["task_id"] = task.task_id
+    normalized["generation"] = task.generation
+    normalized["child_factor_id"] = child_id
+    normalized["parent_factor_id"] = parent.factor_id
+    factor_spec = normalized.get("factor_spec")
+    if isinstance(factor_spec, dict):
+        factor_spec["factor_id"] = child_id
+    return normalized
+
+
+def _canonicalize_single_window_edit(
+    parent: FactorSpec,
+    child: FactorSpec,
+    change_type: RefinementChangeType,
+) -> FactorSpec:
+    if change_type != RefinementChangeType.WINDOW:
+        return child
+    formula = parent.formula.model_copy(deep=True)
+    proposed_window = None
+
+    def find_first_proposed_window(
+        parent_node: FormulaNode,
+        child_node: FormulaNode,
+    ) -> None:
+        nonlocal proposed_window
+        if (
+            proposed_window is None
+            and parent_node.window is not None
+            and child_node.window is not None
+            and parent_node.window != child_node.window
+        ):
+            proposed_window = child_node.window
+            return
+        for parent_arg, child_arg in zip(
+            parent_node.args,
+            child_node.args,
+            strict=False,
+        ):
+            find_first_proposed_window(parent_arg, child_arg)
+
+    find_first_proposed_window(parent.formula, child.formula)
+    if proposed_window is None:
+        return child
+
+    applied = False
+
+    def apply_first_window(node: FormulaNode) -> None:
+        nonlocal applied
+        if applied:
+            return
+        if node.window is not None and node.window != proposed_window:
+            node.window = proposed_window
+            applied = True
+            return
+        for argument in node.args:
+            apply_first_window(argument)
+
+    apply_first_window(formula)
+    required_history = max(
+        formula.required_history(),
+        parent.universe_filters.required_history()
+        if parent.universe_filters is not None
+        else 0,
+    )
+    return child.model_copy(
+        update={
+            "formula": formula,
+            "required_fields": sorted(formula.referenced_fields(), key=lambda item: item.value),
+            "lookback_days": required_history,
+            "higher_is_better": parent.higher_is_better,
+            "rebalance_frequency": parent.rebalance_frequency,
+            "portfolio_rules": parent.portfolio_rules,
+            "universe_filters": parent.universe_filters,
+        }
+    )
+
+
+def _dsl_grammar() -> dict[str, str]:
+    return {
+        "field": "Use field plus args=[]; do not provide value or rolling parameters.",
+        "constant": "Use value plus args=[]; do not provide field or rolling parameters.",
+        "unary": (
+            "zscore, rank, negate, abs and log require exactly one arg. To express "
+            "log(x + 1), put add(x, constant(1)) inside the single log arg."
+        ),
+        "windowed_unary": (
+            "lag, return, mean, std, sum, rolling_max, rolling_min, quantile, "
+            "ts_rank, idx_max, idx_min, slope, rsquare and residual require exactly "
+            "one arg plus window."
+        ),
+        "binary": (
+            "add, subtract, multiply, divide, greater_than, less_than, "
+            "elementwise_max and elementwise_min require exactly two args."
+        ),
+        "rolling_binary": "correlation requires exactly two args plus window.",
+        "ternary": "where requires exactly three args: condition, true value, false value.",
+        "nesting": "Every arithmetic operation must be represented by its own AST node.",
+    }
 
 
 class RuleBasedMockRefinementClient:

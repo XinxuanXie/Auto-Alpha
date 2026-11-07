@@ -10,6 +10,7 @@ def candidate(
     score: float,
     proposal_type: ProposalType = ProposalType.SEED,
     parents: tuple[str, ...] = (),
+    formula: dict | None = None,
 ) -> EvaluatedCandidate:
     return EvaluatedCandidate(
         factor_id=factor_id,
@@ -17,6 +18,7 @@ def candidate(
         proposal_type=proposal_type,
         parent_factor_ids=parents,
         composite_score=score,
+        artifact={"factor_spec": {"formula": formula}} if formula is not None else {},
     )
 
 
@@ -105,6 +107,35 @@ class PopulationUpdaterTests(unittest.TestCase):
             result.admission_decisions[0].reason,
             "high_parent_similarity_without_score_improvement",
         )
+
+    def test_rejects_exact_formula_duplicate_before_similarity_rules(self):
+        population = [
+            candidate(
+                f"P-{index:02d}",
+                0.80 - index / 100,
+                formula={"op": "constant", "value": float(index), "args": []},
+            )
+            for index in range(30)
+        ]
+        refinement = candidate(
+            "REF",
+            1.0,
+            ProposalType.REFINEMENT,
+            ("P-00",),
+            formula={"op": "constant", "value": 0.0, "args": []},
+        )
+
+        result = PopulationUpdater().update(
+            population,
+            [refinement],
+            [pair("REF", "P-00", 0.50)],
+            generation=1,
+        )
+
+        decision = result.admission_decisions[0]
+        self.assertFalse(decision.admitted)
+        self.assertEqual(decision.reason, "exact_formula_duplicate")
+        self.assertEqual(decision.most_similar_factor_id, "P-00")
 
 
 if __name__ == "__main__":

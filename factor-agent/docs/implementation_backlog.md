@@ -251,3 +251,46 @@ feature/evoalpha-workflow
 - [ ] 比较纯预测能力评分与加入换手、回撤、复杂度后的多目标评分；
 - [ ] 评估 Sumus 式协作团队结构，但保持实验协议与评价代码确定性；
 - [ ] 增加多重检验控制，降低大规模因子搜索的数据窥探风险。
+
+### 2026-11-07
+
+#### 完成 DeepSeek 三代真实 EvoAlpha 流程
+
+- 新增可恢复的 `run_three_generation_deepseek.py`，固定执行种子评价、三代进化和冻结验证；
+- 训练期为 2001–2010，2000 年作为 warm-up，验证期为 2011–2012；
+- 每代真实生成并回测 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation；
+- Refinement/Mutation 使用 `deepseek-flash`，Crossover 使用 `deepseek-v4-pro` 与 high reasoning effort；
+- 三代各 28 个候选均通过可执行性硬检验，分别有 11、9、9 个新子代进入下一代或最终种群；
+- 最终 30 个候选全部完成冻结验证，最佳验证因子为 `G02-CROSS-006-INTERMEDIATE`；
+- 最佳因子的 5/10/20 日 Mean Rank IC 分别为 0.012651、0.018401、0.032981，20 日 ICIR 为 0.348140；
+- 运行结果、checkpoint、相关性矩阵、Top 10 和审计说明保存在 `results/evoalpha_deepseek_2001_2012_3gen/`。
+
+#### 强化 Agent 输出与确定性边界
+
+- 扩展 OpenAI-compatible Client，支持 DeepSeek 官方 endpoint、模型路由、reasoning effort、token 上限和请求计数；
+- 将 task、generation、parent/child ID 和 FactorSpec ID 改为程序控制，避免模型返回错误身份；
+- 将完整 DSL 算子元数与参数语义写入 Refinement、Crossover 和 Mutation Prompt；
+- Window 类型变更由程序从建议中提取一个窗口，并投影到完整父公式，确定性丢弃额外结构变化；
+- `required_fields` 与 `lookback_days` 继续由公式结构自动推导。
+
+#### 增加公式指纹硬去重
+
+- 公式级审计发现本次最终 30 个唯一 ID 只对应 26 条唯一公式；
+- 根因是旧逻辑允许高相关但得分提升的 Refinement 准入，未先识别完全相同公式；
+- `PopulationUpdater` 现先比较规范化公式指纹，完全相同的候选以 `exact_formula_duplicate` 拒绝；
+- 本次真实结果保留原始状态，便于审计问题、修复和后续无重复重跑之间的差异。
+
+#### 下一项：原始因子库长期基准检验
+
+- 对最初输入 Agent 的原始因子库运行独立单因子基准，不引入 LightGBM；
+- 输出每个自然年度的统一指标；
+- 输出 5 年、10 年、20 年滚动窗口指标时间序列；
+- 复用现有清洗、中性化、方向与单因子评价口径，并单独保存为基线结果；
+- 在实现前确定滚动步长、方向是否按训练窗重估，以及收益/回撤/换手是否进入主表。
+
+#### 验证
+
+- 新增 DeepSeek Client 参数透传测试；
+- 新增复杂 Window 建议投影为单窗口变更测试；
+- 新增公式完全相同候选的硬拒绝测试；
+- 三代产物已核对 checkpoint 数量、候选数量、种群规模、唯一 ID 和数据切分。

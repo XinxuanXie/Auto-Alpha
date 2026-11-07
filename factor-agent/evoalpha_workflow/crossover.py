@@ -16,8 +16,10 @@ from .refinement import (
     RefinementChangeType,
     _change_first_window,
     _canonicalize_factor_spec_metadata,
+    _canonicalize_single_window_edit,
     _formula_depth,
     _correction_prompt,
+    _dsl_grammar,
 )
 from .state import CandidateProposal, EvaluatedCandidate, ProposalType
 
@@ -110,6 +112,7 @@ class CrossoverAgent:
                 response = _canonicalize_factor_spec_metadata(
                     self.client.complete(system_prompt, user_prompt)
                 )
+                response = _canonicalize_crossover_identity(response, task)
                 proposal = CrossoverProposal.model_validate(
                     response
                 )
@@ -156,6 +159,7 @@ class CrossoverAgent:
                 "training_metrics": parent_b.metrics,
                 "training_direction": parent_b.direction,
             },
+            "dsl_grammar": _dsl_grammar(),
             "constraints": {
                 "must_use_both_oriented_parent_formulas": True,
                 "maximum_depth_increase_over_deeper_parent": 3,
@@ -221,8 +225,18 @@ class MutationAgent:
                 response = _canonicalize_factor_spec_metadata(
                     self.client.complete(system_prompt, user_prompt)
                 )
+                response = _canonicalize_mutation_identity(response, crossover)
                 proposal = MutationProposal.model_validate(
                     response
+                )
+                proposal = proposal.model_copy(
+                    update={
+                        "factor_spec": _canonicalize_single_window_edit(
+                            crossover.factor_spec,
+                            proposal.factor_spec,
+                            proposal.mutation_type,
+                        )
+                    }
                 )
                 expected_id = f"{crossover.task_id}-MUTATION"
                 if proposal.task_id != crossover.task_id:
@@ -258,6 +272,7 @@ class MutationAgent:
         )
         payload = {
             "crossover_intermediate": crossover.model_dump(mode="json"),
+            "dsl_grammar": _dsl_grammar(),
             "constraints": {
                 "one_primary_change_only": True,
                 "maximum_formula_depth_increase": 2,
@@ -352,6 +367,38 @@ class CrossoverFormulaChecker:
         )
         if child.lookback_days != required_history:
             raise ValueError("crossover lookback_days must equal derived required history")
+
+
+def _canonicalize_crossover_identity(
+    response: dict[str, Any],
+    task: CrossoverTask,
+) -> dict[str, Any]:
+    normalized = copy.deepcopy(response)
+    intermediate_id = f"{task.task_id}-INTERMEDIATE"
+    normalized["task_id"] = task.task_id
+    normalized["generation"] = task.generation
+    normalized["intermediate_factor_id"] = intermediate_id
+    normalized["parent_factor_ids"] = list(task.parent_factor_ids)
+    factor_spec = normalized.get("factor_spec")
+    if isinstance(factor_spec, dict):
+        factor_spec["factor_id"] = intermediate_id
+    return normalized
+
+
+def _canonicalize_mutation_identity(
+    response: dict[str, Any],
+    crossover: CrossoverProposal,
+) -> dict[str, Any]:
+    normalized = copy.deepcopy(response)
+    child_id = f"{crossover.task_id}-MUTATION"
+    normalized["task_id"] = crossover.task_id
+    normalized["generation"] = crossover.generation
+    normalized["child_factor_id"] = child_id
+    normalized["intermediate_factor_id"] = crossover.intermediate_factor_id
+    factor_spec = normalized.get("factor_spec")
+    if isinstance(factor_spec, dict):
+        factor_spec["factor_id"] = child_id
+    return normalized
 
 
 class RuleBasedMockCrossoverClient:
