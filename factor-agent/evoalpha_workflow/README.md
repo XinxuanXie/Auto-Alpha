@@ -217,3 +217,16 @@ checkpoint，并校验标签缓存对应的数据文件身份。
 
 结果位于 `results/alpha158_full_history_benchmark/`，包含完整 Parquet/CSV、四类拆分表、
 逐窗口汇总、逐因子稳定性汇总和运行说明。
+
+## 运行一次性最终测试
+
+在训练和验证完成、公式与方向冻结后执行：
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=factor-agent \
+python -m evoalpha_workflow.run_final_test
+```
+
+默认比较 `G02-CROSS-006-INTERMEDIATE` 与 `ALPHA158-MIN5`，测试期固定为
+2013–2025。运行器不进行选择或调参，并在结果目录已经存在时拒绝再次运行。
+结果位于 `results/evoalpha_final_test_2013_2025/`。

@@ -1,0 +1,19 @@
+{
+  "child_factor_id": "G02-CROSS-006-INTERMEDIATE",
+  "child_minus_parent": {
+    "annualized_net_return": -0.023162602205329286,
+    "annualized_sharpe": -0.10443708238681026,
+    "average_turnover": -0.19806318894581587,
+    "max_drawdown": -0.030129100430500766,
+    "mean_rank_ic_10d": 0.0025751214118024304,
+    "mean_rank_ic_20d": 0.005199161791709369,
+    "mean_rank_ic_5d": 0.001287731692461127,
+    "monthly_stability": -0.02564102564102566,
+    "rank_icir_20d": 0.04334119873444736
+  },
+  "parent_factor_id": "ALPHA158-MIN5",
+  "period": {
+    "end": "2025-12-31",
+    "start": "2013-01-01"
+  }
+}

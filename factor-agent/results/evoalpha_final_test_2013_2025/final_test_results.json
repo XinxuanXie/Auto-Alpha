@@ -1,0 +1,368 @@
+{
+  "child_factor_id": "G02-CROSS-006-INTERMEDIATE",
+  "child_minus_parent": {
+    "annualized_net_return": -0.023162602205329286,
+    "annualized_sharpe": -0.10443708238681026,
+    "average_turnover": -0.19806318894581587,
+    "max_drawdown": -0.030129100430500766,
+    "mean_rank_ic_10d": 0.0025751214118024304,
+    "mean_rank_ic_20d": 0.005199161791709369,
+    "mean_rank_ic_5d": 0.001287731692461127,
+    "monthly_stability": -0.02564102564102566,
+    "rank_icir_20d": 0.04334119873444736
+  },
+  "data_validation": {
+    "max_date": "2026-09-30 00:00:00",
+    "membership_path": "factor-data/membership_intervals.parquet",
+    "min_date": "2000-01-03 00:00:00",
+    "panel_path": "factor-data/panel.parquet",
+    "rows": 5260971,
+    "stocks": 1195
+  },
+  "parent_factor_id": "ALPHA158-MIN5",
+  "protocol": {
+    "direction_frozen_from_training": true,
+    "formula_frozen": true,
+    "one_time_final_test": true,
+    "parameter_tuning_performed": false,
+    "period": {
+      "end": "2025-12-31",
+      "start": "2013-01-01"
+    },
+    "selection_performed": false,
+    "training_period": "2001-01-01/2010-12-31",
+    "transaction_cost_bps": 10.0,
+    "validation_period": "2011-01-01/2012-12-31"
+  },
+  "results": {
+    "ALPHA158-MIN5": {
+      "backtest_metrics": {
+        "annualized_net_return": 0.117033618468807,
+        "annualized_net_volatility": 0.19339249410668086,
+        "annualized_rank_icir": 0.31799759047661796,
+        "annualized_sharpe": 0.6664119010612728,
+        "average_positions": 19.942477876106196,
+        "average_turnover": 0.8954548983077162,
+        "cumulative_gross_return": 6.758500629176639,
+        "cumulative_net_return": 3.23360048962204,
+        "end_date": "2025-12-31",
+        "exit_rank": 30,
+        "max_drawdown": -0.3633850277168065,
+        "mean_rank_ic": 0.006606366703346991,
+        "missing_price_positions": 39,
+        "periods": 678,
+        "rank_icir": 0.04409833145913251,
+        "selected_positions": 13560,
+        "start_date": "2013-01-01",
+        "top_k": 20,
+        "transaction_cost_bps": 10.0
+      },
+      "factor_id": "ALPHA158-MIN5",
+      "factor_spec": {
+        "description": "Qlib Alpha158 formula: Min($low,5)/$close",
+        "factor_id": "ALPHA158-MIN5",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [],
+                  "ddof": null,
+                  "field": "low",
+                  "min_periods": null,
+                  "op": "field",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": 1,
+              "op": "rolling_min",
+              "quantile": null,
+              "value": null,
+              "window": 5
+            },
+            {
+              "args": [],
+              "ddof": null,
+              "field": "close",
+              "min_periods": null,
+              "op": "field",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "divide",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 4,
+        "name": "Qlib Alpha158 MIN5",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "low"
+        ],
+        "universe_filters": null
+      },
+      "prediction_metrics": {
+        "composite_score": null,
+        "cross_horizon_consistency": 1.0,
+        "direction": 1,
+        "eligible_days": 3250,
+        "factor_id": "ALPHA158-MIN5",
+        "mean_rank_ic_10d": 0.009576837913267211,
+        "mean_rank_ic_20d": 0.007539987381921621,
+        "mean_rank_ic_5d": 0.011319256111155921,
+        "median_stock_coverage": 1.0,
+        "monthly_stability": 0.5641025641025641,
+        "monthly_stability_percentile": null,
+        "passed_hard_filters": true,
+        "rank_ic_percentile": null,
+        "rank_icir_20d": 0.05342722505289581,
+        "rank_icir_percentile": null,
+        "rejection_reasons": [],
+        "valid_rank_ic_day_ratio": 1.0,
+        "valid_rank_ic_days": 3250
+      },
+      "training_direction_frozen": 1
+    },
+    "G02-CROSS-006-INTERMEDIATE": {
+      "backtest_metrics": {
+        "annualized_net_return": 0.09387101626347771,
+        "annualized_net_volatility": 0.19298685702180404,
+        "annualized_rank_icir": 0.6384771042256544,
+        "annualized_sharpe": 0.5619748186744625,
+        "average_positions": 19.98967551622419,
+        "average_turnover": 0.6973917093619003,
+        "cumulative_gross_return": 4.164635316064388,
+        "cumulative_net_return": 2.2215004358807984,
+        "end_date": "2025-12-31",
+        "exit_rank": 30,
+        "max_drawdown": -0.39351412814730724,
+        "mean_rank_ic": 0.011876144790161752,
+        "missing_price_positions": 7,
+        "periods": 678,
+        "rank_icir": 0.08854084374982164,
+        "selected_positions": 13560,
+        "start_date": "2013-01-01",
+        "top_k": 20,
+        "transaction_cost_bps": 10.0
+      },
+      "factor_id": "G02-CROSS-006-INTERMEDIATE",
+      "factor_spec": {
+        "description": "Additive blend of z-scored oriented parents: negated (IdxMax(high,30)-IdxMin(low,30))/30 plus rolling_min(low,5)/close.",
+        "factor_id": "G02-CROSS-006-INTERMEDIATE",
+        "formula": {
+          "args": [
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "high",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": 1,
+                              "op": "idx_max",
+                              "quantile": null,
+                              "value": null,
+                              "window": 30
+                            },
+                            {
+                              "args": [
+                                {
+                                  "args": [],
+                                  "ddof": null,
+                                  "field": "low",
+                                  "min_periods": null,
+                                  "op": "field",
+                                  "quantile": null,
+                                  "value": null,
+                                  "window": null
+                                }
+                              ],
+                              "ddof": null,
+                              "field": null,
+                              "min_periods": 1,
+                              "op": "idx_min",
+                              "quantile": null,
+                              "value": null,
+                              "window": 30
+                            }
+                          ],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "subtract",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        },
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": null,
+                          "min_periods": null,
+                          "op": "constant",
+                          "quantile": null,
+                          "value": 30.0,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": null,
+                      "op": "divide",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "negate",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "zscore",
+              "quantile": null,
+              "value": null,
+              "window": null
+            },
+            {
+              "args": [
+                {
+                  "args": [
+                    {
+                      "args": [
+                        {
+                          "args": [],
+                          "ddof": null,
+                          "field": "low",
+                          "min_periods": null,
+                          "op": "field",
+                          "quantile": null,
+                          "value": null,
+                          "window": null
+                        }
+                      ],
+                      "ddof": null,
+                      "field": null,
+                      "min_periods": 1,
+                      "op": "rolling_min",
+                      "quantile": null,
+                      "value": null,
+                      "window": 5
+                    },
+                    {
+                      "args": [],
+                      "ddof": null,
+                      "field": "close",
+                      "min_periods": null,
+                      "op": "field",
+                      "quantile": null,
+                      "value": null,
+                      "window": null
+                    }
+                  ],
+                  "ddof": null,
+                  "field": null,
+                  "min_periods": null,
+                  "op": "divide",
+                  "quantile": null,
+                  "value": null,
+                  "window": null
+                }
+              ],
+              "ddof": null,
+              "field": null,
+              "min_periods": null,
+              "op": "zscore",
+              "quantile": null,
+              "value": null,
+              "window": null
+            }
+          ],
+          "ddof": null,
+          "field": null,
+          "min_periods": null,
+          "op": "add",
+          "quantile": null,
+          "value": null,
+          "window": null
+        },
+        "higher_is_better": true,
+        "hypothesis_id": null,
+        "lookback_days": 29,
+        "name": "Crossover Oriented IMXD30 + MIN5",
+        "portfolio_rules": {
+          "exit_rank": 30,
+          "top_k": 20
+        },
+        "rebalance_frequency": "weekly",
+        "required_fields": [
+          "close",
+          "high",
+          "low"
+        ],
+        "universe_filters": null
+      },
+      "prediction_metrics": {
+        "composite_score": null,
+        "cross_horizon_consistency": 1.0,
+        "direction": 1,
+        "eligible_days": 3250,
+        "factor_id": "G02-CROSS-006-INTERMEDIATE",
+        "mean_rank_ic_10d": 0.012151959325069642,
+        "mean_rank_ic_20d": 0.01273914917363099,
+        "mean_rank_ic_5d": 0.012606987803617048,
+        "median_stock_coverage": 1.0,
+        "monthly_stability": 0.5384615384615384,
+        "monthly_stability_percentile": null,
+        "passed_hard_filters": true,
+        "rank_ic_percentile": null,
+        "rank_icir_20d": 0.09676842378734317,
+        "rank_icir_percentile": null,
+        "rejection_reasons": [],
+        "valid_rank_ic_day_ratio": 1.0,
+        "valid_rank_ic_days": 3250
+      },
+      "training_direction_frozen": 1
+    }
+  }
+}
