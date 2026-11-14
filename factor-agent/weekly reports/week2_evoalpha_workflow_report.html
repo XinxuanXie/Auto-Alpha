@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从基础 Agent 工作流到 EvoAlpha 因子进化</title>
+  <style>
+    :root { --ink:#18334c; --text:#405467; --muted:#748494; --line:#dfe9ef; --paper:#fff; --wash:#f5f9fc; --blue:#4f86c6; --blue-soft:#eaf3fb; --teal:#3c978d; --teal-soft:#e7f5f2; --amber:#c98735; --amber-soft:#fff4e5; --red:#bf5e5e; --red-soft:#fceeee; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--text); background:linear-gradient(180deg,#f5faff 0,#fff 360px); font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.72; }
+    .page { max-width:1100px; margin:0 auto; padding:64px 28px 52px; }
+    header { padding:20px 0 42px; }
+    .eyebrow { display:inline-block; padding:5px 12px; color:var(--blue); background:var(--blue-soft); border-radius:999px; font-size:12px; font-weight:800; letter-spacing:.08em; }
+    h1 { margin:18px 0 12px; color:var(--ink); font-size:40px; line-height:1.25; }
+    h2 { margin:0 0 20px; color:var(--ink); font-size:25px; }
+    h3 { margin:0 0 8px; color:var(--ink); font-size:17px; }
+    p { margin:0 0 12px; }
+    .lead { max-width:850px; color:#5c7183; font-size:17px; }
+    section { padding:40px 0; border-top:1px solid var(--line); }
+    .stats { display:grid; grid-template-columns:repeat(5,1fr); gap:13px; margin-top:28px; }
+    .stat { padding:18px 16px; background:rgba(255,255,255,.9); border:1px solid var(--line); border-radius:14px; box-shadow:0 8px 24px rgba(42,77,105,.05); }
+    .stat strong { display:block; color:var(--ink); font-size:24px; }
+    .stat span { color:var(--muted); font-size:12px; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .card { padding:22px; border:1px solid var(--line); border-radius:15px; background:var(--paper); }
+    .card.blue { background:var(--blue-soft); border-color:#d5e5f3; }
+    .card.teal { background:var(--teal-soft); border-color:#d4e9e5; }
+    .card.amber { background:var(--amber-soft); border-color:#f0dfc6; }
+    .card p, .card li { font-size:14px; }
+    .flow { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; }
+    .step { position:relative; min-height:118px; padding:17px 14px; border:1px solid var(--line); border-radius:13px; background:#fff; }
+    .step:not(:last-child)::after { content:"→"; position:absolute; right:-12px; top:40%; z-index:2; color:var(--blue); font-weight:800; }
+    .step b { display:block; margin-bottom:6px; color:var(--ink); font-size:14px; }
+    .step span { color:var(--muted); font-size:12px; line-height:1.5; }
+    .note { margin-top:17px; padding:14px 17px; color:#4e6678; background:var(--wash); border-left:4px solid var(--blue); border-radius:5px 10px 10px 5px; font-size:14px; }
+    .table-wrap { overflow-x:auto; border:1px solid var(--line); border-radius:14px; margin-top:14px; }
+    table { width:100%; border-collapse:collapse; background:#fff; font-size:13px; }
+    th { color:var(--ink); background:var(--wash); text-align:left; font-weight:750; }
+    th,td { padding:12px; border-bottom:1px solid var(--line); white-space:nowrap; }
+    tbody tr:last-child td { border-bottom:0; }
+    .positive { color:var(--teal); font-weight:750; }
+    .negative { color:var(--red); font-weight:750; }
+    .tag { display:inline-block; padding:3px 8px; border-radius:999px; font-size:11px; font-weight:750; }
+    .tag.good { color:var(--teal); background:var(--teal-soft); }
+    .tag.warn { color:var(--amber); background:var(--amber-soft); }
+    ul,ol { margin:10px 0 0; padding-left:20px; }
+    li+li { margin-top:7px; }
+    .split { display:grid; grid-template-columns:1fr 1fr; gap:18px; align-items:start; }
+    footer { padding-top:25px; color:var(--muted); font-size:12px; text-align:center; }
+    @media(max-width:840px){ h1{font-size:31px}.stats{grid-template-columns:repeat(2,1fr)}.grid-3,.grid-2,.split{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.step::after{display:none} }
+    @media print { body{background:#fff}.page{max-width:none;padding:28px}section{break-inside:avoid} }
+  </style>
+</head>
+<body>
+<main class="page">
+  <header>
+    <span class="eyebrow">WEEKLY RESEARCH REPORT · 2026-11-08</span>
+    <h1>从基础 Agent 工作流到 EvoAlpha 因子进化</h1>
+    <p class="lead">项目从“让 Agent 自由提出新假设”推进到“围绕已有因子、依据回测反馈进行可追踪进化”。本报告汇总两周的方法演进、三代真实实验和冻结样本外结果。</p>
+    <div class="stats">
+      <div class="stat"><strong>2</strong><span>并列研究工作流</span></div>
+      <div class="stat"><strong>157</strong><span>可执行 Alpha158 种子</span></div>
+      <div class="stat"><strong>3</strong><span>真实进化代数</span></div>
+      <div class="stat"><strong>84</strong><span>子代回测次数</span></div>
+      <div class="stat"><strong>11,932</strong><span>长期基准结果</span></div>
+    </div>
+  </header>
+
+  <section>
+    <h2>阶段性结论</h2>
+    <div class="grid-3">
+      <article class="card blue"><h3>基础闭环已完成</h3><p>Manager、Research、Implementation、回测、Evaluation 和 Memory 能够形成完整、可恢复的研究流程。</p></article>
+      <article class="card teal"><h3>搜索机制已升级</h3><p>EvoAlpha 从既有因子出发，用 Refinement、Crossover 和 Mutation 进行三代结构化搜索。</p></article>
+      <article class="card amber"><h3>预测改善不等于收益改善</h3><p>最佳新因子跨区间提高 20 日 IC 并降低换手，但样本外收益、Sharpe 和回撤未优于原因子。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>方法演进</h2>
+    <div class="flow">
+      <div class="step"><b>基础 Agent</b><span>四个方向从金融直觉形成新假设</span></div>
+      <div class="step"><b>结构化实现</b><span>FactorSpec、受限 AST 与确定性编译</span></div>
+      <div class="step"><b>统一评价</b><span>历史股票池、因子清洗、单因子回测</span></div>
+      <div class="step"><b>问题诊断</b><span>合理叙事未稳定转化为增量 Alpha</span></div>
+      <div class="step"><b>EvoAlpha</b><span>继承父代结构，用反馈驱动多代搜索</span></div>
+    </div>
+    <p class="note">旧 Agent 工作流保持完整；EvoAlpha 是独立分支，两者共享数据、FactorSpec、DSL、单因子评价和回测基础设施。</p>
+  </section>
+
+  <section>
+    <h2>基础 Agent 工作流：完成了什么</h2>
+    <div class="grid-2">
+      <article class="card"><h3>研究层</h3><p>动量、反转、流动性—波动率和量价关系四个 Specialist，分别完成金融直觉与可证伪假设。</p></article>
+      <article class="card"><h3>执行层</h3><p>Implementation Agent 输出 FactorSpec；程序校验并编译为 Polars 表达式，统一清洗和回测。</p></article>
+      <article class="card"><h3>编排层</h3><p>Manager 与 LangGraph 控制流程、重试和决策；SQLite 与 Checkpoint 保存实验和恢复状态。</p></article>
+      <article class="card"><h3>首轮结果</h3><p>四个真实候选均未达到 Rank IC 门槛，说明平台闭环成立，但开放式新因子生成的有效率较低。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>EvoAlpha 工作流</h2>
+    <div class="flow">
+      <div class="step"><b>Seed Pool</b><span>157 个非 VWAP Alpha158，训练期选 Top 30</span></div>
+      <div class="step"><b>Refinement</b><span>单父代、一次主要修改，每代 12 个</span></div>
+      <div class="step"><b>Crossover</b><span>两个低相关父代融合，每代 8 个</span></div>
+      <div class="step"><b>Mutation</b><span>交叉中间因子再执行受控变异</span></div>
+      <div class="step"><b>Population Update</b><span>回测、相似度准入、Top 30 更新</span></div>
+    </div>
+    <div class="grid-3" style="margin-top:16px">
+      <article class="card"><h3>LLM 的职责</h3><p>分析父代、提出局部改进、解释互补机制，并输出受限结构。</p></article>
+      <article class="card"><h3>代码的职责</h3><p>身份、字段、窗口、复杂度、数据覆盖、重复、相似度和回测全部确定性校验。</p></article>
+      <article class="card"><h3>样本隔离</h3><p>2001–2010 训练，2011–2012 验证，2013–2025 最终测试一次；方向与公式冻结。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>三代真实实验</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>代数</th><th>回测候选</th><th>通过硬检验</th><th>相似度准入</th><th>进入下一种群</th></tr></thead>
+      <tbody>
+        <tr><td>第 1 代</td><td>28</td><td>28</td><td>14</td><td>11</td></tr>
+        <tr><td>第 2 代</td><td>28</td><td>28</td><td>13</td><td>9</td></tr>
+        <tr><td>第 3 代</td><td>28</td><td>28</td><td>10</td><td>9</td></tr>
+        <tr><td><b>合计</b></td><td><b>84</b></td><td><b>84</b></td><td><b>37</b></td><td>—</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note">验证集最佳新因子为 <b>G02-CROSS-006-INTERMEDIATE</b>，由 IMXD30 与 MIN5 组合得到。公式审计发现历史最终种群 30 个 ID 对应 26 条唯一公式；公式指纹硬去重现已完成。</p>
+  </section>
+
+  <section>
+    <h2>最佳新因子相对 MIN5：跨数据集结果</h2>
+    <h3>预测能力</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>数据集</th><th>20 日 IC：MIN5</th><th>20 日 IC：新因子</th><th>IC 增量</th><th>ICIR 增量</th></tr></thead>
+      <tbody>
+        <tr><td>训练 2001–2010</td><td>0.02572</td><td>0.03358</td><td class="positive">+0.00787</td><td class="positive">+0.10185</td></tr>
+        <tr><td>验证 2011–2012</td><td>0.03205</td><td>0.03298</td><td class="positive">+0.00093</td><td class="positive">+0.12208</td></tr>
+        <tr><td>测试 2013–2025</td><td>0.00754</td><td>0.01274</td><td class="positive">+0.00520</td><td class="positive">+0.04334</td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin-top:24px">组合表现</h3>
+    <div class="table-wrap"><table>
+      <thead><tr><th>数据集</th><th>年化净收益增量</th><th>Sharpe 增量</th><th>换手率变化</th><th>最大回撤变化</th></tr></thead>
+      <tbody>
+        <tr><td>训练</td><td class="positive">+2.19pp</td><td class="positive">+0.086</td><td class="positive">-18.92pp</td><td class="positive">改善 2.50pp</td></tr>
+        <tr><td>验证</td><td class="negative">-4.17pp</td><td class="negative">-0.249</td><td class="positive">-19.52pp</td><td class="negative">恶化 6.52pp</td></tr>
+        <tr><td>测试</td><td class="negative">-2.32pp</td><td class="negative">-0.104</td><td class="positive">-19.81pp</td><td class="negative">恶化 3.01pp</td></tr>
+      </tbody>
+    </table></div>
+    <p class="note"><span class="tag good">支持</span> 中期横截面预测增量与更低换手。　<span class="tag warn">尚未支持</span> 样本外多头收益和风险指标全面改善。</p>
+  </section>
+
+  <section>
+    <h2>长期因子基准</h2>
+    <div class="grid-3">
+      <article class="card blue"><h3>157 个因子</h3><p>全部可执行 Alpha158；VWAP0 因缺少真实 VWAP 数据明确排除。</p></article>
+      <article class="card teal"><h3>76 个时间窗口</h3><p>27 个年度、23 个五年、18 个十年和 8 个二十年滚动窗口。</p></article>
+      <article class="card amber"><h3>11,932 条结果</h3><p>用于诊断历史稳定性和时变性；窗口内重估方向，因此不作为无前视交易结果。</p></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>下一阶段</h2>
+    <div class="split">
+      <article class="card"><h3>改进选择目标</h3><ul><li>将父子指标增量纳入准入规则</li><li>采用 IC、稳定性、收益、换手、回撤和复杂度的多目标选择</li><li>避免只优化 IC、忽略投资表现</li></ul></article>
+      <article class="card"><h3>提高有效子代比例</h3><ul><li>分别统计 Refinement、Crossover 和 Mutation 的增量贡献</li><li>在训练期内部加入滚动验证</li><li>保持最终测试集冻结，降低反复试验造成的过拟合</li></ul></article>
+    </div>
+  </section>
+
+  <section>
+    <h2>总结</h2>
+    <p>本周的核心成果是把研究方式从“Agent 每轮自由生成新想法”升级为“从已有因子出发、基于回测证据进行可追踪进化”。最佳因子的 20 日预测能力在训练、验证和测试中均优于原因子，但组合收益没有同步改善。下一步将把父代相对改进和多目标选择写入进化协议，以提高真正有效因子的产出率。</p>
+  </section>
+
+  <footer>AutoAlpha Agent Harness · Weekly Research Report · 2026-11-08</footer>
+</main>
+</body>
+</html>

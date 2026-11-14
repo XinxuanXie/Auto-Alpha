@@ -1,5 +1,7 @@
 # 外层 Manager Agent
 
+> 历史阶段文档：记录 Agent Workflow V1 的已实现 Manager。当前 V2 的 Manager 重定义见 [`../hypothesis_workflow_v2/design.md`](../hypothesis_workflow_v2/design.md)。
+
 ## 定位
 
 外层 Manager Agent 接收研究目标，读取一轮实验的完整结构化依据，并决定下一研究动作。它负责研究策略与迭代方向；LangGraph 负责流程执行与硬约束；内部 Agent 和 Tool 负责具体任务。

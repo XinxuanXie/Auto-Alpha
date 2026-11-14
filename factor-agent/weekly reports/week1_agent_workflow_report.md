@@ -1,6 +1,6 @@
 # 从金融直觉到可执行因子：Agentic Factor Research 系统设计与初步实验
 
-> 本文是开放式 Research Agent 工作流的阶段性报告，不包含后续独立实现的 EvoAlpha 第 1 代结果。当前 EvoAlpha 状态以 `evoalpha_workflow/README.md` 和 `implementation_backlog.md` 为准。
+> 历史阶段报告：内容口径截至 2026-11-06。后续 EvoAlpha 工作流、三代实验和最终测试结果见 [Week 2 报告](week2_evoalpha_workflow_report.md)。
 
 > **研究对象：** 美股历史时点 S&P 500 成分股  
 > **当前数据：** 日频 OHLCV、市值与成分股区间，2000–2026 年  

@@ -1,6 +1,6 @@
 # Manager Workflow 开发笔记
 
-> 本文按开发顺序保留 Mock 到真实 Agent 的演进过程，不代表当前模块状态。当前架构与运行方式以 `README_PROJECT.md`、`outer_manager_agent.md` 和 `two_stage_research.md` 为准。
+> 历史阶段文档：本文按开发顺序保留 Mock 到真实 Agent 的演进过程，不代表当前主设计。V1 实现以 `outer_manager_agent.md` 和 `two_stage_research.md` 为准；当前 V2 设计见 [`../hypothesis_workflow_v2/design.md`](../hypothesis_workflow_v2/design.md)。
 
 本文档记录 Agentic Factor Research 系统中 Manager Workflow 的设计与实现过程。
 

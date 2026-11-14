@@ -1,5 +1,7 @@
 # EvoAlpha 单因子进化改造设计
 
+> 历史实验阶段文档：EvoAlpha 代码与结果继续保留为独立对照，当前主设计见 [`../hypothesis_workflow_v2/design.md`](../hypothesis_workflow_v2/design.md)。
+
 ## 文档目的
 
 本文档记录 EvoAlpha 式单因子进化方案、已经采用的简化决策、当前实现状态和后续升级方向。实现位于独立的 `evoalpha_workflow/`，并与旧 Manager 工作流并列复用 `factor_pipeline` 的确定性基础能力。

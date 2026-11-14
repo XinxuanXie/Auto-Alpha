@@ -1,5 +1,7 @@
 # Agentic Factor Research：可尝试改进方向
 
+> 历史调研文档：保留 Sumus 与 EvoAlpha 的方法分析。当前采用的假设生成方案见 [`../hypothesis_workflow_v2/design.md`](../hypothesis_workflow_v2/design.md)。
+
 本文档用于持续记录外部平台、论文和实验带来的可实施想法。所有内容先作为研究候选，不直接进入主流程；只有完成最小实验并证明有效后，才考虑正式集成。
 
 > EvoAlpha 的正式项目改造决策已经收敛，后续实现以

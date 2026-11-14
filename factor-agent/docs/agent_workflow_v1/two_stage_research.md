@@ -1,5 +1,7 @@
 # Two-Stage Research Pipeline
 
+> 历史阶段文档：记录 Agent Workflow V1 的两阶段研究实现。当前假设深化方案见 [`../hypothesis_workflow_v2/design.md`](../hypothesis_workflow_v2/design.md)。
+
 每个固定方向的 Specialist Research Pipeline 拆分为两个独立模块：
 
 ```text

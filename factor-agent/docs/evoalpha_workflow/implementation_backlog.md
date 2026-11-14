@@ -1,8 +1,10 @@
-# 第一版简化决策与后续完善清单
+# EvoAlpha 实现记录与后续清单
+
+> 历史实验阶段文档：记录 EvoAlpha 的实现与实验进度，不作为当前 Hypothesis Workflow V2 的待办清单。
 
 ## 用途
 
-本文档集中记录当前为了先跑通单因子进化流程而采用的简化方案，以及需要逐步补齐的事项。每次完成一项后更新状态、测试证据和相关文件。
+本文档按日期记录 EvoAlpha 分支的实现和实验变化，并在文档末尾维护唯一一份当前“已完成 / 待完善”清单。历史日志保留当时状态，末尾清单代表截至 2026-11-08 的实际进度。
 
 ## 分支与修改方式
 
@@ -39,63 +41,6 @@ feature/evoalpha-workflow
 6. 修改记录按日期分组，同一天只保留一个 `### YYYY-MM-DD` 标题，各次修改使用四级小节。
 
 ## 修改记录
-
-### 2026-11-06
-
-#### 完成最佳第 1 代因子的 2002 年样本外验证
-
-- 冻结 `G01-CROSS-004-MUTATION` 的公式、40 日窗口和训练期正向方向；
-- 完整使用 2002 年作为样本外区间，不调用 LLM、不调整参数、不重新选择候选；
-- 20 日 Rank IC 为 `0.056238`，ICIR 为 `0.547935`，5/10/20 日方向保持一致；
-- 相对 2001 年训练期，20 日 Rank IC 下降 `0.008460`，ICIR 下降 `0.007384`；
-- 月度稳定性由 `90.91%` 下降至 `75.00%`，固定训练参考下综合分数由 `0.983654` 下降至 `0.942788`；
-- Top 20 周频组合毛收益为 `+2.70%`，10 bps 成本后净收益为 `-1.69%`；
-- 年化波动率为 `31.07%`，Sharpe 为 `0.0969`，最大回撤为 `-34.73%`，平均单边换手率为 `83.94%`；
-- 结果表明样本外横截面预测信号仍然存在，但高换手和较大回撤使第一版组合无法形成正净收益；
-- 输出保存于 `factor-agent/results/evoalpha_validation_2002/`，本次仅验证一个训练期最佳入选因子，尚未执行最终种群 Top 30 的统一 Validation Top 10 选择。
-- EvoAlpha、Formula DSL、数据管道和单因子评价相关测试扩展至 56 项并全部通过。
-
-#### 完成真实 LLM 第 1 代端到端运行
-
-- 接入学校 OpenAI-compatible API，并使用环境变量管理 endpoint、模型名和密钥；
-- 真实执行 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation；
-- 增加 JSON response mode、候选级检查点和最多 5 次确定性纠错重试；
-- 将 `required_fields` 与 `lookback_days` 改为由程序从公式和股票池过滤条件自动推导；
-- 为 Mutation 增加五类变异的精确公式结构规则，避免变异类型与公式不一致；
-- 28 个候选均通过 FormulaSpec 编译和 2001 年训练期硬性评价门槛；
-- 相似度准入接纳 10 个候选，其中 8 个 Refinement、1 个 Crossover、1 个 Mutation；
-- 新 Top 30 最终保留 4 个子代，最佳入选子代为 `G01-CROSS-004-MUTATION`，综合分数 `0.9836538462`；
-- 结果保存于 `factor-agent/results/evoalpha_generation_01_real/`，2002 年验证/测试数据仍保持隔离。
-- EvoAlpha、Formula DSL、数据管道和单因子评价相关测试共 53 项通过；当前系统 Python 未安装旧工作流所需的 `langgraph`，旧工作流全套测试需在 `environment-manager.yml` 定义的 Python 3.11 环境执行。
-
-#### 完成相似度准入与 Top 30 种群更新
-
-- Refinement 与直接父代相似度高于 `0.90` 时，只有综合分数提升才可准入；
-- Crossover intermediate 和 Mutation 与当前种群及已接纳子代的最高相似度不得超过 `0.90`；
-- 使用通过准入的子代与原种群合并，并按固定综合分数选出下一代 Top 30；
-- 输出每个候选的准入结论、原因、最相似因子及相似度，保证种群更新可审计。
-
-#### 完成统一 Candidate Evaluator 与 Mock 子代训练期评价
-
-- 统一接收 Refinement、Crossover intermediate 和 Mutation 的 CandidateProposal；
-- 使用与种子阶段相同的 2001 年训练期、数据清洗和 5/10/20 日 Rank IC 协议；
-- 所有候选复用初始 157 个 Alpha158 的固定百分位评分参考；
-- 保存候选相对直接父代的 Mean Rank IC、ICIR、稳定性、一致性和综合分数增量；
-- Mutation 同时记录相对中间因子和两个原始父代的指标变化；
-- 真实运行 28 个 Mock 候选，全部通过硬性门槛，10 个优于至少一个直接父代；
-- 细分结果为 Refinement `2/12`、Crossover `5/8`、Mutation `3/8`；
-- 最高分为 `G01-CROSS-002-INTERMEDIATE`，固定综合分数达到上限 `1.0`；
-- Mock 结果只验证评价链路，不代表真实 Agent 的表现。
-
-#### 完成 Crossover 与 Mutation 结构化接口及 Mock 验证
-
-- Crossover 输入固定双父代任务、两个父代 FormulaSpec、训练指标、训练方向和相似度；
-- 方向为负的父代先使用 `negate` 定向，再参与公式交叉；
-- Crossover 输出包含互补性分析、融合逻辑、预期指标影响和中间 FactorSpec；
-- 检查器要求中间公式同时保留两个定向父代，并校验公式深度、lookback 和回测规则；
-- Mutation 对中间因子只执行一次可审计修改，并复用 Refinement 单一修改检查器；
-- 使用 Mock Client 生成 8 个中间因子和 8 个 Mutation 子代，全部通过结构与谱系校验；
-- 本次 8 个 Mock Mutation 均为单窗口修改，不进入正式种群。
 
 ### 2026-11-05
 
@@ -170,87 +115,62 @@ feature/evoalpha-workflow
 - 相关 DSL、Alpha158、单因子评价和数据管道测试共 31 项通过；
 - Qlib 逐列数值一致性验证和真实数据批量评价仍待完成。
 
-## 当前已确定的实现口径
+### 2026-11-06
 
-- 单因子直接评价，不使用 LightGBM 选择父代或子代；
-- 使用最早两年作为训练/验证/测试评价数据，额外读取最早一年前的数据作为 warm-up；
-- 预测周期以未来 20 日为主，5 日和 10 日用于一致性诊断；
-- Alpha158 第一版执行 157 个公式，排除 VWAP0；
-- 初始股票池使用历史时点 S&P 500 成分股；
-- 因子清洗和评价采用统一确定性代码；
-- Agent 只能输出受限 FormulaSpec AST，不能执行自由 Python；
-- 初始 Top 30 以预测能力综合分数排序，不先做相关性去重；
-- 研究方式固定为单父代 Refinement 与双父代 Crossover + Mutation；
-- Manager 负责流程调用、失败处理和记录，实验协议由配置固定。
+#### 完成最佳第 1 代因子的 2002 年样本外验证
 
-## 已完成
+- 冻结 `G01-CROSS-004-MUTATION` 的公式、40 日窗口和训练期正向方向；
+- 完整使用 2002 年作为样本外区间，不调用 LLM、不调整参数、不重新选择候选；
+- 20 日 Rank IC 为 `0.056238`，ICIR 为 `0.547935`，5/10/20 日方向保持一致；
+- 相对 2001 年训练期，20 日 Rank IC 下降 `0.008460`，ICIR 下降 `0.007384`；
+- 月度稳定性由 `90.91%` 下降至 `75.00%`，固定训练参考下综合分数由 `0.983654` 下降至 `0.942788`；
+- Top 20 周频组合毛收益为 `+2.70%`，10 bps 成本后净收益为 `-1.69%`；
+- 年化波动率为 `31.07%`，Sharpe 为 `0.0969`，最大回撤为 `-34.73%`，平均单边换手率为 `83.94%`；
+- 结果表明样本外横截面预测信号仍然存在，但高换手和较大回撤使第一版组合无法形成正净收益；
+- 输出保存于 `factor-agent/results/evoalpha_validation_2002/`，本次仅验证一个训练期最佳入选因子，尚未执行最终种群 Top 30 的统一 Validation Top 10 选择。
+- EvoAlpha、Formula DSL、数据管道和单因子评价相关测试扩展至 56 项并全部通过。
 
-- [x] Polars 懒加载数据接口与点时成分股过滤；
-- [x] 手写因子、因子清洗、中性化与 Top 20 等权回测链路；
-- [x] 5/10/20 日 Rank IC、ICIR、月度稳定性和跨周期一致性评价；
-- [x] 训练期方向确定与验证/测试方向冻结；
-- [x] 固定初始分布的百分位综合评分；
-- [x] Alpha158 统一公式目录；
-- [x] Alpha158 Parser 与 FormulaSpec 转换；
-- [x] Alpha158 所需滚动、相关性、回归和逐元素算子；
-- [x] 157 个非 VWAP Alpha158 公式解析与合成数据执行测试；
-- [x] Alpha158 supported/excluded/reason 机器可读清单。
+#### 完成真实 LLM 第 1 代端到端运行
 
-## 待完善：数据
+- 接入学校 OpenAI-compatible API，并使用环境变量管理 endpoint、模型名和密钥；
+- 真实执行 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation；
+- 增加 JSON response mode、候选级检查点和最多 5 次确定性纠错重试；
+- 将 `required_fields` 与 `lookback_days` 改为由程序从公式和股票池过滤条件自动推导；
+- 为 Mutation 增加五类变异的精确公式结构规则，避免变异类型与公式不一致；
+- 28 个候选均通过 FormulaSpec 编译和 2001 年训练期硬性评价门槛；
+- 相似度准入接纳 10 个候选，其中 8 个 Refinement、1 个 Crossover、1 个 Mutation；
+- 新 Top 30 最终保留 4 个子代，最佳入选子代为 `G01-CROSS-004-MUTATION`，综合分数 `0.9836538462`；
+- 结果保存于 `factor-agent/results/evoalpha_generation_01_real/`，2002 年验证/测试数据仍保持隔离。
+- EvoAlpha、Formula DSL、数据管道和单因子评价相关测试共 53 项通过；当前系统 Python 未安装旧工作流所需的 `langgraph`，旧工作流全套测试需在 `environment-manager.yml` 定义的 Python 3.11 环境执行。
 
-- [ ] 引入真实 VWAP 数据后恢复 Alpha158-VWAP0；
-- [ ] 引入历史时点行业分类后实现行业中性化和行业类 Alpha101；
-- [ ] 明确退市、停牌、价格异常、成交量为零和公司行动处理规则；
-- [ ] 增加真实交易日历与数据完整性审计报告；
-- [ ] 将两年快速实验扩展到更长市场周期并覆盖不同市场状态。
+#### 完成相似度准入与 Top 30 种群更新
 
-## 待完善：公式与数值一致性
+- Refinement 与直接父代相似度高于 `0.90` 时，只有综合分数提升才可准入；
+- Crossover intermediate 和 Mutation 与当前种群及已接纳子代的最高相似度不得超过 `0.90`；
+- 使用通过准入的子代与原种群合并，并按固定综合分数选出下一代 Top 30；
+- 输出每个候选的准入结论、原因、最相似因子及相似度，保证种群更新可审计。
 
-- [ ] 在同一小样本上逐列比较本地 157 个 Alpha158 与 Qlib 输出；
-- [ ] 为 slope、R-square、residual、rolling rank、IdxMax/IdxMin 增加固定数值基准；
-- [ ] 统一 NaN、无穷值、零分母和最小窗口的清洗规则；
-- [ ] 实现 Alpha101 Parser；
-- [ ] 扩展 covariance、product、delta、decay linear、signed power、scale、逻辑组合等 Alpha101 算子；
-- [ ] 为 Alpha101 生成 supported/excluded/reason 清单并确认最终数量。
+#### 完成统一 Candidate Evaluator 与 Mock 子代训练期评价
 
-## 待完善：批量单因子评价
+- 统一接收 Refinement、Crossover intermediate 和 Mutation 的 CandidateProposal；
+- 使用与种子阶段相同的 2001 年训练期、数据清洗和 5/10/20 日 Rank IC 协议；
+- 所有候选复用初始 157 个 Alpha158 的固定百分位评分参考；
+- 保存候选相对直接父代的 Mean Rank IC、ICIR、稳定性、一致性和综合分数增量；
+- Mutation 同时记录相对中间因子和两个原始父代的指标变化；
+- 真实运行 28 个 Mock 候选，全部通过硬性门槛，10 个优于至少一个直接父代；
+- 细分结果为 Refinement `2/12`、Crossover `5/8`、Mutation `3/8`；
+- 最高分为 `G01-CROSS-002-INTERMEDIATE`，固定综合分数达到上限 `1.0`；
+- Mock 结果只验证评价链路，不代表真实 Agent 的表现。
 
-- [x] 将 157 个 Alpha158 接入真实 2001 年训练数据的批量运行入口；
-- [x] 输出训练期逐因子指标、执行失败信息和初始 Top 30；
-- [x] 在真实 2001 年训练期完成 157 个 Alpha158 的批量运行；
-- [ ] 输出 validation/test 指标表和失败清单；
-- [ ] 增加覆盖率、常数因子和异常值硬性门槛；
-- [ ] 保存训练期方向、固定评分参考和初始 Top 30 快照；
-- [ ] 对最终报告增加 Newey–West 稳健标准误；
-- [ ] 完整记录收益、换手率和回撤，继续保持其不参与第一版初选评分。
+#### 完成 Crossover 与 Mutation 结构化接口及 Mock 验证
 
-## 待完善：进化流程
-
-- [x] 建立独立纯 Python EvoAlpha 外层主循环和状态模型；
-- [x] 固定三代候选数量、种群规模、验证 Top 10 和测试一次协议；
-- [x] 为各阶段定义可替换 Tool Protocol；
-- [x] 实现初始 Top 30 训练期相似度矩阵和 `0.80` 父代配对过滤；
-- [x] 实现固定随机种子的 Refinement 与 Crossover 父代选择器；
-- [x] 完成 Refinement Agent Prompt、结构化输出、确定性检查器和 Mock 验证；
-- [x] 完成 Crossover/Mutation Prompt、结构化输出、方向处理、检查器和 Mock 验证；
-- [x] 完成统一 Candidate Evaluator、固定评分和父子指标增量记录；
-- [x] 将 Research Agent 改为父代诊断与 Refinement Agent；
-- [x] 新增双父代 Crossover Agent 和固定 Mutation 步骤；
-- [x] 保存交叉中间因子并分别回测；
-- [x] 实现父代配对相关性、Crossover 子代重复过滤和种群更新；
-- [x] 使用真实学校 API 完成第 1 代 28 个候选的生成、回测与种群更新；
-- [ ] 扩展 SQLite 保存 generation、parents、变异类型、父子指标增量和相似度；
-- [ ] 输出每代种群审计报告；
-- [ ] 完成训练、验证 Top 10、最终测试一次的冻结流程。
-
-## 后续实验选项
-
-- [ ] 比较固定 Prompt、Skill 化 Refinement 和 Reviewer 机制；
-- [ ] 比较单父代微调、双父代交叉及交叉后变异的增量贡献；
-- [ ] 比较不同相关性阈值和种群预算；
-- [ ] 比较纯预测能力评分与加入换手、回撤、复杂度后的多目标评分；
-- [ ] 评估 Sumus 式协作团队结构，但保持实验协议与评价代码确定性；
-- [ ] 增加多重检验控制，降低大规模因子搜索的数据窥探风险。
+- Crossover 输入固定双父代任务、两个父代 FormulaSpec、训练指标、训练方向和相似度；
+- 方向为负的父代先使用 `negate` 定向，再参与公式交叉；
+- Crossover 输出包含互补性分析、融合逻辑、预期指标影响和中间 FactorSpec；
+- 检查器要求中间公式同时保留两个定向父代，并校验公式深度、lookback 和回测规则；
+- Mutation 对中间因子只执行一次可审计修改，并复用 Refinement 单一修改检查器；
+- 使用 Mock Client 生成 8 个中间因子和 8 个 Mutation 子代，全部通过结构与谱系校验；
+- 本次 8 个 Mock Mutation 均为单窗口修改，不进入正式种群。
 
 ### 2026-11-07
 
@@ -305,6 +225,13 @@ feature/evoalpha-workflow
 
 ### 2026-11-08
 
+#### 整理阶段报告并新增 EvoAlpha 周报
+
+- 将原基础 Agent 阶段报告迁移到 `factor-agent/weekly reports/`，并明确标注为 2026-11-06 历史快照；
+- 新增 Week 2 Markdown 与浅色 HTML 报告，统一说明基础 Agent、EvoAlpha 独立分支、实验协议、三代搜索、长期因子基准和最终测试；
+- 报告明确区分预测能力与投资组合表现：最佳新因子在训练、验证和测试均提高 20 日 IC并降低换手，但样本外收益、Sharpe 和回撤未全面改善；
+- 新增报告索引，并从项目 README 建立入口，专题技术文档继续保留在 `docs/`。
+
 #### 完成一次性冻结最终测试
 
 - 冻结最佳新因子 `G02-CROSS-006-INTERMEDIATE`、原因子 `ALPHA158-MIN5`、训练期方向和回测参数；
@@ -317,3 +244,69 @@ feature/evoalpha-workflow
 - 结果说明支持“中期预测增量具有一定样本外稳定性”，不支持“多头投资表现全面优于原因子”；
 - 新增 `run_final_test.py`，结果目录存在时拒绝重复运行；
 - 完整结果保存在 `results/evoalpha_final_test_2013_2025/`。
+
+## 当前运行口径
+
+- 旧 `agentic_workflow/` 与新 `evoalpha_workflow/` 并列保留，共享 `factor_pipeline/` 的确定性数据、公式和回测能力；
+- EvoAlpha 使用纯 Python 固定流程编排，不由外层 Manager 自由改变实验协议；
+- 使用历史时点 S&P 500 成分股、日频 OHLCV 与市值数据；
+- 初始种子为 157 个可执行 Alpha158，缺少真实 VWAP 的 `VWAP0` 明确排除；
+- 训练期为 2001–2010，2000 年仅用于 warm-up；验证期为 2011–2012；最终测试期为 2013–2025；
+- 主要优化 20 日横截面 Rank IC，5 日和 10 日指标用于跨周期诊断；
+- 初始 Top 30 依据固定预测能力评分选择；相关性用于双父代配对和子代准入；
+- 每代固定生成 12 个 Refinement、8 个 Crossover intermediate 和 8 个 Mutation，已完成三代；
+- Agent 只能输出受限 FormulaSpec AST；公式、字段、窗口、复杂度、覆盖率、相似度和重复检查由确定性代码执行；
+- 单因子评价不使用 LightGBM；组合诊断采用周频 Top 20 等权、跌出 Top 30 退出和 10 bps 成本。
+
+## 已完成
+
+### 数据、公式与回测基础
+
+- [x] Polars 懒加载、历史时点成分股过滤和市值中性化；
+- [x] 5/10/20 日 Rank IC、20 日 ICIR、月度稳定性、覆盖率及跨周期一致性；
+- [x] 周频 Top 20 等权回测、持仓缓冲、换手率、成本、收益、Sharpe 与最大回撤；
+- [x] FactorSpec、受限 JSON AST、Polars Compiler 与 Alpha158 Parser；
+- [x] 157 个非 VWAP Alpha158 公式的解析、执行、支持清单和批量单因子评价；
+- [x] 覆盖率、常数因子、异常执行、训练方向及验证/测试方向冻结检查。
+
+### EvoAlpha 搜索与实验
+
+- [x] 独立 EvoAlpha 分支、可恢复主循环、候选 checkpoint 和固定三代协议；
+- [x] Top 30 种子选择、父代相似度矩阵、Refinement、Crossover、Mutation 和种群更新；
+- [x] 父子谱系、指标增量、相似度准入、公式复杂度约束与规范化公式指纹去重；
+- [x] DeepSeek 三代真实搜索：每代 28 个候选，共完成 84 次候选回测；
+- [x] 2011–2012 冻结验证、验证 Top 10 和最佳候选选择；
+- [x] 2013–2025 一次性冻结最终测试及原因子 `MIN5` 对照；
+- [x] 157 个 Alpha158 的年度及 5/10/20 年滚动基准，共 11,932 条结果；
+- [x] Week 1 与 Week 2 阶段报告及实验结果索引。
+
+## 待完善
+
+### P0：提高有效子代产出率
+
+- [ ] 将“相对直接父代的实际提升”纳入准入门槛，避免仅凭全种群综合排名保留子代；
+- [ ] 将 Fitness 从 IC 主导评分升级为多目标或 Pareto 选择，同时考虑 IC、ICIR、稳定性、收益、换手率、回撤和公式复杂度；
+- [ ] 分别统计 Refinement、Crossover intermediate 和 Mutation 的生成成功率、准入率、入选率及样本外提升率；
+- [ ] 使用已修复的公式指纹去重逻辑重新运行完整三代，生成无完全重复公式的新种群；
+- [ ] 保持 2013–2025 已用测试集封存，为后续方法版本预先指定新的验证协议，避免根据测试结果反复优化。
+
+### P1：稳健性与统计检验
+
+- [ ] 在训练区间内部增加滚动验证或 walk-forward 选择，减少单一训练区间的偶然性；
+- [ ] 增加 Newey–West 稳健统计、多重检验控制和候选搜索预算审计；
+- [ ] 对相关性阈值、种群规模、代数和父代选择策略进行敏感性实验；
+- [ ] 比较纯预测目标与多目标 Fitness 对样本外 IC 和组合表现的影响。
+
+### P2：数据与公式覆盖
+
+- [ ] 用 Qlib 小样本逐列核对本地 Alpha158，重点覆盖 rolling rank、IdxMax/IdxMin、slope、R-square 和 residual；
+- [ ] 接入真实 VWAP 后恢复 `VWAP0`；接入历史时点行业分类后增加行业中性化；
+- [ ] 完善退市、停牌、缺失开盘价、公司行动、成交量为零和交易日历处理；
+- [ ] 根据研究需要再实现 Alpha101 Parser 与缺失算子，不把扩大因子数量作为当前 P0。
+
+### P3：记录与研究能力
+
+- [ ] 将 generation、parents、proposal type、指标增量、相似度和准入原因写入统一 SQLite lineage schema；
+- [ ] 生成每代标准化审计表，集中展示唯一公式数、失败原因、父子增量和最终去向；
+- [ ] 在固定实验协议下比较 Prompt、Skill 化 Refinement 和独立 Reviewer；
+- [ ] 将 Sumus 式协作或动态 Agent 团队保留为后续实验，不改变当前确定性主循环。

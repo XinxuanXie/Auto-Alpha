@@ -12,3 +12,4 @@ Setup:
 3. From Releases data-v1 download: panel.parquet -> factor-data/ ; qlib_data.zip -> unzip into factor-data/ ; reference_ranks.parquet -> factor-agent/library/
 4. Project spec, Manager setup and backtest: see factor-agent/README_PROJECT.md
 5. EvoAlpha architecture and real generation runner: see factor-agent/evoalpha_workflow/README.md
+6. Teacher-facing weekly research reports: see factor-agent/weekly reports/README.md
