@@ -8,13 +8,31 @@ import sqlite3
 from pathlib import Path
 
 from dotenv import load_dotenv
+from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
 from langgraph.checkpoint.sqlite import SqliteSaver
 
 from .artifacts import ArtifactRepository
 from .contracts import ArtifactRef
 from .manager import build_manager
-from .state import create_initial_state
+from .state import V2Stage, create_initial_state
 from .tools import MockV2Tools
+
+
+def _checkpoint_wal(connection: sqlite3.Connection) -> None:
+    """把 WAL 里的 checkpoint 写回主文件，让 checkpoints.sqlite 自带全部内容。
+
+    SqliteSaver 开了 `PRAGMA journal_mode=WAL`，写进去的 checkpoint 先落在
+    `checkpoints.sqlite-wal` 里，只有关闭连接（或 WAL 满了）时才并回主文件。
+    13ac24bc 那轮就是这么丢的：用户只发了 checkpoints.sqlite，没发 -wal，
+    恢复时最新只到 design_measurement_plans，generate_experiments 被整个
+    重跑了一遍，实验全换了——train 测的根本不是原来那 8 个实验。
+    所以无论正常跑完还是中途崩掉，退出前都强制并一次 WAL；失败也只打
+    警告，不掩盖原来的错误。
+    """
+    try:
+        connection.execute("PRAGMA wal_checkpoint(TRUNCATE)")
+    except sqlite3.Error as exc:  # pragma: no cover - 尽力而为
+        print(f"warning: wal checkpoint failed: {exc}", flush=True)
 
 
 def main() -> None:
@@ -60,7 +78,7 @@ def main() -> None:
         tools = RealV2Tools(
             args.panel_path,
             args.membership_path,
-            min_hypotheses_per_idea=1,
+            min_hypotheses_per_idea=2 if full_run else 1,
             max_hypotheses_per_idea=4 if full_run else 1,
             max_experiments_per_hypothesis=5 if full_run else 2,
             cache_dir=output_dir / ".factor_spec_cache",
@@ -81,13 +99,30 @@ def main() -> None:
     print(json.dumps({"run_id": run_id, "mode": args.mode}), flush=True)
     checkpoint_path = output_dir / "checkpoints.sqlite"
     with sqlite3.connect(checkpoint_path, check_same_thread=False) as connection:
+        # V2Stage 是存在 checkpoint state 里的自定义枚举类型。LangGraph
+        # 的 JsonPlusSerializer 默认只警告、不注册，未来版本会直接拦截
+        # 反序列化（本次 Smoke 的 "Deserializing unregistered type" 警告）。
+        # 显式 allowlist 只放这一个类型，不放宽其他任意类型。
+        checkpointer = SqliteSaver(
+            connection,
+            serde=JsonPlusSerializer(
+                allowed_msgpack_modules=[
+                    (V2Stage.__module__, V2Stage.__name__),
+                ]
+            ),
+        )
         manager = build_manager(
             tools,
             repository,
-            checkpointer=SqliteSaver(connection),
+            checkpointer=checkpointer,
         )
         config = {"configurable": {"thread_id": run_id}}
-        result = manager.invoke(None if args.resume else initial_state, config=config)
+        try:
+            result = manager.invoke(
+                None if args.resume else initial_state, config=config
+            )
+        finally:
+            _checkpoint_wal(connection)
     summary_ref = result["artifact_refs"].get("run_summary")
     summary = (
         repository.read_json(ArtifactRef.model_validate(summary_ref))

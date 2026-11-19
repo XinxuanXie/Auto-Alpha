@@ -69,6 +69,12 @@ class RealV2BacktestEngine:
     def __init__(self, config: RealBacktestConfig) -> None:
         self.config = config
         self._split_cache: dict[SplitName, _SplitData] = {}
+        # (experiment_id, error) for experiments whose backtest failed in
+        # the most recent evaluate() call. Reset at the start of each call;
+        # a failed experiment is dropped from the returned metrics, never
+        # silently swallowed: the caller can read this list (and the
+        # warning printed below) to see what was lost.
+        self.failed_experiments: list[tuple[str, str]] = []
 
     def evaluate(
         self,
@@ -78,6 +84,7 @@ class RealV2BacktestEngine:
     ) -> list[SplitMetrics]:
         if not experiments:
             return []
+        self.failed_experiments = []
         data = self._load_split(split)
         horizons = tuple(sorted({item.prediction_horizon_days for item in experiments}))
         labels = build_forward_return_labels(
@@ -88,73 +95,91 @@ class RealV2BacktestEngine:
         factor_cache: dict[str, pl.DataFrame] = {}
         raw_rows = []
         for experiment in experiments:
-            signature = json.dumps(
-                experiment.factor.model_dump(mode="json"),
-                sort_keys=True,
-                separators=(",", ":"),
-            )
-            if signature not in factor_cache:
-                factor_cache[signature] = self._factor_values(
-                    data.factor_panel,
-                    experiment,
-                    self.config.period(split),
+            # Per-experiment isolation (Patch 8, 0f45e744): one bad factor
+            # used to abort the whole split — REVERSAL-03-02 raised
+            # "factor produced no valid Rank IC dates" in _rank_ic_metrics
+            # and the 10 experiments already evaluated in train were lost
+            # with it, because metrics are only saved after evaluate()
+            # returns. Now a failure drops only that experiment; the rest
+            # still return their metrics and the run completes.
+            try:
+                signature = json.dumps(
+                    experiment.factor.model_dump(mode="json"),
+                    sort_keys=True,
+                    separators=(",", ":"),
                 )
-            factor_values = factor_cache[signature]
-            raw_ic = self._rank_ic_metrics(
-                factor_values,
-                labels,
-                experiment.prediction_horizon_days,
-            )
-            if split == SplitName.TRAIN:
-                direction = -1 if raw_ic["mean_rank_ic"] < 0 else 1
-                direction_source = "train"
-            else:
-                if train_metrics is None or experiment.experiment_id not in train_metrics:
-                    raise ValueError(
-                        f"missing frozen training direction for {experiment.experiment_id}"
+                if signature not in factor_cache:
+                    factor_cache[signature] = self._factor_values(
+                        data.factor_panel,
+                        experiment,
+                        self.config.period(split),
                     )
-                direction = train_metrics[experiment.experiment_id].direction_multiplier
-                direction_source = "frozen_train"
-            oriented_ics = raw_ic["rank_ics"] * direction
-            mean_rank_ic = float(np.mean(oriented_ics))
-            standard_deviation = (
-                float(np.std(oriented_ics, ddof=1))
-                if len(oriented_ics) > 1
-                else float("nan")
-            )
-            rank_icir = (
-                mean_rank_ic / standard_deviation
-                if math.isfinite(standard_deviation) and standard_deviation > 0
-                else 0.0
-            )
-            nw_t, nw_p = _newey_west_mean_test(
-                oriented_ics,
-                max_lag=max(1, experiment.prediction_horizon_days - 1),
-            )
-            portfolio = self._overlapping_cohort_metrics(
-                factor_values,
-                data.price_panel,
-                data.calendar,
-                experiment.prediction_horizon_days,
-                direction,
-            )
-            raw_rows.append(
-                {
-                    "split": split,
-                    "experiment_id": experiment.experiment_id,
-                    "prediction_horizon_days": experiment.prediction_horizon_days,
-                    "direction_multiplier": direction,
-                    "direction_source": direction_source,
-                    "valid_ic_dates": raw_ic["valid_ic_dates"],
-                    "median_stock_coverage": raw_ic["median_stock_coverage"],
-                    "mean_rank_ic": mean_rank_ic,
-                    "rank_icir": rank_icir,
-                    "newey_west_t_stat": nw_t,
-                    "newey_west_p_value": nw_p,
-                    "fdr_q_value": None,
-                    **portfolio,
-                }
-            )
+                factor_values = factor_cache[signature]
+                raw_ic = self._rank_ic_metrics(
+                    factor_values,
+                    labels,
+                    experiment.prediction_horizon_days,
+                )
+                if split == SplitName.TRAIN:
+                    direction = -1 if raw_ic["mean_rank_ic"] < 0 else 1
+                    direction_source = "train"
+                else:
+                    if train_metrics is None or experiment.experiment_id not in train_metrics:
+                        raise ValueError(
+                            f"missing frozen training direction for {experiment.experiment_id}"
+                        )
+                    direction = train_metrics[experiment.experiment_id].direction_multiplier
+                    direction_source = "frozen_train"
+                oriented_ics = raw_ic["rank_ics"] * direction
+                mean_rank_ic = float(np.mean(oriented_ics))
+                standard_deviation = (
+                    float(np.std(oriented_ics, ddof=1))
+                    if len(oriented_ics) > 1
+                    else float("nan")
+                )
+                rank_icir = (
+                    mean_rank_ic / standard_deviation
+                    if math.isfinite(standard_deviation) and standard_deviation > 0
+                    else 0.0
+                )
+                nw_t, nw_p = _newey_west_mean_test(
+                    oriented_ics,
+                    max_lag=max(1, experiment.prediction_horizon_days - 1),
+                )
+                portfolio = self._overlapping_cohort_metrics(
+                    factor_values,
+                    data.price_panel,
+                    data.calendar,
+                    experiment.prediction_horizon_days,
+                    direction,
+                )
+                raw_rows.append(
+                    {
+                        "split": split,
+                        "experiment_id": experiment.experiment_id,
+                        "prediction_horizon_days": experiment.prediction_horizon_days,
+                        "direction_multiplier": direction,
+                        "direction_source": direction_source,
+                        "valid_ic_dates": raw_ic["valid_ic_dates"],
+                        "median_stock_coverage": raw_ic["median_stock_coverage"],
+                        "mean_rank_ic": mean_rank_ic,
+                        "rank_icir": rank_icir,
+                        "newey_west_t_stat": nw_t,
+                        "newey_west_p_value": nw_p,
+                        "fdr_q_value": None,
+                        **portfolio,
+                    }
+                )
+            except Exception as error:
+                self.failed_experiments.append(
+                    (experiment.experiment_id, str(error))
+                )
+                print(
+                    f"warning: backtest failed for {experiment.experiment_id}: "
+                    f"{error}",
+                    flush=True,
+                )
+                continue
         q_values = _benjamini_hochberg(
             [float(row["newey_west_p_value"]) for row in raw_rows]
         )

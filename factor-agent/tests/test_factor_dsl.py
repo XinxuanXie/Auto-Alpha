@@ -58,6 +58,46 @@ class FactorSpecTests(unittest.TestCase):
                 }
             )
 
+    def test_rejects_where_with_numeric_condition(self):
+        # f1bfbaee 的 Liquidity 完整机制：where 的条件写成了 elementwise_max
+        # 的数值结果，编译时报 "invalid series dtype: expected Boolean"。
+        # 本 DSL 只有 greater_than / less_than 产布尔值，必须在解析时拦住。
+        with self.assertRaises(ValidationError):
+            FormulaNode.model_validate(
+                {
+                    "op": "where",
+                    "args": [
+                        {
+                            "op": "elementwise_max",
+                            "args": [
+                                {"op": "field", "field": "close"},
+                                {"op": "constant", "value": 1.0},
+                            ],
+                        },
+                        {"op": "field", "field": "close"},
+                        {"op": "constant", "value": 0.0},
+                    ],
+                }
+            )
+
+    def test_accepts_where_with_comparison_condition(self):
+        FormulaNode.model_validate(
+            {
+                "op": "where",
+                "args": [
+                    {
+                        "op": "greater_than",
+                        "args": [
+                            {"op": "field", "field": "close"},
+                            {"op": "constant", "value": 15.0},
+                        ],
+                    },
+                    {"op": "field", "field": "close"},
+                    {"op": "constant", "value": 0.0},
+                ],
+            }
+        )
+
     def test_accepts_universe_filters_and_portfolio_rules(self):
         spec = make_spec(
             lookback_days=19,
@@ -210,6 +250,64 @@ class FactorCompilerTests(unittest.TestCase):
                 result = compile_factor_spec(
                     self.panel,
                     make_spec(formula=formula, lookback_days=lookback),
+                ).collect()
+                self.assertGreater(
+                    result.get_column("raw_factor").drop_nulls().len(),
+                    0,
+                )
+
+    def test_compiles_correlation_and_rsquare(self):
+        # f1bfbaee 的 Reversal 完整机制：compiler 给 pl.rolling_corr 硬传
+        # ddof=1，但 polars 2.x 的 rolling_corr 没有 ddof 参数，任何用到
+        # correlation / rsquare 的公式都在编译时 TypeError。去掉 ddof 后
+        # 这两个算子必须能编出有限值。
+        rows = []
+        start = datetime(2020, 1, 1)
+        for day_index in range(6):
+            for stock_index, permno in enumerate([1, 2]):
+                rows.append(
+                    {
+                        "date": start + timedelta(days=day_index),
+                        "permno": permno,
+                        "open": 10.0,
+                        "high": 11.0,
+                        "low": 9.0,
+                        "close": 10.0 + day_index * (stock_index + 1) + day_index**2 * 0.1,
+                        "volume": 100.0 + day_index * 10.0 + stock_index * 5.0,
+                        "mktcap": 1_000.0 + stock_index,
+                    }
+                )
+        panel = pl.DataFrame(rows).lazy()
+        cases = (
+            (
+                {
+                    "op": "correlation",
+                    "args": [
+                        {"op": "return", "field": "close", "window": 1},
+                        {"op": "field", "field": "volume"},
+                    ],
+                    "window": 3,
+                },
+                ["close", "volume"],
+            ),
+            (
+                {
+                    "op": "rsquare",
+                    "args": [{"op": "return", "field": "close", "window": 1}],
+                    "window": 3,
+                },
+                ["close"],
+            ),
+        )
+        for formula, required_fields in cases:
+            with self.subTest(operator=formula["op"]):
+                result = compile_factor_spec(
+                    panel,
+                    make_spec(
+                        formula=formula,
+                        lookback_days=3,
+                        required_fields=required_fields,
+                    ),
                 ).collect()
                 self.assertGreater(
                     result.get_column("raw_factor").drop_nulls().len(),

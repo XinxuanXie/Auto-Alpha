@@ -3,6 +3,7 @@ import unittest
 from pydantic import ValidationError
 
 from hypothesis_workflow_v2.contracts import (
+    MIN_MEDIAN_STOCK_COVERAGE,
     BacktestProtocol,
     DevelopedHypothesis,
     ExperimentDecision,
@@ -11,6 +12,7 @@ from hypothesis_workflow_v2.contracts import (
     HypothesisCheckResult,
     MeasurementPlan,
     SplitMetrics,
+    passes_selection_gate,
 )
 
 
@@ -177,6 +179,54 @@ class HypothesisV2ContractTest(unittest.TestCase):
                 validation_passed=False,
                 test_reported=True,
             )
+
+    def test_selection_gate_requires_ic_net_return_and_coverage(self) -> None:
+        base = {
+            "split": "train",
+            "experiment_id": "E-1",
+            "prediction_horizon_days": 20,
+            "direction_multiplier": 1,
+            "direction_source": "train",
+            "valid_ic_dates": 400,
+            "median_stock_coverage": 0.95,
+            "mean_rank_ic": 0.03,
+            "rank_icir": 0.4,
+            "gross_return": 0.1,
+            "net_return": 0.08,
+            "annualized_return": 0.04,
+            "annualized_volatility": 0.12,
+            "sharpe": 0.33,
+            "max_drawdown": -0.15,
+            "turnover": 0.5,
+        }
+        self.assertTrue(passes_selection_gate(SplitMetrics.model_validate(base)))
+        # Sparse factor: good IC and net return, but the signal exists on
+        # almost no stocks — 0d53bd4b's PRICE_VOLUME-01-04 passed train
+        # with coverage 0.00.
+        self.assertFalse(
+            passes_selection_gate(
+                SplitMetrics.model_validate(
+                    {**base, "median_stock_coverage": 0.0}
+                )
+            )
+        )
+        self.assertTrue(
+            passes_selection_gate(
+                SplitMetrics.model_validate(
+                    {**base, "median_stock_coverage": MIN_MEDIAN_STOCK_COVERAGE}
+                )
+            )
+        )
+        self.assertFalse(
+            passes_selection_gate(
+                SplitMetrics.model_validate({**base, "mean_rank_ic": 0.01})
+            )
+        )
+        self.assertFalse(
+            passes_selection_gate(
+                SplitMetrics.model_validate({**base, "net_return": -0.01})
+            )
+        )
 
 
 if __name__ == "__main__":

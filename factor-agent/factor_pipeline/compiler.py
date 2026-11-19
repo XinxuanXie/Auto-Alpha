@@ -149,12 +149,16 @@ def _compile_node(context: _CompilationContext, node: FormulaNode) -> str:
             mean_y + slope * (pl.col(time_index) - mean_x)
         )
     elif node.op == FormulaOperator.CORRELATION:
+        # polars 2.x 的 pl.rolling_corr 没有 ddof 参数（相关系数对 ddof
+        # 不敏感，分子分母约掉了），传 ddof=1 会直接 TypeError。之前这里
+        # 硬编码 ddof=1，导致任何用到 correlation 的公式都在编译时失败——
+        # f1bfbaee 的 Reversal 完整机制就是这么被拒的，而 LLM 写的节点本身
+        # ddof 就是 null，错不在 LLM。
         expression = pl.rolling_corr(
             pl.col(operand_columns[0]),
             pl.col(operand_columns[1]),
             window_size=node.window,
             min_samples=_minimum_periods(node),
-            ddof=1,
         ).over("permno")
     
     # 横截面操作
@@ -273,12 +277,12 @@ def _rolling_slope(node: FormulaNode, x_column: str, y_column: str) -> pl.Expr:
 
 
 def _rolling_r_square(node: FormulaNode, x_column: str, y_column: str) -> pl.Expr:
+    # 同上：pl.rolling_corr 没有 ddof 参数。
     correlation = pl.rolling_corr(
         pl.col(x_column),
         pl.col(y_column),
         window_size=node.window,
         min_samples=_minimum_periods(node),
-        ddof=1,
     ).over("permno")
     return correlation.pow(2)
 

@@ -21,6 +21,7 @@ class ResearchDirection(StrEnum):
     REVERSAL = "reversal"
     LIQUIDITY_VOLATILITY = "liquidity_volatility"
     PRICE_VOLUME = "price_volume"
+    OVERNIGHT_INTRADAY = "overnight_intraday"
 
 
 class SplitName(StrEnum):
@@ -273,6 +274,25 @@ class SplitMetrics(StrictModel):
                 f"direction_source for {self.split.value} must be {expected}"
             )
         return self
+
+
+# Selection gate (Patch 10): a factor passes a split only if it clears the
+# IC bar, makes money after costs, AND ranks a broad cross-section. The
+# coverage leg is new: 0d53bd4b's PRICE_VOLUME-01-04 passed train
+# (IC 0.0266) with median_stock_coverage 0.00 — its signal exists on almost
+# no stocks, so the Top-20 portfolio and the IC are computed on a sliver.
+# Observed coverages are 0.00 (sparse junk) vs 0.99-1.00 (real factors),
+# so 0.5 sits in the gap. The IC bar (0.02) and the data splits are
+# unchanged.
+MIN_MEDIAN_STOCK_COVERAGE = 0.5
+
+
+def passes_selection_gate(metric: SplitMetrics) -> bool:
+    return (
+        metric.mean_rank_ic > 0.02
+        and metric.net_return > 0
+        and metric.median_stock_coverage >= MIN_MEDIAN_STOCK_COVERAGE
+    )
 
 
 class ExperimentDecision(StrictModel):

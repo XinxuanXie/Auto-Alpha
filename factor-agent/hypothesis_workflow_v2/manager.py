@@ -20,6 +20,7 @@ from .contracts import (
     ResearchIdea,
     SplitMetrics,
     SplitName,
+    passes_selection_gate,
 )
 from .state import V2Stage, V2WorkflowState
 from .tools import V2Tools
@@ -348,7 +349,7 @@ def build_manager(
         candidate_ids = [
             metric.experiment_id
             for metric in metrics
-            if metric.mean_rank_ic > 0.02 and metric.net_return > 0
+            if passes_selection_gate(metric)
         ]
         return {
             "stage": (
@@ -392,7 +393,7 @@ def build_manager(
         candidate_ids = [
             metric.experiment_id
             for metric in metrics
-            if metric.mean_rank_ic > 0.02 and metric.net_return > 0
+            if passes_selection_gate(metric)
         ]
         return {
             "stage": V2Stage.RUN_TEST if candidate_ids else V2Stage.BUILD_MEMORY,

@@ -103,6 +103,8 @@ class MockV2Tools:
         "realized_volatility",
         "liquidity_proxy",
         "price_volume_confirmation",
+        "overnight_return",
+        "intraday_return",
     }
 
     def load_context(self, state: dict[str, Any]) -> dict[str, Any]:
@@ -133,6 +135,11 @@ class MockV2Tools:
             ResearchDirection.PRICE_VOLUME: (
                 "Price moves confirmed or contradicted by trading volume may distinguish "
                 "information-driven moves from transient demand."
+            ),
+            ResearchDirection.OVERNIGHT_INTRADAY: (
+                "Overnight and intraday returns may carry different information: "
+                "overnight moves may reflect institutional rebalancing on overnight news, "
+                "while intraday moves may reflect retail trading and reversal."
             ),
         }
         prefix = str(state["run_id"])[:8].upper()
@@ -486,5 +493,9 @@ class MockV2Tools:
             ResearchDirection.PRICE_VOLUME: (
                 "price_volume_confirmation",
                 "volume_abnormality",
+            ),
+            ResearchDirection.OVERNIGHT_INTRADAY: (
+                "overnight_return",
+                "intraday_return",
             ),
         }[direction]

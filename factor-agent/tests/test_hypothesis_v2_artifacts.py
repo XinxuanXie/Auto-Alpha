@@ -10,6 +10,7 @@ from hypothesis_workflow_v2 import (
     V2Stage,
     create_initial_state,
 )
+from hypothesis_workflow_v2.contracts import ResearchDirection
 
 
 class ArtifactRepositoryTest(unittest.TestCase):
@@ -53,14 +54,14 @@ class ArtifactRepositoryTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 repository.write_json("../escape", "ideas", [])
 
-    def test_initial_state_is_small_and_has_four_branches(self) -> None:
+    def test_initial_state_is_small_and_has_one_branch_per_direction(self) -> None:
         state = create_initial_state(
             {"llm_concurrency": 4, "backtest_concurrency": 1},
             run_id="run-1",
         )
 
         self.assertEqual(state["stage"], V2Stage.INIT)
-        self.assertEqual(len(state["branch_status"]), 4)
+        self.assertEqual(len(state["branch_status"]), len(ResearchDirection))
         self.assertEqual(set(state["branch_status"].values()), {"pending"})
         self.assertEqual(state["artifact_refs"], {})
         self.assertFalse(state["hypothesis_repair_used"])

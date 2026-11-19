@@ -179,6 +179,23 @@ class FormulaNode(BaseModel):
                 or self.ddof is not None
             ):
                 raise ValueError(f"{self.op.value} requires exactly three args")
+            if self.op == FormulaOperator.WHERE:
+                # where 的第一个参数是 pl.when() 的条件，必须是布尔序列。
+                # 本 DSL 里只有 greater_than / less_than 产布尔值；数值序列
+                #（例如 elementwise_max 的结果）会在编译时报
+                # "invalid series dtype: expected Boolean"。
+                # f1bfbaee 的 Liquidity 完整机制就是这么被拒的，而 Preflight
+                # 之后已经没有 repair 轮次了，所以必须在解析时就拦住，让
+                # 生成 / repair 的重试有机会修正。
+                condition = self.args[0]
+                if condition.op not in (
+                    FormulaOperator.GREATER_THAN,
+                    FormulaOperator.LESS_THAN,
+                ):
+                    raise ValueError(
+                        "where requires a boolean condition "
+                        "(greater_than/less_than) as its first argument"
+                    )
             return self
 
         raise ValueError(f"unsupported operator: {self.op}")
